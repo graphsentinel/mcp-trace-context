@@ -169,3 +169,30 @@ def test_summary_rejects_an_unplanned_run(tmp_path):
         return rows + extra
     r, failed = _published_as_test_run(tmp_path, edit)
     assert any("unplanned lab-Y0-ts1-http-auto-split-main-r6" in f for f in failed), r.stdout
+
+
+def test_summary_rejects_a_tolerated_failure_with_extra_text_or_duplicate(tmp_path):
+    def nl(rows):  # a TSV field cannot hold a newline; extra text after the exact note must not be tolerated
+        return [x[:20] + [x[20] + " (retried)"] if x[9] == "run" else x for x in rows]
+    r, failed = _published_as_test_run(tmp_path, nl)
+    assert any("no verdict (77)" in f for f in failed), r.stdout
+    r, failed = _published_as_test_run(tmp_path, lambda rows: rows + [x for x in rows if x[9] == "run"])
+    assert any("duplicate verdict rows" in f for f in failed), r.stdout
+
+
+def test_summary_marks_a_cell_with_a_wrong_run_id(tmp_path):
+    def edit(rows):
+        for x in rows:
+            if x[0] == "lab-Y0-ts1-http-auto-split-main-r5":
+                x[0] = "lab-Y0-ts1-http-auto-split-main-r9"
+        return rows
+    r, failed = _published_as_test_run(tmp_path, edit)
+    assert any("missing lab-Y0-ts1-http-auto-split-main-r5; unplanned lab-Y0-ts1-http-auto-split-main-r9" in f for f in failed)
+    assert "stage-a      23 of 24" in r.stdout, r.stdout
+
+
+def test_known_defects_are_documented_and_left_out():
+    defects = list(csv.DictReader(open("evidence/measured/known-defects.tsv"), delimiter="\t"))
+    assert defects and all(os.path.exists(os.path.join("evidence", "measured", d["evidence"])) for d in defects)
+    out = subprocess.run([sys.executable, "lab/compare_tap.py"], capture_output=True, text=True, check=False).stdout
+    assert not any(d["run_id"].rsplit("-r", 1)[0] in out for d in defects), out

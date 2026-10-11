@@ -1,0 +1,865 @@
+run_id	config	Y	S	T	I	M	variant	call	subject	trace_identity	parentage	link	evidence	fwd_tracestate	fwd_baggage	first_divergence	expected_parent	observed_parent	bypassed	note
+lab-P0	lab						P0		control				PASS							driver→downstream: header verbatim, D trace/parent, D span in exporter
+lab-P5	lab		js				P5		control				PASS							auto-instrumented outbound outside MCP: downstream parent = O, O parent = calibration span
+lab-P5	lab		py				P5		control				PASS							auto-instrumented outbound outside MCP: downstream parent = O, O parent = calibration span
+lab-Y0-py1-http-auto-same-main-r1	lab	Y0	py1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=56246cff191cbb30	56246cff191cbb30		
+lab-Y0-py1-http-auto-same-main-r1	lab	Y0	py1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=e2773798509fff66	e2773798509fff66		
+lab-Y0-py1-http-auto-same-main-r1	lab	Y0	py1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ced4dbf30d4921e8	ced4dbf30d4921e8		
+lab-Y0-py1-http-auto-same-main-r2	lab	Y0	py1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=d2b6a9702caf82a3	d2b6a9702caf82a3		
+lab-Y0-py1-http-auto-same-main-r2	lab	Y0	py1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=f4ca215dfa1116bd	f4ca215dfa1116bd		
+lab-Y0-py1-http-auto-same-main-r2	lab	Y0	py1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=f1fa8bbfeefd282e	f1fa8bbfeefd282e		
+lab-Y0-py1-http-auto-same-main-r3	lab	Y0	py1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=59744fd09e60eba9	59744fd09e60eba9		
+lab-Y0-py1-http-auto-same-main-r3	lab	Y0	py1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=b76de50e3184abb0	b76de50e3184abb0		
+lab-Y0-py1-http-auto-same-main-r3	lab	Y0	py1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=61ae094bb143b2f6	61ae094bb143b2f6		
+lab-Y0-py1-http-auto-same-main-r4	lab	Y0	py1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=506cc637557ed199	506cc637557ed199		
+lab-Y0-py1-http-auto-same-main-r4	lab	Y0	py1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=5ff508a0b94c5b55	5ff508a0b94c5b55		
+lab-Y0-py1-http-auto-same-main-r4	lab	Y0	py1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=eb84fc7fd7b3ef67	eb84fc7fd7b3ef67		
+lab-Y0-py1-http-auto-same-main-r5	lab	Y0	py1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=7a6768d1c3900580	7a6768d1c3900580		
+lab-Y0-py1-http-auto-same-main-r5	lab	Y0	py1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=73b689799164523d	73b689799164523d		
+lab-Y0-py1-http-auto-same-main-r5	lab	Y0	py1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=dbb677a4e8a9561b	dbb677a4e8a9561b		
+lab-Y0-py1-http-auto-split-main-r1	lab	Y0	py1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=31f66230b1be3cee	31f66230b1be3cee		
+lab-Y0-py1-http-auto-split-main-r1	lab	Y0	py1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=df72afeb092a74dd	df72afeb092a74dd		
+lab-Y0-py1-http-auto-split-main-r1	lab	Y0	py1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=639d6034a6839390	639d6034a6839390		
+lab-Y0-py1-http-auto-split-main-r2	lab	Y0	py1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e015af4de70a35f1	e015af4de70a35f1		
+lab-Y0-py1-http-auto-split-main-r2	lab	Y0	py1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=029ef56fb8788f2c	029ef56fb8788f2c		
+lab-Y0-py1-http-auto-split-main-r2	lab	Y0	py1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=a7be4ebe911d27f2	a7be4ebe911d27f2		
+lab-Y0-py1-http-auto-split-main-r3	lab	Y0	py1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=abf6b86b7a7c5cce	abf6b86b7a7c5cce		
+lab-Y0-py1-http-auto-split-main-r3	lab	Y0	py1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=e9b8bd6c8ec7c008	e9b8bd6c8ec7c008		
+lab-Y0-py1-http-auto-split-main-r3	lab	Y0	py1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=3308755e06c17b06	3308755e06c17b06		
+lab-Y0-py1-http-auto-split-main-r4	lab	Y0	py1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=ec9b1e6ba6af2074	ec9b1e6ba6af2074		
+lab-Y0-py1-http-auto-split-main-r4	lab	Y0	py1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=6e44794853c67976	6e44794853c67976		
+lab-Y0-py1-http-auto-split-main-r4	lab	Y0	py1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=124ffa2e17ec11c0	124ffa2e17ec11c0		
+lab-Y0-py1-http-auto-split-main-r5	lab	Y0	py1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=f75ec27e5b334447	f75ec27e5b334447		
+lab-Y0-py1-http-auto-split-main-r5	lab	Y0	py1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=bed8fb3477527015	bed8fb3477527015		
+lab-Y0-py1-http-auto-split-main-r5	lab	Y0	py1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=19233bdf3cc12f40	19233bdf3cc12f40		
+lab-Y0-py1-http-none-same-main-r1	lab	Y0	py1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=b26a2ffd06a8e176			
+lab-Y0-py1-http-none-same-main-r2	lab	Y0	py1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=8b7039b372fb6a38			
+lab-Y0-py1-http-none-same-main-r3	lab	Y0	py1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=30579733572a4108			
+lab-Y0-py1-http-none-same-main-r4	lab	Y0	py1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=305eb39ce9bd5adf			
+lab-Y0-py1-http-none-same-main-r5	lab	Y0	py1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=3e0f2ee23f94c26f			
+lab-Y0-py1-http-none-split-main-r1	lab	Y0	py1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=3aa6b382e42d9c22			
+lab-Y0-py1-http-none-split-main-r2	lab	Y0	py1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=0ac346e50369f4a4			
+lab-Y0-py1-http-none-split-main-r3	lab	Y0	py1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=128483dcfacf3fd7			
+lab-Y0-py1-http-none-split-main-r4	lab	Y0	py1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=b08b1949aaec8e96			
+lab-Y0-py1-http-none-split-main-r5	lab	Y0	py1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=4984319fc6dbd58b			
+lab-Y0-py1-stdio-auto-same-main-r1	lab	Y0	py1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=ea314b4b5492ac13			
+lab-Y0-py1-stdio-auto-same-main-r1	lab	Y0	py1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=5ead2988a12dedeb	5ead2988a12dedeb		
+lab-Y0-py1-stdio-auto-same-main-r2	lab	Y0	py1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=be2ad293c42035d0			
+lab-Y0-py1-stdio-auto-same-main-r2	lab	Y0	py1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=f4268188c3ed2c9e	f4268188c3ed2c9e		
+lab-Y0-py1-stdio-auto-same-main-r3	lab	Y0	py1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=4ebbb78792a83352			
+lab-Y0-py1-stdio-auto-same-main-r3	lab	Y0	py1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=69721a68747ee7e3	69721a68747ee7e3		
+lab-Y0-py1-stdio-auto-same-main-r4	lab	Y0	py1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=3d5c2c7dbfc5caab			
+lab-Y0-py1-stdio-auto-same-main-r4	lab	Y0	py1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=810edc48ccff121e	810edc48ccff121e		
+lab-Y0-py1-stdio-auto-same-main-r5	lab	Y0	py1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=9345eeba20453e29			
+lab-Y0-py1-stdio-auto-same-main-r5	lab	Y0	py1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=d3ca80428918a127	d3ca80428918a127		
+lab-Y0-py1-stdio-none-same-main-r1	lab	Y0	py1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=13d2efe84ec29e6d			
+lab-Y0-py1-stdio-none-same-main-r2	lab	Y0	py1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=a65266ba75ced519			
+lab-Y0-py1-stdio-none-same-main-r3	lab	Y0	py1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=1383efcfc235f03f			
+lab-Y0-py1-stdio-none-same-main-r4	lab	Y0	py1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=638f34a762502c19			
+lab-Y0-py1-stdio-none-same-main-r5	lab	Y0	py1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=f739c28d55a40947			
+lab-Y0-py2-http-auto-same-P4-r1	lab	Y0	py2	http	auto	same	P4	0	A	META	EXPECTED	n/a	COMPLETE				HDR=9fba75f0db08a2a0	9fba75f0db08a2a0		
+lab-Y0-py2-http-auto-same-P4-r1	lab	Y0	py2	http	auto	same	P4	0	S	UNRELATED	UNASSESSABLE	ABSENT	COMPLETE				META=9fba75f0db08a2a0	ea1e7b96e9598960		
+lab-Y0-py2-http-auto-same-P4-r1	lab	Y0	py2	http	auto	same	P4	0	O	UNRELATED	EXPECTED	n/a	COMPLETE				S=74457a7d1a269812	74457a7d1a269812		
+lab-Y0-py2-http-auto-same-P4-r1	lab	Y0	py2	http	auto	same	P4	0	D	UNRELATED	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	server:S	O=034e206666db9f4c	034e206666db9f4c		
+lab-Y0-py2-http-auto-same-main-notap-r1	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=ba4d34486ff325c3	ba4d34486ff325c3		
+lab-Y0-py2-http-auto-same-main-notap-r1	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=ba4d34486ff325c3	ba4d34486ff325c3		
+lab-Y0-py2-http-auto-same-main-notap-r1	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=3f2ff00986bfb162	3f2ff00986bfb162		
+lab-Y0-py2-http-auto-same-main-notap-r1	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=2831cbb9e938128e	2831cbb9e938128e		
+lab-Y0-py2-http-auto-same-main-notap-r2	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=dfedadd81766a8b1	dfedadd81766a8b1		
+lab-Y0-py2-http-auto-same-main-notap-r2	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=dfedadd81766a8b1	dfedadd81766a8b1		
+lab-Y0-py2-http-auto-same-main-notap-r2	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=79116fcc9f5b879f	79116fcc9f5b879f		
+lab-Y0-py2-http-auto-same-main-notap-r2	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ccd29ea6c9c52cba	ccd29ea6c9c52cba		
+lab-Y0-py2-http-auto-same-main-r1	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=a06ae9be2dba4fc8	a06ae9be2dba4fc8		
+lab-Y0-py2-http-auto-same-main-r1	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=a06ae9be2dba4fc8	a06ae9be2dba4fc8		
+lab-Y0-py2-http-auto-same-main-r1	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=e29ffc1d52ebb004	e29ffc1d52ebb004		
+lab-Y0-py2-http-auto-same-main-r1	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=f64066b228fa66fa	f64066b228fa66fa		
+lab-Y0-py2-http-auto-same-main-r2	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=d8ecefc2a96100e7	d8ecefc2a96100e7		
+lab-Y0-py2-http-auto-same-main-r2	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=d8ecefc2a96100e7	d8ecefc2a96100e7		
+lab-Y0-py2-http-auto-same-main-r2	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=026017d252325c5c	026017d252325c5c		
+lab-Y0-py2-http-auto-same-main-r2	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=3586537165a5b197	3586537165a5b197		
+lab-Y0-py2-http-auto-same-main-r3	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=1907a6961121c738	1907a6961121c738		
+lab-Y0-py2-http-auto-same-main-r3	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=1907a6961121c738	1907a6961121c738		
+lab-Y0-py2-http-auto-same-main-r3	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=653c34f1d1b6c2ef	653c34f1d1b6c2ef		
+lab-Y0-py2-http-auto-same-main-r3	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=f14fbfc209b0bc65	f14fbfc209b0bc65		
+lab-Y0-py2-http-auto-same-main-r4	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=8002b835f89e3197	8002b835f89e3197		
+lab-Y0-py2-http-auto-same-main-r4	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=8002b835f89e3197	8002b835f89e3197		
+lab-Y0-py2-http-auto-same-main-r4	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=3e4058bdc2ddbc84	3e4058bdc2ddbc84		
+lab-Y0-py2-http-auto-same-main-r4	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=98b4a1cf729224b4	98b4a1cf729224b4		
+lab-Y0-py2-http-auto-same-main-r5	lab	Y0	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=2d3f517b5e507e17	2d3f517b5e507e17		
+lab-Y0-py2-http-auto-same-main-r5	lab	Y0	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=2d3f517b5e507e17	2d3f517b5e507e17		
+lab-Y0-py2-http-auto-same-main-r5	lab	Y0	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=4db776a9cc05a3b1	4db776a9cc05a3b1		
+lab-Y0-py2-http-auto-same-main-r5	lab	Y0	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=b26532d83ccc09a6	b26532d83ccc09a6		
+lab-Y0-py2-http-auto-split-K1-r1	lab	Y0	py2	http	auto	split	K1	0	A	NEW	ROOT	n/a	COMPLETE				HDR=d469d5e5f6a9ec1b			
+lab-Y0-py2-http-auto-split-K1-r1	lab	Y0	py2	http	auto	split	K1	0	S	NEW	UNEXPECTED	ABSENT	COMPLETE				META=fbe3e87b6228c126	f96f1ea0ce4565ce		
+lab-Y0-py2-http-auto-split-K1-r1	lab	Y0	py2	http	auto	split	K1	0	O	NEW	EXPECTED	n/a	COMPLETE				S=a89167884771ff66	a89167884771ff66		
+lab-Y0-py2-http-auto-split-K1-r1	lab	Y0	py2	http	auto	split	K1	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=373c2b50828519f7	373c2b50828519f7		
+lab-Y0-py2-http-auto-split-K2-r1	lab	Y0	py2	http	auto	split	K2	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=c1dd97743b4c0916	c1dd97743b4c0916		
+lab-Y0-py2-http-auto-split-K2-r1	lab	Y0	py2	http	auto	split	K2	0	S	HEADER	UNEXPECTED	ABSENT	COMPLETE				META=dbcd5ac21716f7c8	55bfbf0104b76c3e		
+lab-Y0-py2-http-auto-split-K2-r1	lab	Y0	py2	http	auto	split	K2	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=39df9db864b9ffee	39df9db864b9ffee		
+lab-Y0-py2-http-auto-split-K2-r1	lab	Y0	py2	http	auto	split	K2	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=306ac2fe1aece345	306ac2fe1aece345		
+lab-Y0-py2-http-auto-split-K3-r1	lab	Y0	py2	http	auto	split	K3	0	A				77							expected span not found
+lab-Y0-py2-http-auto-split-K3-r1	lab	Y0	py2	http	auto	split	K3	0	S	META	EXPECTED	ABSENT	COMPLETE				META=34152af995f8d108	34152af995f8d108		
+lab-Y0-py2-http-auto-split-K3-r1	lab	Y0	py2	http	auto	split	K3	0	O	META	EXPECTED	n/a	COMPLETE				S=a1889b4bf8ff3d46	a1889b4bf8ff3d46		
+lab-Y0-py2-http-auto-split-K3-r1	lab	Y0	py2	http	auto	split	K3	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=9718db53a9647352	9718db53a9647352		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=9b388d87bb34d54b	9b388d87bb34d54b		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	0	S	META	EXPECTED	ABSENT	COMPLETE				META=f10e6c0ac4f9c33a	f10e6c0ac4f9c33a		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	0	O	META	EXPECTED	n/a	COMPLETE				S=f2b9bb948438656d	f2b9bb948438656d		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=a69144e8e966c9ff	a69144e8e966c9ff		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	1	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=5632c349a1333303	5632c349a1333303		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	1	S	META	EXPECTED	ABSENT	COMPLETE				META=dbc47eb26d22d762	dbc47eb26d22d762		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	1	O	META	EXPECTED	n/a	COMPLETE				S=3cdc3718d0942972	3cdc3718d0942972		
+lab-Y0-py2-http-auto-split-K4-r1	lab	Y0	py2	http	auto	split	K4	1	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=0a34137ba911be7a	0a34137ba911be7a		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=8260666d774a4fb7	8260666d774a4fb7		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	0	S	META	EXPECTED	ABSENT	COMPLETE				META=a300708fbe907759	a300708fbe907759		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	0	O	META	EXPECTED	n/a	COMPLETE				S=5acaae9f7fd76fed	5acaae9f7fd76fed		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=c94548014c1a2b3a	c94548014c1a2b3a		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	1	A	NEW	ROOT	n/a	COMPLETE				HDR=61c7b8faefedd897			
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	1	S	NEW	UNEXPECTED	ABSENT	COMPLETE				META=4154f4eb23531493	ed12aca030989f04		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	1	O	NEW	EXPECTED	n/a	COMPLETE				S=052e84872ac83d71	052e84872ac83d71		
+lab-Y0-py2-http-auto-split-K5-r1	lab	Y0	py2	http	auto	split	K5	1	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=0bb19f59dd7b3b72	0bb19f59dd7b3b72		
+lab-Y0-py2-http-auto-split-main-r1	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=46dc7bfd11262ff4	46dc7bfd11262ff4		
+lab-Y0-py2-http-auto-split-main-r1	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=0195b5307286e7c3	0195b5307286e7c3		
+lab-Y0-py2-http-auto-split-main-r1	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=60c150cdc95abb44	60c150cdc95abb44		
+lab-Y0-py2-http-auto-split-main-r1	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=f7e0915abe207b36	f7e0915abe207b36		
+lab-Y0-py2-http-auto-split-main-r2	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=ee404e0b75104b0c	ee404e0b75104b0c		
+lab-Y0-py2-http-auto-split-main-r2	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=d33bcc6dc2384694	d33bcc6dc2384694		
+lab-Y0-py2-http-auto-split-main-r2	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ff6aa2ea32b9eba6	ff6aa2ea32b9eba6		
+lab-Y0-py2-http-auto-split-main-r2	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=10ae5cba2e9d2cf0	10ae5cba2e9d2cf0		
+lab-Y0-py2-http-auto-split-main-r3	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=b40568d5e3fc248b	b40568d5e3fc248b		
+lab-Y0-py2-http-auto-split-main-r3	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=a1c023f07146d121	a1c023f07146d121		
+lab-Y0-py2-http-auto-split-main-r3	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=e3d08126a1c092b9	e3d08126a1c092b9		
+lab-Y0-py2-http-auto-split-main-r3	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=e2d4f6ad7d6b22cd	e2d4f6ad7d6b22cd		
+lab-Y0-py2-http-auto-split-main-r4	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=9963ea826cd02b67	9963ea826cd02b67		
+lab-Y0-py2-http-auto-split-main-r4	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=b8ed7874b9ab5651	b8ed7874b9ab5651		
+lab-Y0-py2-http-auto-split-main-r4	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=823a368f59e9896c	823a368f59e9896c		
+lab-Y0-py2-http-auto-split-main-r4	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=4c1a77b5862d146d	4c1a77b5862d146d		
+lab-Y0-py2-http-auto-split-main-r5	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=4c77ce38a5cd5ccf	4c77ce38a5cd5ccf		
+lab-Y0-py2-http-auto-split-main-r5	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=cafa5122bd6d1ab0	cafa5122bd6d1ab0		
+lab-Y0-py2-http-auto-split-main-r5	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=decd64ce84e9c1f8	decd64ce84e9c1f8		
+lab-Y0-py2-http-auto-split-main-r5	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=6468d8bb4af752bc	6468d8bb4af752bc		
+lab-Y0-py2-http-auto-split-main-tapoff-r1	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=126f8f5f6d5bb44a	126f8f5f6d5bb44a		
+lab-Y0-py2-http-auto-split-main-tapoff-r1	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=1b490eb9636c24f7	1b490eb9636c24f7		
+lab-Y0-py2-http-auto-split-main-tapoff-r1	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=a0c480035394eaa9	a0c480035394eaa9		
+lab-Y0-py2-http-auto-split-main-tapoff-r1	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=4663f2116e218e15	4663f2116e218e15		
+lab-Y0-py2-http-auto-split-main-tapoff-r2	lab	Y0	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=dfe42ec0fd7cdfab	dfe42ec0fd7cdfab		
+lab-Y0-py2-http-auto-split-main-tapoff-r2	lab	Y0	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=9315f20f16902861	9315f20f16902861		
+lab-Y0-py2-http-auto-split-main-tapoff-r2	lab	Y0	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=16b175c76f11f17e	16b175c76f11f17e		
+lab-Y0-py2-http-auto-split-main-tapoff-r2	lab	Y0	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=1839b492bcdde1a6	1839b492bcdde1a6		
+lab-Y0-py2-http-none-same-main-r1	lab	Y0	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=447bec779a5c5523			
+lab-Y0-py2-http-none-same-main-r2	lab	Y0	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=0dad3d1edf885d68			
+lab-Y0-py2-http-none-same-main-r3	lab	Y0	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=0fa68ec9ef02f377			
+lab-Y0-py2-http-none-same-main-r4	lab	Y0	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=c3fac187922a7859			
+lab-Y0-py2-http-none-same-main-r5	lab	Y0	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=7d2d7b9e02c3ef3d			
+lab-Y0-py2-http-none-split-main-r1	lab	Y0	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=ea93fb2126b709e9			
+lab-Y0-py2-http-none-split-main-r2	lab	Y0	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=3d06cf023302afcd			
+lab-Y0-py2-http-none-split-main-r3	lab	Y0	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=61e250735f690bdf			
+lab-Y0-py2-http-none-split-main-r4	lab	Y0	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=0225880dbc0c88d0			
+lab-Y0-py2-http-none-split-main-r5	lab	Y0	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=5afebe2ddf3ca63b			
+lab-Y0-py2-stdio-auto-same-P4-r1	lab	Y0	py2	stdio	auto	same	P4	0	S	UNRELATED	UNASSESSABLE	n/a	COMPLETE				META=fcbfb8ac3f2b33f8	4d1c71826248f8d2		
+lab-Y0-py2-stdio-auto-same-P4-r1	lab	Y0	py2	stdio	auto	same	P4	0	O	UNRELATED	EXPECTED	n/a	COMPLETE				S=6dd29a5669d002b8	6dd29a5669d002b8		
+lab-Y0-py2-stdio-auto-same-P4-r1	lab	Y0	py2	stdio	auto	same	P4	0	D	UNRELATED	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	server:S	O=913d8ef78b4c407d	913d8ef78b4c407d		
+lab-Y0-py2-stdio-auto-same-main-notap-r1	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=af59252fa72f9524	af59252fa72f9524		
+lab-Y0-py2-stdio-auto-same-main-notap-r1	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=7bc7ae2f915426a8	7bc7ae2f915426a8		
+lab-Y0-py2-stdio-auto-same-main-notap-r1	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=6e3b00894771239f	6e3b00894771239f		
+lab-Y0-py2-stdio-auto-same-main-r1	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=98253bd6a2f48e3c	98253bd6a2f48e3c		
+lab-Y0-py2-stdio-auto-same-main-r1	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=8987b78b377fc51e	8987b78b377fc51e		
+lab-Y0-py2-stdio-auto-same-main-r1	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=293b24618a812316	293b24618a812316		
+lab-Y0-py2-stdio-auto-same-main-r2	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=8b6203a380c10803	8b6203a380c10803		
+lab-Y0-py2-stdio-auto-same-main-r2	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=d04a30f0500a349a	d04a30f0500a349a		
+lab-Y0-py2-stdio-auto-same-main-r2	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=f35e5a28d4dd6ec1	f35e5a28d4dd6ec1		
+lab-Y0-py2-stdio-auto-same-main-r3	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=e611afed3f4c503b	e611afed3f4c503b		
+lab-Y0-py2-stdio-auto-same-main-r3	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=2169ed9fce6bba66	2169ed9fce6bba66		
+lab-Y0-py2-stdio-auto-same-main-r3	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=0268aa8f20b55e87	0268aa8f20b55e87		
+lab-Y0-py2-stdio-auto-same-main-r4	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=09bc2598f78ecbb3	09bc2598f78ecbb3		
+lab-Y0-py2-stdio-auto-same-main-r4	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=2d9e64b0ed2b63ce	2d9e64b0ed2b63ce		
+lab-Y0-py2-stdio-auto-same-main-r4	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=812af04ce271f78d	812af04ce271f78d		
+lab-Y0-py2-stdio-auto-same-main-r5	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=49708477c2c0a292	49708477c2c0a292		
+lab-Y0-py2-stdio-auto-same-main-r5	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=458682a13596bdde	458682a13596bdde		
+lab-Y0-py2-stdio-auto-same-main-r5	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=281255f14a5408e7	281255f14a5408e7		
+lab-Y0-py2-stdio-auto-same-main-tapoff-r1	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=02da199341413922	02da199341413922		
+lab-Y0-py2-stdio-auto-same-main-tapoff-r1	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ced094e80852b24c	ced094e80852b24c		
+lab-Y0-py2-stdio-auto-same-main-tapoff-r1	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=12cc55b5c1da34af	12cc55b5c1da34af		
+lab-Y0-py2-stdio-auto-same-main-tapoff-r2	lab	Y0	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=316a947751968402	316a947751968402		
+lab-Y0-py2-stdio-auto-same-main-tapoff-r2	lab	Y0	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=6764e4c194ce7493	6764e4c194ce7493		
+lab-Y0-py2-stdio-auto-same-main-tapoff-r2	lab	Y0	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	none	O=30970c2dcfd68551	30970c2dcfd68551		
+lab-Y0-py2-stdio-none-same-main-r1	lab	Y0	py2	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=5b0ea763fa8101ae			
+lab-Y0-py2-stdio-none-same-main-r2	lab	Y0	py2	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=11d12be132555694			
+lab-Y0-py2-stdio-none-same-main-r3	lab	Y0	py2	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=82c98a565f667b97			
+lab-Y0-py2-stdio-none-same-main-r4	lab	Y0	py2	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=68a626116a311d80			
+lab-Y0-py2-stdio-none-same-main-r5	lab	Y0	py2	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=a7abb70bba2f53dd			
+lab-Y0-ts1-http-auto-same-P4-r1	lab	Y0	ts1	http	auto	same	P4	0	A	META	EXPECTED	n/a	COMPLETE				HDR=5d73d14877a1e8fd	5d73d14877a1e8fd		
+lab-Y0-ts1-http-auto-same-P4-r1	lab	Y0	ts1	http	auto	same	P4	0	O	META	EXPECTED	n/a	COMPLETE				A=7e31859fe673adf7	7e31859fe673adf7		
+lab-Y0-ts1-http-auto-same-P4-r1	lab	Y0	ts1	http	auto	same	P4	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=1ce5df09f0ba1814	1ce5df09f0ba1814		
+lab-Y0-ts1-http-auto-same-main-notap-r1	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=86522b586215e2bd	86522b586215e2bd		
+lab-Y0-ts1-http-auto-same-main-notap-r1	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=e228323c0eea2f04	e228323c0eea2f04		
+lab-Y0-ts1-http-auto-same-main-notap-r1	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=e0e24c182007b39c	e0e24c182007b39c		
+lab-Y0-ts1-http-auto-same-main-notap-r2	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=ceca4bf559d3e18e	ceca4bf559d3e18e		
+lab-Y0-ts1-http-auto-same-main-notap-r2	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=e9e9380f00649653	e9e9380f00649653		
+lab-Y0-ts1-http-auto-same-main-notap-r2	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=90d4ecf289040033	90d4ecf289040033		
+lab-Y0-ts1-http-auto-same-main-r1	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=d2f55e9e51ee61fe	d2f55e9e51ee61fe		
+lab-Y0-ts1-http-auto-same-main-r1	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=98ac89f74ac1c09b	98ac89f74ac1c09b		
+lab-Y0-ts1-http-auto-same-main-r1	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=0e2debb8d1ced92a	0e2debb8d1ced92a		
+lab-Y0-ts1-http-auto-same-main-r2	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=6004137c4bcff861	6004137c4bcff861		
+lab-Y0-ts1-http-auto-same-main-r2	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=10aaa967fef660e2	10aaa967fef660e2		
+lab-Y0-ts1-http-auto-same-main-r2	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=7725e132504cddb3	7725e132504cddb3		
+lab-Y0-ts1-http-auto-same-main-r3	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=f9dfd5090d867188	f9dfd5090d867188		
+lab-Y0-ts1-http-auto-same-main-r3	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=c0da406288f53c6a	c0da406288f53c6a		
+lab-Y0-ts1-http-auto-same-main-r3	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=d4daaeb2e128b97a	d4daaeb2e128b97a		
+lab-Y0-ts1-http-auto-same-main-r4	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=ab4e316b31eb67d6	ab4e316b31eb67d6		
+lab-Y0-ts1-http-auto-same-main-r4	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=ed7236c773db72e5	ed7236c773db72e5		
+lab-Y0-ts1-http-auto-same-main-r4	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=0033193d1a42ced3	0033193d1a42ced3		
+lab-Y0-ts1-http-auto-same-main-r5	lab	Y0	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=3859e63706799c98	3859e63706799c98		
+lab-Y0-ts1-http-auto-same-main-r5	lab	Y0	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=5340f76a88ed1d46	5340f76a88ed1d46		
+lab-Y0-ts1-http-auto-same-main-r5	lab	Y0	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=5c250f0fc120a02b	5c250f0fc120a02b		
+lab-Y0-ts1-http-auto-split-K1-r1	lab	Y0	ts1	http	auto	split	K1	0	A	NEW	ROOT	n/a	COMPLETE				HDR=179b7364568a3c64			
+lab-Y0-ts1-http-auto-split-K1-r1	lab	Y0	ts1	http	auto	split	K1	0	O	NEW	EXPECTED	n/a	COMPLETE				A=11e658daeb3ea42d	11e658daeb3ea42d		
+lab-Y0-ts1-http-auto-split-K1-r1	lab	Y0	ts1	http	auto	split	K1	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=6f56c0b34aa12d12	6f56c0b34aa12d12		
+lab-Y0-ts1-http-auto-split-K2-r1	lab	Y0	ts1	http	auto	split	K2	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=279e0fa5f9a20d59	279e0fa5f9a20d59		
+lab-Y0-ts1-http-auto-split-K2-r1	lab	Y0	ts1	http	auto	split	K2	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=0c79bf1df70be92b	0c79bf1df70be92b		
+lab-Y0-ts1-http-auto-split-K2-r1	lab	Y0	ts1	http	auto	split	K2	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=f1ec881506d85600	f1ec881506d85600		
+lab-Y0-ts1-http-auto-split-K3-r1	lab	Y0	ts1	http	auto	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=8d5c19178b8ad932			
+lab-Y0-ts1-http-auto-split-K3-r1	lab	Y0	ts1	http	auto	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=d8d94a68c5a452d1	d8d94a68c5a452d1		
+lab-Y0-ts1-http-auto-split-K3-r1	lab	Y0	ts1	http	auto	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=a760ab61d3fa166d	a760ab61d3fa166d		
+lab-Y0-ts1-http-auto-split-K4-r1	lab	Y0	ts1	http	auto	split	K4	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=ba2173a1a3af5352	ba2173a1a3af5352		
+lab-Y0-ts1-http-auto-split-K4-r1	lab	Y0	ts1	http	auto	split	K4	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=6fbdfd5fd3e28bd4	6fbdfd5fd3e28bd4		
+lab-Y0-ts1-http-auto-split-K4-r1	lab	Y0	ts1	http	auto	split	K4	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=f5137892750426a7	f5137892750426a7		
+lab-Y0-ts1-http-auto-split-K4-r1	lab	Y0	ts1	http	auto	split	K4	1	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=53a47a89c36fb941	53a47a89c36fb941		
+lab-Y0-ts1-http-auto-split-K4-r1	lab	Y0	ts1	http	auto	split	K4	1	O	HEADER	EXPECTED	n/a	COMPLETE				A=df3384bed51316fe	df3384bed51316fe		
+lab-Y0-ts1-http-auto-split-K4-r1	lab	Y0	ts1	http	auto	split	K4	1	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=dda7d7afe50991db	dda7d7afe50991db		
+lab-Y0-ts1-http-auto-split-K5-r1	lab	Y0	ts1	http	auto	split	K5	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=64487836f1a2e152	64487836f1a2e152		
+lab-Y0-ts1-http-auto-split-K5-r1	lab	Y0	ts1	http	auto	split	K5	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=98278cb7f7bcb72f	98278cb7f7bcb72f		
+lab-Y0-ts1-http-auto-split-K5-r1	lab	Y0	ts1	http	auto	split	K5	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=8fee01c0bd495f8a	8fee01c0bd495f8a		
+lab-Y0-ts1-http-auto-split-K5-r1	lab	Y0	ts1	http	auto	split	K5	1	A	NEW	ROOT	n/a	COMPLETE				HDR=95d8e03b93b29737			
+lab-Y0-ts1-http-auto-split-K5-r1	lab	Y0	ts1	http	auto	split	K5	1	O	NEW	EXPECTED	n/a	COMPLETE				A=f723798b81cd4597	f723798b81cd4597		
+lab-Y0-ts1-http-auto-split-K5-r1	lab	Y0	ts1	http	auto	split	K5	1	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=870e20c90d332e6c	870e20c90d332e6c		
+lab-Y0-ts1-http-auto-split-main-r1	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=086b95a1f225470d	086b95a1f225470d		
+lab-Y0-ts1-http-auto-split-main-r1	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=18b9293a61b06285	18b9293a61b06285		
+lab-Y0-ts1-http-auto-split-main-r1	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=7ef1a40f1ca1f407	7ef1a40f1ca1f407		
+lab-Y0-ts1-http-auto-split-main-r2	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=a12486304756643b	a12486304756643b		
+lab-Y0-ts1-http-auto-split-main-r2	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=3a72897e19a23336	3a72897e19a23336		
+lab-Y0-ts1-http-auto-split-main-r2	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=45d960cc8b3b11ae	45d960cc8b3b11ae		
+lab-Y0-ts1-http-auto-split-main-r3	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=ba98ce8708e8c823	ba98ce8708e8c823		
+lab-Y0-ts1-http-auto-split-main-r3	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=b10531e1e35c79c1	b10531e1e35c79c1		
+lab-Y0-ts1-http-auto-split-main-r3	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=8273b7a02c87749b	8273b7a02c87749b		
+lab-Y0-ts1-http-auto-split-main-r4	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=fe8fb7ff72ddfb9e	fe8fb7ff72ddfb9e		
+lab-Y0-ts1-http-auto-split-main-r4	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=4a827444c14ac1e4	4a827444c14ac1e4		
+lab-Y0-ts1-http-auto-split-main-r4	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=699bffc441864bd2	699bffc441864bd2		
+lab-Y0-ts1-http-auto-split-main-r5	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=13d9401def3aa0b0	13d9401def3aa0b0		
+lab-Y0-ts1-http-auto-split-main-r5	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=22cfafdcb62279cf	22cfafdcb62279cf		
+lab-Y0-ts1-http-auto-split-main-r5	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=5e5a6395fd42802a	5e5a6395fd42802a		
+lab-Y0-ts1-http-auto-split-main-tapoff-r1	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=a9c9ad4bac071d5e	a9c9ad4bac071d5e		
+lab-Y0-ts1-http-auto-split-main-tapoff-r1	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=6377b8b841554b5c	6377b8b841554b5c		
+lab-Y0-ts1-http-auto-split-main-tapoff-r1	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=13c39063ec27177d	13c39063ec27177d		
+lab-Y0-ts1-http-auto-split-main-tapoff-r2	lab	Y0	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=ff54877d8fcadcfe	ff54877d8fcadcfe		
+lab-Y0-ts1-http-auto-split-main-tapoff-r2	lab	Y0	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=d1aae4e5739b1524	d1aae4e5739b1524		
+lab-Y0-ts1-http-auto-split-main-tapoff-r2	lab	Y0	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=6ca5819da75bbf70	6ca5819da75bbf70		
+lab-Y0-ts1-http-none-same-main-r1	lab	Y0	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=3a778b6cc2ff671e			
+lab-Y0-ts1-http-none-same-main-r2	lab	Y0	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=95d5741dae608ff3			
+lab-Y0-ts1-http-none-same-main-r3	lab	Y0	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=fc1ea6dcefb26046			
+lab-Y0-ts1-http-none-same-main-r4	lab	Y0	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=3ff372cc812a192f			
+lab-Y0-ts1-http-none-same-main-r5	lab	Y0	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=d2a0f2f5fa4614f4			
+lab-Y0-ts1-http-none-split-main-r1	lab	Y0	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=5956c2887851643f			
+lab-Y0-ts1-http-none-split-main-r2	lab	Y0	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=d87672f6e25035c6			
+lab-Y0-ts1-http-none-split-main-r3	lab	Y0	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=6b5d1f9723073afa			
+lab-Y0-ts1-http-none-split-main-r4	lab	Y0	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=c7fdb9c2c6241e52			
+lab-Y0-ts1-http-none-split-main-r5	lab	Y0	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=60780645e11c70a8			
+lab-Y0-ts1-stdio-auto-same-P4-r1	lab	Y0	ts1	stdio	auto	same	P4	0	O	NEW	ROOT	n/a	COMPLETE				META=5852787f7ed4e991			
+lab-Y0-ts1-stdio-auto-same-P4-r1	lab	Y0	ts1	stdio	auto	same	P4	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=91238400f87a3135	91238400f87a3135		
+lab-Y0-ts1-stdio-auto-same-main-notap-r1	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=a984bd6f89210c44			
+lab-Y0-ts1-stdio-auto-same-main-notap-r1	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=7a124df1b83b7c8a	7a124df1b83b7c8a		
+lab-Y0-ts1-stdio-auto-same-main-r1	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=f4bed4bcf3c0c3d3			
+lab-Y0-ts1-stdio-auto-same-main-r1	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=d075dd4e4ab08531	d075dd4e4ab08531		
+lab-Y0-ts1-stdio-auto-same-main-r2	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=229049634826100c			
+lab-Y0-ts1-stdio-auto-same-main-r2	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=ad4209b19a5d60e9	ad4209b19a5d60e9		
+lab-Y0-ts1-stdio-auto-same-main-r3	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=b265bc8edbb1a15c			
+lab-Y0-ts1-stdio-auto-same-main-r3	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=7c142759cafbac62	7c142759cafbac62		
+lab-Y0-ts1-stdio-auto-same-main-r4	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=8d61c7551c8e5efa			
+lab-Y0-ts1-stdio-auto-same-main-r4	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=2dac0d9661932c89	2dac0d9661932c89		
+lab-Y0-ts1-stdio-auto-same-main-r5	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=4982da2a58f3bb6e			
+lab-Y0-ts1-stdio-auto-same-main-r5	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=4588e1424cd7c820	4588e1424cd7c820		
+lab-Y0-ts1-stdio-auto-same-main-tapoff-r1	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=db1a33bef676418e			
+lab-Y0-ts1-stdio-auto-same-main-tapoff-r1	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=f7098a18b25207cc	f7098a18b25207cc		
+lab-Y0-ts1-stdio-auto-same-main-tapoff-r2	lab	Y0	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=e21fe2cd2b9a37b6			
+lab-Y0-ts1-stdio-auto-same-main-tapoff-r2	lab	Y0	ts1	stdio	auto	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=dc4a696bbf0786da	dc4a696bbf0786da		
+lab-Y0-ts1-stdio-none-same-main-r1	lab	Y0	ts1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=b153c01f839d9646			
+lab-Y0-ts1-stdio-none-same-main-r2	lab	Y0	ts1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=f2fe02ba215eb48d			
+lab-Y0-ts1-stdio-none-same-main-r3	lab	Y0	ts1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=c3ad5d48fac5fa07			
+lab-Y0-ts1-stdio-none-same-main-r4	lab	Y0	ts1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=ccf7acb5011c8ab4			
+lab-Y0-ts1-stdio-none-same-main-r5	lab	Y0	ts1	stdio	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	META=b6a55b92c0fc6eda			
+lab-Y1gwoff-py2-http-auto-same-main-r1	lab	Y1-gw:off	py2	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=ebc242a0e7384869	6b8274121a049056		
+lab-Y1gwoff-py2-http-auto-same-main-r1	lab	Y1-gw:off	py2	http	auto	same	main	0	S	META	UNASSESSABLE	ABSENT	COMPLETE				META=ebc242a0e7384869	6b8274121a049056		
+lab-Y1gwoff-py2-http-auto-same-main-r1	lab	Y1-gw:off	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=2b32cbe9d57d8521	2b32cbe9d57d8521		
+lab-Y1gwoff-py2-http-auto-same-main-r1	lab	Y1-gw:off	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=c49fd39156d67b6a	c49fd39156d67b6a		
+lab-Y1gwoff-py2-http-auto-same-main-r2	lab	Y1-gw:off	py2	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=7906c9454157997e	68f0073b86aab40f		
+lab-Y1gwoff-py2-http-auto-same-main-r2	lab	Y1-gw:off	py2	http	auto	same	main	0	S	META	UNASSESSABLE	ABSENT	COMPLETE				META=7906c9454157997e	68f0073b86aab40f		
+lab-Y1gwoff-py2-http-auto-same-main-r2	lab	Y1-gw:off	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=0b64f838ef0282df	0b64f838ef0282df		
+lab-Y1gwoff-py2-http-auto-same-main-r2	lab	Y1-gw:off	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=60b0e945c8526f41	60b0e945c8526f41		
+lab-Y1gwoff-py2-http-auto-same-main-r3	lab	Y1-gw:off	py2	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=584984eebf7dc6e5	58763ff009049c4b		
+lab-Y1gwoff-py2-http-auto-same-main-r3	lab	Y1-gw:off	py2	http	auto	same	main	0	S	META	UNASSESSABLE	ABSENT	COMPLETE				META=584984eebf7dc6e5	58763ff009049c4b		
+lab-Y1gwoff-py2-http-auto-same-main-r3	lab	Y1-gw:off	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=c5201e9cb87e9067	c5201e9cb87e9067		
+lab-Y1gwoff-py2-http-auto-same-main-r3	lab	Y1-gw:off	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ef4d259b922590ba	ef4d259b922590ba		
+lab-Y1gwoff-py2-http-auto-same-main-r4	lab	Y1-gw:off	py2	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=00302dd432b5f0e6	75b4d087fe774105		
+lab-Y1gwoff-py2-http-auto-same-main-r4	lab	Y1-gw:off	py2	http	auto	same	main	0	S	META	UNASSESSABLE	ABSENT	COMPLETE				META=00302dd432b5f0e6	75b4d087fe774105		
+lab-Y1gwoff-py2-http-auto-same-main-r4	lab	Y1-gw:off	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ef8e39aeb8e42715	ef8e39aeb8e42715		
+lab-Y1gwoff-py2-http-auto-same-main-r4	lab	Y1-gw:off	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=a8bff220538a4908	a8bff220538a4908		
+lab-Y1gwoff-py2-http-auto-same-main-r5	lab	Y1-gw:off	py2	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=6c3cccc5686cee7e	f72a67ecde97f3a5		
+lab-Y1gwoff-py2-http-auto-same-main-r5	lab	Y1-gw:off	py2	http	auto	same	main	0	S	META	UNASSESSABLE	ABSENT	COMPLETE				META=6c3cccc5686cee7e	f72a67ecde97f3a5		
+lab-Y1gwoff-py2-http-auto-same-main-r5	lab	Y1-gw:off	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=696fdd0769bb1b43	696fdd0769bb1b43		
+lab-Y1gwoff-py2-http-auto-same-main-r5	lab	Y1-gw:off	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=fec9c878d02be234	fec9c878d02be234		
+lab-Y1gwoff-py2-http-auto-split-main-r1	lab	Y1-gw:off	py2	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=879bf0165353e2fc	84497ecfb9ca30cf		
+lab-Y1gwoff-py2-http-auto-split-main-r1	lab	Y1-gw:off	py2	http	auto	split	main	0	S	HEADER	UNASSESSABLE	ABSENT	COMPLETE				META=a400b22b16ebf84f	84497ecfb9ca30cf		
+lab-Y1gwoff-py2-http-auto-split-main-r1	lab	Y1-gw:off	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=0724c02758ca5ec1	0724c02758ca5ec1		
+lab-Y1gwoff-py2-http-auto-split-main-r1	lab	Y1-gw:off	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=d164bb6a89177e51	d164bb6a89177e51		
+lab-Y1gwoff-py2-http-auto-split-main-r2	lab	Y1-gw:off	py2	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=2f74280a6b801391	9a0c7e935456af07		
+lab-Y1gwoff-py2-http-auto-split-main-r2	lab	Y1-gw:off	py2	http	auto	split	main	0	S	HEADER	UNASSESSABLE	ABSENT	COMPLETE				META=3540a0c290e9c6db	9a0c7e935456af07		
+lab-Y1gwoff-py2-http-auto-split-main-r2	lab	Y1-gw:off	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=af5fca118d645184	af5fca118d645184		
+lab-Y1gwoff-py2-http-auto-split-main-r2	lab	Y1-gw:off	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=39eacb1c31290eac	39eacb1c31290eac		
+lab-Y1gwoff-py2-http-auto-split-main-r3	lab	Y1-gw:off	py2	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=084a621dca9738fa	51d6681f05a19143		
+lab-Y1gwoff-py2-http-auto-split-main-r3	lab	Y1-gw:off	py2	http	auto	split	main	0	S	HEADER	UNASSESSABLE	ABSENT	COMPLETE				META=c77dc1575571b164	51d6681f05a19143		
+lab-Y1gwoff-py2-http-auto-split-main-r3	lab	Y1-gw:off	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=733df05d42ae67f4	733df05d42ae67f4		
+lab-Y1gwoff-py2-http-auto-split-main-r3	lab	Y1-gw:off	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=2e66633646c38d92	2e66633646c38d92		
+lab-Y1gwoff-py2-http-auto-split-main-r4	lab	Y1-gw:off	py2	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=02c43ea4beeed50e	83785b49d6acb88a		
+lab-Y1gwoff-py2-http-auto-split-main-r4	lab	Y1-gw:off	py2	http	auto	split	main	0	S	HEADER	UNASSESSABLE	ABSENT	COMPLETE				META=8cc0bc06d9d93712	83785b49d6acb88a		
+lab-Y1gwoff-py2-http-auto-split-main-r4	lab	Y1-gw:off	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=10c808341bc95326	10c808341bc95326		
+lab-Y1gwoff-py2-http-auto-split-main-r4	lab	Y1-gw:off	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=cc35193caf58e642	cc35193caf58e642		
+lab-Y1gwoff-py2-http-auto-split-main-r5	lab	Y1-gw:off	py2	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=f842992c44d03b43	a6887754a246a388		
+lab-Y1gwoff-py2-http-auto-split-main-r5	lab	Y1-gw:off	py2	http	auto	split	main	0	S	HEADER	UNASSESSABLE	ABSENT	COMPLETE				META=4018c91eaf095fe9	a6887754a246a388		
+lab-Y1gwoff-py2-http-auto-split-main-r5	lab	Y1-gw:off	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=0406519054156329	0406519054156329		
+lab-Y1gwoff-py2-http-auto-split-main-r5	lab	Y1-gw:off	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=b6666aae4102abca	b6666aae4102abca		
+lab-Y1gwoff-ts1-http-auto-same-main-r1	lab	Y1-gw:off	ts1	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=b46750ab87f3881f	a3fe913300c83cd3		
+lab-Y1gwoff-ts1-http-auto-same-main-r1	lab	Y1-gw:off	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=f686d5725f59e365	f686d5725f59e365		
+lab-Y1gwoff-ts1-http-auto-same-main-r1	lab	Y1-gw:off	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=a1fd12101ca87bc4	a1fd12101ca87bc4		
+lab-Y1gwoff-ts1-http-auto-same-main-r2	lab	Y1-gw:off	ts1	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=6a33832d566d9ee1	40b956e71b016f8c		
+lab-Y1gwoff-ts1-http-auto-same-main-r2	lab	Y1-gw:off	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=c6450be03bc753ea	c6450be03bc753ea		
+lab-Y1gwoff-ts1-http-auto-same-main-r2	lab	Y1-gw:off	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=b879e48bbac28c72	b879e48bbac28c72		
+lab-Y1gwoff-ts1-http-auto-same-main-r3	lab	Y1-gw:off	ts1	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=c45eb150de5b83af	14b65cc8eeb04bda		
+lab-Y1gwoff-ts1-http-auto-same-main-r3	lab	Y1-gw:off	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=d8c7b298398b0f11	d8c7b298398b0f11		
+lab-Y1gwoff-ts1-http-auto-same-main-r3	lab	Y1-gw:off	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=69583b10f89dcebd	69583b10f89dcebd		
+lab-Y1gwoff-ts1-http-auto-same-main-r4	lab	Y1-gw:off	ts1	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=fc357756a13e76fc	5c6faaf573d0f2d1		
+lab-Y1gwoff-ts1-http-auto-same-main-r4	lab	Y1-gw:off	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=2f03c3e974054b9b	2f03c3e974054b9b		
+lab-Y1gwoff-ts1-http-auto-same-main-r4	lab	Y1-gw:off	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=cb333f20c9e822ed	cb333f20c9e822ed		
+lab-Y1gwoff-ts1-http-auto-same-main-r5	lab	Y1-gw:off	ts1	http	auto	same	main	0	A	META	UNASSESSABLE	n/a	COMPLETE				HDR=c85d5766f6d38083	2c0809cb7a8b0deb		
+lab-Y1gwoff-ts1-http-auto-same-main-r5	lab	Y1-gw:off	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=d34ca4d51b6b8513	d34ca4d51b6b8513		
+lab-Y1gwoff-ts1-http-auto-same-main-r5	lab	Y1-gw:off	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=070f219ee7fabff7	070f219ee7fabff7		
+lab-Y1gwoff-ts1-http-auto-split-main-r1	lab	Y1-gw:off	ts1	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=7374148afdc51d06	08e334c1898c4249		
+lab-Y1gwoff-ts1-http-auto-split-main-r1	lab	Y1-gw:off	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=2b788dce2a8bb819	2b788dce2a8bb819		
+lab-Y1gwoff-ts1-http-auto-split-main-r1	lab	Y1-gw:off	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=f7668bed5f062305	f7668bed5f062305		
+lab-Y1gwoff-ts1-http-auto-split-main-r2	lab	Y1-gw:off	ts1	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=5e85d65d2859e92b	be70794e433aa2ae		
+lab-Y1gwoff-ts1-http-auto-split-main-r2	lab	Y1-gw:off	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=39177b60637c3b75	39177b60637c3b75		
+lab-Y1gwoff-ts1-http-auto-split-main-r2	lab	Y1-gw:off	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=b48bc9dddd8418ac	b48bc9dddd8418ac		
+lab-Y1gwoff-ts1-http-auto-split-main-r3	lab	Y1-gw:off	ts1	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=2940acc7861b9db5	470915741c8816e0		
+lab-Y1gwoff-ts1-http-auto-split-main-r3	lab	Y1-gw:off	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=04430ab09baa0e34	04430ab09baa0e34		
+lab-Y1gwoff-ts1-http-auto-split-main-r3	lab	Y1-gw:off	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=160a0913426d9f9f	160a0913426d9f9f		
+lab-Y1gwoff-ts1-http-auto-split-main-r4	lab	Y1-gw:off	ts1	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=f8c8c91d34ae9b9f	bd9389480047596d		
+lab-Y1gwoff-ts1-http-auto-split-main-r4	lab	Y1-gw:off	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=81eab61d3d7c1cf4	81eab61d3d7c1cf4		
+lab-Y1gwoff-ts1-http-auto-split-main-r4	lab	Y1-gw:off	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=e8acbca80732a3a5	e8acbca80732a3a5		
+lab-Y1gwoff-ts1-http-auto-split-main-r5	lab	Y1-gw:off	ts1	http	auto	split	main	0	A	HEADER	UNASSESSABLE	n/a	COMPLETE				HDR=e4a73c24c85ecfb1	72a26c13bebe8a44		
+lab-Y1gwoff-ts1-http-auto-split-main-r5	lab	Y1-gw:off	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=8f131f53a931f1c9	8f131f53a931f1c9		
+lab-Y1gwoff-ts1-http-auto-split-main-r5	lab	Y1-gw:off	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=cc956fd5c2839b4e	cc956fd5c2839b4e		
+lab-Y1gwon-py2-http-auto-same-main-r1	lab	Y1-gw:on	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=f37023e52545d788	f37023e52545d788		
+lab-Y1gwon-py2-http-auto-same-main-r1	lab	Y1-gw:on	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				G=f37023e52545d788	f37023e52545d788		
+lab-Y1gwon-py2-http-auto-same-main-r1	lab	Y1-gw:on	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ddd7963ad914bb00	ddd7963ad914bb00		
+lab-Y1gwon-py2-http-auto-same-main-r1	lab	Y1-gw:on	py2	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	4d50a9895b371bf7		
+lab-Y1gwon-py2-http-auto-same-main-r1	lab	Y1-gw:on	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=030d2b7556f6da02	030d2b7556f6da02		
+lab-Y1gwon-py2-http-auto-same-main-r2	lab	Y1-gw:on	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=bbea19584e9d6ea7	bbea19584e9d6ea7		
+lab-Y1gwon-py2-http-auto-same-main-r2	lab	Y1-gw:on	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				G=bbea19584e9d6ea7	bbea19584e9d6ea7		
+lab-Y1gwon-py2-http-auto-same-main-r2	lab	Y1-gw:on	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=581020400b1e36b8	581020400b1e36b8		
+lab-Y1gwon-py2-http-auto-same-main-r2	lab	Y1-gw:on	py2	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	b81c0ef878db3e3b		
+lab-Y1gwon-py2-http-auto-same-main-r2	lab	Y1-gw:on	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=915a44b47db64be3	915a44b47db64be3		
+lab-Y1gwon-py2-http-auto-same-main-r3	lab	Y1-gw:on	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=15fac89a7de3760a	15fac89a7de3760a		
+lab-Y1gwon-py2-http-auto-same-main-r3	lab	Y1-gw:on	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				G=15fac89a7de3760a	15fac89a7de3760a		
+lab-Y1gwon-py2-http-auto-same-main-r3	lab	Y1-gw:on	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=d9dd1c12c635b813	d9dd1c12c635b813		
+lab-Y1gwon-py2-http-auto-same-main-r3	lab	Y1-gw:on	py2	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	3cfd859f8f46a6bd		
+lab-Y1gwon-py2-http-auto-same-main-r3	lab	Y1-gw:on	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=d3df1014abfb67a3	d3df1014abfb67a3		
+lab-Y1gwon-py2-http-auto-same-main-r4	lab	Y1-gw:on	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=35b3e50d71ff2917	35b3e50d71ff2917		
+lab-Y1gwon-py2-http-auto-same-main-r4	lab	Y1-gw:on	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				G=35b3e50d71ff2917	35b3e50d71ff2917		
+lab-Y1gwon-py2-http-auto-same-main-r4	lab	Y1-gw:on	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=2b98262a2c584248	2b98262a2c584248		
+lab-Y1gwon-py2-http-auto-same-main-r4	lab	Y1-gw:on	py2	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	f0a73c38c54e7567		
+lab-Y1gwon-py2-http-auto-same-main-r4	lab	Y1-gw:on	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=fd645f7c3b336736	fd645f7c3b336736		
+lab-Y1gwon-py2-http-auto-same-main-r5	lab	Y1-gw:on	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=99f33d65567cc978	99f33d65567cc978		
+lab-Y1gwon-py2-http-auto-same-main-r5	lab	Y1-gw:on	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				G=99f33d65567cc978	99f33d65567cc978		
+lab-Y1gwon-py2-http-auto-same-main-r5	lab	Y1-gw:on	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=575168d6e12c715d	575168d6e12c715d		
+lab-Y1gwon-py2-http-auto-same-main-r5	lab	Y1-gw:on	py2	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	2b5a518580a56764		
+lab-Y1gwon-py2-http-auto-same-main-r5	lab	Y1-gw:on	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=1e7ba9b909271669	1e7ba9b909271669		
+lab-Y1gwon-py2-http-auto-split-K1-r1	lab	Y1-gw:on	py2	http	auto	split	K1	0	A	NEW	EXPECTED	n/a	COMPLETE				G=d3d05a723f2faa8f	d3d05a723f2faa8f		
+lab-Y1gwon-py2-http-auto-split-K1-r1	lab	Y1-gw:on	py2	http	auto	split	K1	0	S	NEW	EXPECTED	ABSENT	COMPLETE				G=d3d05a723f2faa8f	d3d05a723f2faa8f		
+lab-Y1gwon-py2-http-auto-split-K1-r1	lab	Y1-gw:on	py2	http	auto	split	K1	0	O	NEW	EXPECTED	n/a	COMPLETE				S=1aa4cc987e1dbe10	1aa4cc987e1dbe10		
+lab-Y1gwon-py2-http-auto-split-K1-r1	lab	Y1-gw:on	py2	http	auto	split	K1	0	G	NEW	ROOT	n/a	COMPLETE				SENT (header or _meta)			
+lab-Y1gwon-py2-http-auto-split-K1-r1	lab	Y1-gw:on	py2	http	auto	split	K1	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=1717ac9011ddf475	1717ac9011ddf475		
+lab-Y1gwon-py2-http-auto-split-K2-r1	lab	Y1-gw:on	py2	http	auto	split	K2	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=445435edd9f4f25e	445435edd9f4f25e		
+lab-Y1gwon-py2-http-auto-split-K2-r1	lab	Y1-gw:on	py2	http	auto	split	K2	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=445435edd9f4f25e	445435edd9f4f25e		
+lab-Y1gwon-py2-http-auto-split-K2-r1	lab	Y1-gw:on	py2	http	auto	split	K2	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=5b9f90bed47d065b	5b9f90bed47d065b		
+lab-Y1gwon-py2-http-auto-split-K2-r1	lab	Y1-gw:on	py2	http	auto	split	K2	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	6d88f0c403055b9f		
+lab-Y1gwon-py2-http-auto-split-K2-r1	lab	Y1-gw:on	py2	http	auto	split	K2	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=727dceafbaea5131	727dceafbaea5131		
+lab-Y1gwon-py2-http-auto-split-K3-r1	lab	Y1-gw:on	py2	http	auto	split	K3	0	A	NEW	EXPECTED	n/a	COMPLETE				G=ca1fdc9630b36492	ca1fdc9630b36492		
+lab-Y1gwon-py2-http-auto-split-K3-r1	lab	Y1-gw:on	py2	http	auto	split	K3	0	S	NEW	EXPECTED	ABSENT	COMPLETE				G=ca1fdc9630b36492	ca1fdc9630b36492		
+lab-Y1gwon-py2-http-auto-split-K3-r1	lab	Y1-gw:on	py2	http	auto	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				S=46b383f65f98df77	46b383f65f98df77		
+lab-Y1gwon-py2-http-auto-split-K3-r1	lab	Y1-gw:on	py2	http	auto	split	K3	0	G	NEW	ROOT	n/a	COMPLETE				SENT (header or _meta)			
+lab-Y1gwon-py2-http-auto-split-K3-r1	lab	Y1-gw:on	py2	http	auto	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	META-VALUE	ABSENT	server:A	O=b031804396a5f20a	b031804396a5f20a		
+lab-Y1gwon-py2-http-auto-split-main-notap-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=8b586bf48bfca422	8b586bf48bfca422		
+lab-Y1gwon-py2-http-auto-split-main-notap-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=8b586bf48bfca422	8b586bf48bfca422		
+lab-Y1gwon-py2-http-auto-split-main-notap-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=eb54d0a23bfd7f0a	eb54d0a23bfd7f0a		
+lab-Y1gwon-py2-http-auto-split-main-notap-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	193940ba8fe6d595		
+lab-Y1gwon-py2-http-auto-split-main-notap-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=9a7b0bb6b5d0a1fe	9a7b0bb6b5d0a1fe		
+lab-Y1gwon-py2-http-auto-split-main-notap-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=c1e42e03e5f95f8c	c1e42e03e5f95f8c		
+lab-Y1gwon-py2-http-auto-split-main-notap-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=c1e42e03e5f95f8c	c1e42e03e5f95f8c		
+lab-Y1gwon-py2-http-auto-split-main-notap-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=589ebcdfb693d823	589ebcdfb693d823		
+lab-Y1gwon-py2-http-auto-split-main-notap-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	82a881401cdafe92		
+lab-Y1gwon-py2-http-auto-split-main-notap-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=6a44c45ebcc49d31	6a44c45ebcc49d31		
+lab-Y1gwon-py2-http-auto-split-main-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=b9048cdf92cde82e	b9048cdf92cde82e		
+lab-Y1gwon-py2-http-auto-split-main-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=b9048cdf92cde82e	b9048cdf92cde82e		
+lab-Y1gwon-py2-http-auto-split-main-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=7c9827cce8cf0aab	7c9827cce8cf0aab		
+lab-Y1gwon-py2-http-auto-split-main-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	f5a63a6f0310efb8		
+lab-Y1gwon-py2-http-auto-split-main-r1	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=ebe453b744e206a5	ebe453b744e206a5		
+lab-Y1gwon-py2-http-auto-split-main-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=d0cc96348eaa45c0	d0cc96348eaa45c0		
+lab-Y1gwon-py2-http-auto-split-main-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=d0cc96348eaa45c0	d0cc96348eaa45c0		
+lab-Y1gwon-py2-http-auto-split-main-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=ef426eb43b25c013	ef426eb43b25c013		
+lab-Y1gwon-py2-http-auto-split-main-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	4f3ead29df000cf2		
+lab-Y1gwon-py2-http-auto-split-main-r2	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=413278a2af6bca85	413278a2af6bca85		
+lab-Y1gwon-py2-http-auto-split-main-r3	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=a18e351057a0266b	a18e351057a0266b		
+lab-Y1gwon-py2-http-auto-split-main-r3	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=a18e351057a0266b	a18e351057a0266b		
+lab-Y1gwon-py2-http-auto-split-main-r3	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=4c44829d2d1363c8	4c44829d2d1363c8		
+lab-Y1gwon-py2-http-auto-split-main-r3	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	0fac76d268a09a32		
+lab-Y1gwon-py2-http-auto-split-main-r3	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=da5a5c493d28aacf	da5a5c493d28aacf		
+lab-Y1gwon-py2-http-auto-split-main-r4	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=b1f7384c773321dc	b1f7384c773321dc		
+lab-Y1gwon-py2-http-auto-split-main-r4	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=b1f7384c773321dc	b1f7384c773321dc		
+lab-Y1gwon-py2-http-auto-split-main-r4	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=1d1de19d9b155f9c	1d1de19d9b155f9c		
+lab-Y1gwon-py2-http-auto-split-main-r4	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	781b05d0ac077d2c		
+lab-Y1gwon-py2-http-auto-split-main-r4	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=0bf299c22ee64f9d	0bf299c22ee64f9d		
+lab-Y1gwon-py2-http-auto-split-main-r5	lab	Y1-gw:on	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=2fee2329ece73662	2fee2329ece73662		
+lab-Y1gwon-py2-http-auto-split-main-r5	lab	Y1-gw:on	py2	http	auto	split	main	0	S	HEADER	EXPECTED	ABSENT	COMPLETE				G=2fee2329ece73662	2fee2329ece73662		
+lab-Y1gwon-py2-http-auto-split-main-r5	lab	Y1-gw:on	py2	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=f65356479e4654f7	f65356479e4654f7		
+lab-Y1gwon-py2-http-auto-split-main-r5	lab	Y1-gw:on	py2	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	06ea5a7b0d7d8a57		
+lab-Y1gwon-py2-http-auto-split-main-r5	lab	Y1-gw:on	py2	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=cbc4f37ee827bdc2	cbc4f37ee827bdc2		
+lab-Y1gwon-py2-http-none-same-main-r1	lab	Y1-gw:on	py2	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	eb3bc3cdf7b6c21f		
+lab-Y1gwon-py2-http-none-same-main-r1	lab	Y1-gw:on	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-same-main-r2	lab	Y1-gw:on	py2	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	e4ec0cba6fe1833c		
+lab-Y1gwon-py2-http-none-same-main-r2	lab	Y1-gw:on	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-same-main-r3	lab	Y1-gw:on	py2	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	345c80c1758ae9f3		
+lab-Y1gwon-py2-http-none-same-main-r3	lab	Y1-gw:on	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-same-main-r4	lab	Y1-gw:on	py2	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	0577147e5141e88b		
+lab-Y1gwon-py2-http-none-same-main-r4	lab	Y1-gw:on	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-same-main-r5	lab	Y1-gw:on	py2	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	a377863b864bce55		
+lab-Y1gwon-py2-http-none-same-main-r5	lab	Y1-gw:on	py2	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-split-main-r1	lab	Y1-gw:on	py2	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	46d52cbbef8e6dc5		
+lab-Y1gwon-py2-http-none-split-main-r1	lab	Y1-gw:on	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-split-main-r2	lab	Y1-gw:on	py2	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	a0e84ff127eed35a		
+lab-Y1gwon-py2-http-none-split-main-r2	lab	Y1-gw:on	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-split-main-r3	lab	Y1-gw:on	py2	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	3fe5d7dfd0d04da2		
+lab-Y1gwon-py2-http-none-split-main-r3	lab	Y1-gw:on	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-split-main-r4	lab	Y1-gw:on	py2	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	32d1e3524413beab		
+lab-Y1gwon-py2-http-none-split-main-r4	lab	Y1-gw:on	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-py2-http-none-split-main-r5	lab	Y1-gw:on	py2	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	e39820f50dc1a326		
+lab-Y1gwon-py2-http-none-split-main-r5	lab	Y1-gw:on	py2	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-auto-same-main-r1	lab	Y1-gw:on	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=6b1d1cec485f4595	6b1d1cec485f4595		
+lab-Y1gwon-ts1-http-auto-same-main-r1	lab	Y1-gw:on	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=ebce12638a4417ba	ebce12638a4417ba		
+lab-Y1gwon-ts1-http-auto-same-main-r1	lab	Y1-gw:on	ts1	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	2d6f2af7221766db		
+lab-Y1gwon-ts1-http-auto-same-main-r1	lab	Y1-gw:on	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=c9387951b58975ed	c9387951b58975ed		
+lab-Y1gwon-ts1-http-auto-same-main-r2	lab	Y1-gw:on	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=53b34b471d6d333f	53b34b471d6d333f		
+lab-Y1gwon-ts1-http-auto-same-main-r2	lab	Y1-gw:on	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=a721dfc4ab770ae8	a721dfc4ab770ae8		
+lab-Y1gwon-ts1-http-auto-same-main-r2	lab	Y1-gw:on	ts1	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	deb090cbd926664a		
+lab-Y1gwon-ts1-http-auto-same-main-r2	lab	Y1-gw:on	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=560b66b4d4760e52	560b66b4d4760e52		
+lab-Y1gwon-ts1-http-auto-same-main-r3	lab	Y1-gw:on	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=e7578b6e565d236c	e7578b6e565d236c		
+lab-Y1gwon-ts1-http-auto-same-main-r3	lab	Y1-gw:on	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=73c83a3ba75e085b	73c83a3ba75e085b		
+lab-Y1gwon-ts1-http-auto-same-main-r3	lab	Y1-gw:on	ts1	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	0eff6fa1da6759a7		
+lab-Y1gwon-ts1-http-auto-same-main-r3	lab	Y1-gw:on	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=216d23ebd31efeaa	216d23ebd31efeaa		
+lab-Y1gwon-ts1-http-auto-same-main-r4	lab	Y1-gw:on	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=e6bc58462784c34f	e6bc58462784c34f		
+lab-Y1gwon-ts1-http-auto-same-main-r4	lab	Y1-gw:on	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=89826437c09bcf03	89826437c09bcf03		
+lab-Y1gwon-ts1-http-auto-same-main-r4	lab	Y1-gw:on	ts1	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	7a56f7dfb02d4d5f		
+lab-Y1gwon-ts1-http-auto-same-main-r4	lab	Y1-gw:on	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=c24b3516a24bf941	c24b3516a24bf941		
+lab-Y1gwon-ts1-http-auto-same-main-r5	lab	Y1-gw:on	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				G=f31f5b3346ae1e01	f31f5b3346ae1e01		
+lab-Y1gwon-ts1-http-auto-same-main-r5	lab	Y1-gw:on	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=a6dde1faadb7c16b	a6dde1faadb7c16b		
+lab-Y1gwon-ts1-http-auto-same-main-r5	lab	Y1-gw:on	ts1	http	auto	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	318b77d401833c99		
+lab-Y1gwon-ts1-http-auto-same-main-r5	lab	Y1-gw:on	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=f49cd7ff8576a3b8	f49cd7ff8576a3b8		
+lab-Y1gwon-ts1-http-auto-split-K1-r1	lab	Y1-gw:on	ts1	http	auto	split	K1	0	A	NEW	EXPECTED	n/a	COMPLETE				G=f77b87b5b70cb469	f77b87b5b70cb469		
+lab-Y1gwon-ts1-http-auto-split-K1-r1	lab	Y1-gw:on	ts1	http	auto	split	K1	0	O	NEW	EXPECTED	n/a	COMPLETE				A=ef048158e2049f6f	ef048158e2049f6f		
+lab-Y1gwon-ts1-http-auto-split-K1-r1	lab	Y1-gw:on	ts1	http	auto	split	K1	0	G	NEW	ROOT	n/a	COMPLETE				SENT (header or _meta)			
+lab-Y1gwon-ts1-http-auto-split-K1-r1	lab	Y1-gw:on	ts1	http	auto	split	K1	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=92cbf93fca0c5d75	92cbf93fca0c5d75		
+lab-Y1gwon-ts1-http-auto-split-K2-r1	lab	Y1-gw:on	ts1	http	auto	split	K2	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=53e3950ce561bc36	53e3950ce561bc36		
+lab-Y1gwon-ts1-http-auto-split-K2-r1	lab	Y1-gw:on	ts1	http	auto	split	K2	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=0b0fcc708e98b860	0b0fcc708e98b860		
+lab-Y1gwon-ts1-http-auto-split-K2-r1	lab	Y1-gw:on	ts1	http	auto	split	K2	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	551030c93c2b6f77		
+lab-Y1gwon-ts1-http-auto-split-K2-r1	lab	Y1-gw:on	ts1	http	auto	split	K2	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=28fa335a4043a883	28fa335a4043a883		
+lab-Y1gwon-ts1-http-auto-split-K3-r1	lab	Y1-gw:on	ts1	http	auto	split	K3	0	A	NEW	EXPECTED	n/a	COMPLETE				G=88b0a7fb96baf12d	88b0a7fb96baf12d		
+lab-Y1gwon-ts1-http-auto-split-K3-r1	lab	Y1-gw:on	ts1	http	auto	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=8b4024802c2a3c11	8b4024802c2a3c11		
+lab-Y1gwon-ts1-http-auto-split-K3-r1	lab	Y1-gw:on	ts1	http	auto	split	K3	0	G	NEW	ROOT	n/a	COMPLETE				SENT (header or _meta)			
+lab-Y1gwon-ts1-http-auto-split-K3-r1	lab	Y1-gw:on	ts1	http	auto	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=5d3967f4046238ea	5d3967f4046238ea		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=15539e7b77d10fc7	15539e7b77d10fc7		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=ddd52f571c42e6c0	ddd52f571c42e6c0		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	53d8b7d460c049bc		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=f113686198aec6eb	f113686198aec6eb		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=bef26bf6fb6af686	bef26bf6fb6af686		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=2b378dabe1a6eeb1	2b378dabe1a6eeb1		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	fd4f60ba7c50d9e8		
+lab-Y1gwon-ts1-http-auto-split-main-notap-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=bb4610e390197d95	bb4610e390197d95		
+lab-Y1gwon-ts1-http-auto-split-main-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=c59d7ca7fe31b8ed	c59d7ca7fe31b8ed		
+lab-Y1gwon-ts1-http-auto-split-main-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=ea3900ddf6cffeb4	ea3900ddf6cffeb4		
+lab-Y1gwon-ts1-http-auto-split-main-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	9ff3dbc709f1b6f1		
+lab-Y1gwon-ts1-http-auto-split-main-r1	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=50fb6498f634a2a0	50fb6498f634a2a0		
+lab-Y1gwon-ts1-http-auto-split-main-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=5d65249abed5ba39	5d65249abed5ba39		
+lab-Y1gwon-ts1-http-auto-split-main-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=24b4ba7fda0f0c93	24b4ba7fda0f0c93		
+lab-Y1gwon-ts1-http-auto-split-main-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	9183e73111871802		
+lab-Y1gwon-ts1-http-auto-split-main-r2	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=723ab919ea2d3684	723ab919ea2d3684		
+lab-Y1gwon-ts1-http-auto-split-main-r3	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=757c2dcf746ad083	757c2dcf746ad083		
+lab-Y1gwon-ts1-http-auto-split-main-r3	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=9b565f08d9a87344	9b565f08d9a87344		
+lab-Y1gwon-ts1-http-auto-split-main-r3	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	b19bd8140e960005		
+lab-Y1gwon-ts1-http-auto-split-main-r3	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=857f018fc8916a3e	857f018fc8916a3e		
+lab-Y1gwon-ts1-http-auto-split-main-r4	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=6951a6c76529fc82	6951a6c76529fc82		
+lab-Y1gwon-ts1-http-auto-split-main-r4	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=a0f90dee279d82d5	a0f90dee279d82d5		
+lab-Y1gwon-ts1-http-auto-split-main-r4	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	755e17d463cfa2c7		
+lab-Y1gwon-ts1-http-auto-split-main-r4	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=7d77a9f424a5d8fc	7d77a9f424a5d8fc		
+lab-Y1gwon-ts1-http-auto-split-main-r5	lab	Y1-gw:on	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				G=8dd35ff31362d1e4	8dd35ff31362d1e4		
+lab-Y1gwon-ts1-http-auto-split-main-r5	lab	Y1-gw:on	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=49ccc8d3b343f76b	49ccc8d3b343f76b		
+lab-Y1gwon-ts1-http-auto-split-main-r5	lab	Y1-gw:on	ts1	http	auto	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	d072ede388de0ec2		
+lab-Y1gwon-ts1-http-auto-split-main-r5	lab	Y1-gw:on	ts1	http	auto	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=f9aece06fc50076d	f9aece06fc50076d		
+lab-Y1gwon-ts1-http-none-same-main-r1	lab	Y1-gw:on	ts1	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	650deca9926f6ed4		
+lab-Y1gwon-ts1-http-none-same-main-r1	lab	Y1-gw:on	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-same-main-r2	lab	Y1-gw:on	ts1	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	53712fd6967bb107		
+lab-Y1gwon-ts1-http-none-same-main-r2	lab	Y1-gw:on	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-same-main-r3	lab	Y1-gw:on	ts1	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	91d38b63e990410b		
+lab-Y1gwon-ts1-http-none-same-main-r3	lab	Y1-gw:on	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-same-main-r4	lab	Y1-gw:on	ts1	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	7ea0bb3f85645d7f		
+lab-Y1gwon-ts1-http-none-same-main-r4	lab	Y1-gw:on	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-same-main-r5	lab	Y1-gw:on	ts1	http	none	same	main	0	G	META	META-SPAN(C)	n/a	COMPLETE				SENT (header or _meta)	15219c7d147727db		
+lab-Y1gwon-ts1-http-none-same-main-r5	lab	Y1-gw:on	ts1	http	none	same	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-split-main-r1	lab	Y1-gw:on	ts1	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	13cbdd2756b0cbcf		
+lab-Y1gwon-ts1-http-none-split-main-r1	lab	Y1-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-split-main-r2	lab	Y1-gw:on	ts1	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	eaecd4bb0c4fad22		
+lab-Y1gwon-ts1-http-none-split-main-r2	lab	Y1-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-split-main-r3	lab	Y1-gw:on	ts1	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	f69c897959ed9674		
+lab-Y1gwon-ts1-http-none-split-main-r3	lab	Y1-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-split-main-r4	lab	Y1-gw:on	ts1	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	b8db69a48a846cb1		
+lab-Y1gwon-ts1-http-none-split-main-r4	lab	Y1-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y1gwon-ts1-http-none-split-main-r5	lab	Y1-gw:on	ts1	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	519462c96a5720c4		
+lab-Y1gwon-ts1-http-none-split-main-r5	lab	Y1-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+lab-Y2-py2-http-auto-same-B5-r1	lab	Y2	py2	http	auto	same	B5	0	A	META	EXPECTED	n/a	COMPLETE				HDR=2878cd00de0063d2	2878cd00de0063d2		
+lab-Y2-py2-http-auto-same-B5-r1	lab	Y2	py2	http	auto	same	B5	0	S	META	UNEXPECTED	ABSENT	COMPLETE				META=2878cd00de0063d2	81532704fa1115c6		
+lab-Y2-py2-http-auto-same-B5-r1	lab	Y2	py2	http	auto	same	B5	0	O	META	EXPECTED	n/a	COMPLETE				S=97e2bbdc42f9f77f	97e2bbdc42f9f77f		
+lab-Y2-py2-http-auto-same-B5-r1	lab	Y2	py2	http	auto	same	B5	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=3f0d57df73d59edc	3f0d57df73d59edc		
+lab-Y2-py2-http-auto-same-B6-r1	lab	Y2	py2	http	auto	same	B6	0	A	META	EXPECTED	n/a	COMPLETE				HDR=6bcfd136793a03a9	6bcfd136793a03a9		
+lab-Y2-py2-http-auto-same-B6-r1	lab	Y2	py2	http	auto	same	B6	0	S	META	UNEXPECTED	ABSENT	COMPLETE				META=6bcfd136793a03a9	d9737598514a9ff9		
+lab-Y2-py2-http-auto-same-B6-r1	lab	Y2	py2	http	auto	same	B6	0	O	META	EXPECTED	n/a	COMPLETE				S=1df6b8b42e171087	1df6b8b42e171087		
+lab-Y2-py2-http-auto-same-B6-r1	lab	Y2	py2	http	auto	same	B6	0	D	META	EXPECTED	n/a	COMPLETE	HEADER-VALUE	META=HEADER-VALUE	none	O=618faa47277f0730	618faa47277f0730		
+lab-Y2-py2-http-auto-same-B7-r1	lab	Y2	py2	http	auto	same	B7	0	A	META	EXPECTED	n/a	COMPLETE				HDR=dca9797294fd16ca	dca9797294fd16ca		
+lab-Y2-py2-http-auto-same-B7-r1	lab	Y2	py2	http	auto	same	B7	0	S	META	EXPECTED	ABSENT	COMPLETE				META=dca9797294fd16ca	dca9797294fd16ca		
+lab-Y2-py2-http-auto-same-B7-r1	lab	Y2	py2	http	auto	same	B7	0	O	META	EXPECTED	n/a	COMPLETE				S=a508dc961761d68d	a508dc961761d68d		
+lab-Y2-py2-http-auto-same-B7-r1	lab	Y2	py2	http	auto	same	B7	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	HEADER-VALUE	none	O=0c12d88768f014db	dca9797294fd16ca	GET=0c12d88768f014db,tools/call f=a508dc961761d68d	
+lab-Y2-py2-http-auto-same-main-r1	lab	Y2	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=322e82e8549195ba	322e82e8549195ba		
+lab-Y2-py2-http-auto-same-main-r1	lab	Y2	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=322e82e8549195ba	322e82e8549195ba		
+lab-Y2-py2-http-auto-same-main-r1	lab	Y2	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=499624d2cb083026	499624d2cb083026		
+lab-Y2-py2-http-auto-same-main-r1	lab	Y2	py2	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=538a55d56d26abb2	322e82e8549195ba	GET=538a55d56d26abb2,tools/call f=499624d2cb083026	
+lab-Y2-py2-http-auto-same-main-r2	lab	Y2	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=c42217b252851662	c42217b252851662		
+lab-Y2-py2-http-auto-same-main-r2	lab	Y2	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=c42217b252851662	c42217b252851662		
+lab-Y2-py2-http-auto-same-main-r2	lab	Y2	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=bf36d7dc50d08829	bf36d7dc50d08829		
+lab-Y2-py2-http-auto-same-main-r2	lab	Y2	py2	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=00cf8322f4e11723	c42217b252851662	GET=00cf8322f4e11723,tools/call f=bf36d7dc50d08829	
+lab-Y2-py2-http-auto-same-main-r3	lab	Y2	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=5753288617e7434f	5753288617e7434f		
+lab-Y2-py2-http-auto-same-main-r3	lab	Y2	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=5753288617e7434f	5753288617e7434f		
+lab-Y2-py2-http-auto-same-main-r3	lab	Y2	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=217be3681a4f93b8	217be3681a4f93b8		
+lab-Y2-py2-http-auto-same-main-r3	lab	Y2	py2	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=029aa612b5ac8756	5753288617e7434f	GET=029aa612b5ac8756,tools/call f=217be3681a4f93b8	
+lab-Y2-py2-http-auto-same-main-r4	lab	Y2	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=29c1cd9dd372fcbb	29c1cd9dd372fcbb		
+lab-Y2-py2-http-auto-same-main-r4	lab	Y2	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=29c1cd9dd372fcbb	29c1cd9dd372fcbb		
+lab-Y2-py2-http-auto-same-main-r4	lab	Y2	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=82b0f3148683779e	82b0f3148683779e		
+lab-Y2-py2-http-auto-same-main-r4	lab	Y2	py2	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=b3adaf05cb6f4c3a	29c1cd9dd372fcbb	GET=b3adaf05cb6f4c3a,tools/call f=82b0f3148683779e	
+lab-Y2-py2-http-auto-same-main-r5	lab	Y2	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=301b5af434dfa15b	301b5af434dfa15b		
+lab-Y2-py2-http-auto-same-main-r5	lab	Y2	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=301b5af434dfa15b	301b5af434dfa15b		
+lab-Y2-py2-http-auto-same-main-r5	lab	Y2	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=4b6fefd52b3fdc35	4b6fefd52b3fdc35		
+lab-Y2-py2-http-auto-same-main-r5	lab	Y2	py2	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ada20baac2a14fab	301b5af434dfa15b	GET=ada20baac2a14fab,tools/call f=4b6fefd52b3fdc35	
+lab-Y2-py2-http-auto-split-K1-r1	lab	Y2	py2	http	auto	split	K1	0	A	NEW	ROOT	n/a	COMPLETE				HDR=70d2c9e4164f69e6			
+lab-Y2-py2-http-auto-split-K1-r1	lab	Y2	py2	http	auto	split	K1	0	S	NEW	UNEXPECTED	ABSENT	COMPLETE				META=846b0f524cb900e0	e1f440bcdf750030		
+lab-Y2-py2-http-auto-split-K1-r1	lab	Y2	py2	http	auto	split	K1	0	O	NEW	EXPECTED	n/a	COMPLETE				S=3aa35b2e783c5e91	3aa35b2e783c5e91		
+lab-Y2-py2-http-auto-split-K1-r1	lab	Y2	py2	http	auto	split	K1	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=29863d45fda25e42	29863d45fda25e42		
+lab-Y2-py2-http-auto-split-K2-r1	lab	Y2	py2	http	auto	split	K2	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=0e00cdc37d282e0a	0e00cdc37d282e0a		
+lab-Y2-py2-http-auto-split-K2-r1	lab	Y2	py2	http	auto	split	K2	0	S	HEADER	UNEXPECTED	ABSENT	COMPLETE				META=e9e096898ad7face	08c3057404db1081		
+lab-Y2-py2-http-auto-split-K2-r1	lab	Y2	py2	http	auto	split	K2	0	O	HEADER	EXPECTED	n/a	COMPLETE				S=ed4ea7c1eda2217c	ed4ea7c1eda2217c		
+lab-Y2-py2-http-auto-split-K2-r1	lab	Y2	py2	http	auto	split	K2	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=67ed8a20d1780492	67ed8a20d1780492		
+lab-Y2-py2-http-auto-split-K3-r1	lab	Y2	py2	http	auto	split	K3	0	A				77							expected span not found
+lab-Y2-py2-http-auto-split-K3-r1	lab	Y2	py2	http	auto	split	K3	0	S	META	EXPECTED	ABSENT	COMPLETE				META=274e622ff4432611	274e622ff4432611		
+lab-Y2-py2-http-auto-split-K3-r1	lab	Y2	py2	http	auto	split	K3	0	O	META	EXPECTED	n/a	COMPLETE				S=ff62e3abe6f52dd7	ff62e3abe6f52dd7		
+lab-Y2-py2-http-auto-split-K3-r1	lab	Y2	py2	http	auto	split	K3	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=c336fd1285201569	274e622ff4432611	GET=c336fd1285201569,tools/call f=ff62e3abe6f52dd7	
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=625ef71c6765786e	625ef71c6765786e		
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	0	S	META	EXPECTED	ABSENT	COMPLETE				META=0b83a713b969b787	0b83a713b969b787		
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	0	O	META	EXPECTED	n/a	COMPLETE				S=71ee831cf3f55c9c	71ee831cf3f55c9c		
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=9752d37aabe9f6b5	0b83a713b969b787	GET=9752d37aabe9f6b5,tools/call f=71ee831cf3f55c9c	
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	1	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=dd290a306bafa36c	dd290a306bafa36c		
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	1	S	META	EXPECTED	ABSENT	COMPLETE				META=c784aa5cf3d0ced7	c784aa5cf3d0ced7		
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	1	O	META	EXPECTED	n/a	COMPLETE				S=a74d9c7e0ddf8200	a74d9c7e0ddf8200		
+lab-Y2-py2-http-auto-split-K4-r1	lab	Y2	py2	http	auto	split	K4	1	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=6b430e9cb0844495	c784aa5cf3d0ced7	GET=6b430e9cb0844495,tools/call f=a74d9c7e0ddf8200	
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e6c75585130b33e7	e6c75585130b33e7		
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	0	S	META	EXPECTED	ABSENT	COMPLETE				META=5cd058904544d03f	5cd058904544d03f		
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	0	O	META	EXPECTED	n/a	COMPLETE				S=f5dc417bba35c5ec	f5dc417bba35c5ec		
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=bee67738f8408b85	5cd058904544d03f	GET=bee67738f8408b85,tools/call f=f5dc417bba35c5ec	
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	1	A	NEW	ROOT	n/a	COMPLETE				HDR=ec1ed46ec9f99a16			
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	1	S	NEW	UNEXPECTED	ABSENT	COMPLETE				META=aced1d14a7808ee0	2af0e211699583b8		
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	1	O	NEW	EXPECTED	n/a	COMPLETE				S=713fefd49714b309	713fefd49714b309		
+lab-Y2-py2-http-auto-split-K5-r1	lab	Y2	py2	http	auto	split	K5	1	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=ecb046eec5ad7ff9	ecb046eec5ad7ff9		
+lab-Y2-py2-http-auto-split-main-r1	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=74024b15e37372f5	74024b15e37372f5		
+lab-Y2-py2-http-auto-split-main-r1	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=b6b0afc116d6ba50	b6b0afc116d6ba50		
+lab-Y2-py2-http-auto-split-main-r1	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=5756ef963fedfb3a	5756ef963fedfb3a		
+lab-Y2-py2-http-auto-split-main-r1	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=5a15c7d131b94c51	b6b0afc116d6ba50	GET=5a15c7d131b94c51,tools/call f=5756ef963fedfb3a	
+lab-Y2-py2-http-auto-split-main-r2	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=d51bcdd321a1240c	d51bcdd321a1240c		
+lab-Y2-py2-http-auto-split-main-r2	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=84776f0f722e8fe8	84776f0f722e8fe8		
+lab-Y2-py2-http-auto-split-main-r2	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=c54fdaf37539e4b3	c54fdaf37539e4b3		
+lab-Y2-py2-http-auto-split-main-r2	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=604f99462be64e38	84776f0f722e8fe8	GET=604f99462be64e38,tools/call f=c54fdaf37539e4b3	
+lab-Y2-py2-http-auto-split-main-r3	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=2b679c642c468fc2	2b679c642c468fc2		
+lab-Y2-py2-http-auto-split-main-r3	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=139c9a4059b15798	139c9a4059b15798		
+lab-Y2-py2-http-auto-split-main-r3	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=d071c429afc91ff0	d071c429afc91ff0		
+lab-Y2-py2-http-auto-split-main-r3	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=4ddf67cb633bdc6f	139c9a4059b15798	GET=4ddf67cb633bdc6f,tools/call f=d071c429afc91ff0	
+lab-Y2-py2-http-auto-split-main-r4	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=5c6432d290698dc3	5c6432d290698dc3		
+lab-Y2-py2-http-auto-split-main-r4	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=606bf12a127436da	606bf12a127436da		
+lab-Y2-py2-http-auto-split-main-r4	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ae4006d4ef9c23f3	ae4006d4ef9c23f3		
+lab-Y2-py2-http-auto-split-main-r4	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=db2eb2423a266842	606bf12a127436da	GET=db2eb2423a266842,tools/call f=ae4006d4ef9c23f3	
+lab-Y2-py2-http-auto-split-main-r5	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=612d368626d8e940	612d368626d8e940		
+lab-Y2-py2-http-auto-split-main-r5	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=a3d0127060a619ba	a3d0127060a619ba		
+lab-Y2-py2-http-auto-split-main-r5	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=b3cb1b7de28eaa83	b3cb1b7de28eaa83		
+lab-Y2-py2-http-auto-split-main-r5	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=1e0966a0fb565175	a3d0127060a619ba	GET=1e0966a0fb565175,tools/call f=b3cb1b7de28eaa83	
+lab-Y2-py2-http-auto-split-main-tapoff-r1	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=d0dcc27c30ddea36	d0dcc27c30ddea36		
+lab-Y2-py2-http-auto-split-main-tapoff-r1	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=1422016a3d3cf5fe	1422016a3d3cf5fe		
+lab-Y2-py2-http-auto-split-main-tapoff-r1	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=1bc0537a979985c2	1bc0537a979985c2		
+lab-Y2-py2-http-auto-split-main-tapoff-r1	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=e6dba9c0626a4387	1422016a3d3cf5fe	GET=e6dba9c0626a4387,tools/call f=1bc0537a979985c2	
+lab-Y2-py2-http-auto-split-main-tapoff-r2	lab	Y2	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=3a01627c660da5b0	3a01627c660da5b0		
+lab-Y2-py2-http-auto-split-main-tapoff-r2	lab	Y2	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=326de2adf4550663	326de2adf4550663		
+lab-Y2-py2-http-auto-split-main-tapoff-r2	lab	Y2	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=5d4c5b20a940abe8	5d4c5b20a940abe8		
+lab-Y2-py2-http-auto-split-main-tapoff-r2	lab	Y2	py2	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=00045c78e1bbae7b	326de2adf4550663	GET=00045c78e1bbae7b,tools/call f=5d4c5b20a940abe8	
+lab-Y2-py2-http-none-same-main-r1	lab	Y2	py2	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=5afbd0f9b1ca7b99	5afbd0f9b1ca7b99		
+lab-Y2-py2-http-none-same-main-r2	lab	Y2	py2	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=320377933b7eb6e0	320377933b7eb6e0		
+lab-Y2-py2-http-none-same-main-r3	lab	Y2	py2	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=aff8f4f8dc1a0396	aff8f4f8dc1a0396		
+lab-Y2-py2-http-none-same-main-r4	lab	Y2	py2	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=b64d3104516bb91b	b64d3104516bb91b		
+lab-Y2-py2-http-none-same-main-r5	lab	Y2	py2	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=444b73e217fae653	444b73e217fae653		
+lab-Y2-py2-http-none-split-main-r1	lab	Y2	py2	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=5a069e44340c02b9	5a069e44340c02b9		
+lab-Y2-py2-http-none-split-main-r2	lab	Y2	py2	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=e208f4c9c1a39790	e208f4c9c1a39790		
+lab-Y2-py2-http-none-split-main-r3	lab	Y2	py2	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=d8ab09e1994d1df4	d8ab09e1994d1df4		
+lab-Y2-py2-http-none-split-main-r4	lab	Y2	py2	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=cb20013e9066b304	cb20013e9066b304		
+lab-Y2-py2-http-none-split-main-r5	lab	Y2	py2	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=af949a8f3cf3734a	af949a8f3cf3734a		
+lab-Y2-py2-stdio-auto-same-main-r1	lab	Y2	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=f470cddcd0115cf5	f470cddcd0115cf5		
+lab-Y2-py2-stdio-auto-same-main-r1	lab	Y2	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=0254881251d8c875	0254881251d8c875		
+lab-Y2-py2-stdio-auto-same-main-r1	lab	Y2	py2	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=9c6611f9c02978d1	f470cddcd0115cf5	GET=9c6611f9c02978d1,tools/call f=0254881251d8c875	
+lab-Y2-py2-stdio-auto-same-main-r2	lab	Y2	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=4ca9ac58433b2cf5	4ca9ac58433b2cf5		
+lab-Y2-py2-stdio-auto-same-main-r2	lab	Y2	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=3b42074397c006df	3b42074397c006df		
+lab-Y2-py2-stdio-auto-same-main-r2	lab	Y2	py2	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=ae9086686279d99b	4ca9ac58433b2cf5	GET=ae9086686279d99b,tools/call f=3b42074397c006df	
+lab-Y2-py2-stdio-auto-same-main-r3	lab	Y2	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=eb18d3fac37ad785	eb18d3fac37ad785		
+lab-Y2-py2-stdio-auto-same-main-r3	lab	Y2	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=accbd614b0665cd8	accbd614b0665cd8		
+lab-Y2-py2-stdio-auto-same-main-r3	lab	Y2	py2	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=9258b81033fde78f	eb18d3fac37ad785	GET=9258b81033fde78f,tools/call f=accbd614b0665cd8	
+lab-Y2-py2-stdio-auto-same-main-r4	lab	Y2	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=a9492494f014a5b0	a9492494f014a5b0		
+lab-Y2-py2-stdio-auto-same-main-r4	lab	Y2	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=1706e50c43fd284c	1706e50c43fd284c		
+lab-Y2-py2-stdio-auto-same-main-r4	lab	Y2	py2	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=ee325196f7e1d0c6	a9492494f014a5b0	GET=ee325196f7e1d0c6,tools/call f=1706e50c43fd284c	
+lab-Y2-py2-stdio-auto-same-main-r5	lab	Y2	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=f3ffc4eb98125e14	f3ffc4eb98125e14		
+lab-Y2-py2-stdio-auto-same-main-r5	lab	Y2	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=4cfdc613f9a6fe45	4cfdc613f9a6fe45		
+lab-Y2-py2-stdio-auto-same-main-r5	lab	Y2	py2	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=4405a78c890c20d1	f3ffc4eb98125e14	GET=4405a78c890c20d1,tools/call f=4cfdc613f9a6fe45	
+lab-Y2-py2-stdio-none-same-main-r1	lab	Y2	py2	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=420318e600e749fe	420318e600e749fe		
+lab-Y2-py2-stdio-none-same-main-r2	lab	Y2	py2	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=3beec2efcfc515b7	3beec2efcfc515b7		
+lab-Y2-py2-stdio-none-same-main-r3	lab	Y2	py2	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=46d000b5f752b859	46d000b5f752b859		
+lab-Y2-py2-stdio-none-same-main-r4	lab	Y2	py2	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=24e4050b0f7e96fa	24e4050b0f7e96fa		
+lab-Y2-py2-stdio-none-same-main-r5	lab	Y2	py2	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=931133addf0f46e8	931133addf0f46e8		
+lab-Y2-ts1-http-auto-same-B5-r1	lab	Y2	ts1	http	auto	same	B5	0	A	META	EXPECTED	n/a	COMPLETE				HDR=08ad4640d2d2cad6	08ad4640d2d2cad6		
+lab-Y2-ts1-http-auto-same-B5-r1	lab	Y2	ts1	http	auto	same	B5	0	O	META	EXPECTED	n/a	COMPLETE				A=f19be272aae38212	f19be272aae38212		
+lab-Y2-ts1-http-auto-same-B5-r1	lab	Y2	ts1	http	auto	same	B5	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=8f97c1a9712bcca8	8f97c1a9712bcca8		
+lab-Y2-ts1-http-auto-same-B6-r1	lab	Y2	ts1	http	auto	same	B6	0	A	META	EXPECTED	n/a	COMPLETE				HDR=bcd35993ef3ba0f3	bcd35993ef3ba0f3		
+lab-Y2-ts1-http-auto-same-B6-r1	lab	Y2	ts1	http	auto	same	B6	0	O	META	EXPECTED	n/a	COMPLETE				A=10d3662137b62ad6	10d3662137b62ad6		
+lab-Y2-ts1-http-auto-same-B6-r1	lab	Y2	ts1	http	auto	same	B6	0	D	META	EXPECTED	n/a	COMPLETE	HEADER-VALUE	META=HEADER-VALUE	none	O=7f61deb009110a83	7f61deb009110a83		
+lab-Y2-ts1-http-auto-same-B7-r1	lab	Y2	ts1	http	auto	same	B7	0	A	META	EXPECTED	n/a	COMPLETE				HDR=5d32b2f692b463a6	5d32b2f692b463a6		
+lab-Y2-ts1-http-auto-same-B7-r1	lab	Y2	ts1	http	auto	same	B7	0	O	META	EXPECTED	n/a	COMPLETE				A=d4758847042aa73e	d4758847042aa73e		
+lab-Y2-ts1-http-auto-same-B7-r1	lab	Y2	ts1	http	auto	same	B7	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	HEADER-VALUE	none	O=34a405c9c9678ff3	5d32b2f692b463a6	GET=34a405c9c9678ff3,POST=d4758847042aa73e	
+lab-Y2-ts1-http-auto-same-main-r1	lab	Y2	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=199f77ce96b70ae3	199f77ce96b70ae3		
+lab-Y2-ts1-http-auto-same-main-r1	lab	Y2	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=8c19fbd712ce8b52	8c19fbd712ce8b52		
+lab-Y2-ts1-http-auto-same-main-r1	lab	Y2	ts1	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=63cb9bfac943ab70	199f77ce96b70ae3	GET=63cb9bfac943ab70,POST=8c19fbd712ce8b52	
+lab-Y2-ts1-http-auto-same-main-r2	lab	Y2	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=87f584dcabc6c1fd	87f584dcabc6c1fd		
+lab-Y2-ts1-http-auto-same-main-r2	lab	Y2	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=44d7c8669f045984	44d7c8669f045984		
+lab-Y2-ts1-http-auto-same-main-r2	lab	Y2	ts1	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=84d14abe20b8da76	87f584dcabc6c1fd	GET=84d14abe20b8da76,POST=44d7c8669f045984	
+lab-Y2-ts1-http-auto-same-main-r3	lab	Y2	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=1444f2f98bab2252	1444f2f98bab2252		
+lab-Y2-ts1-http-auto-same-main-r3	lab	Y2	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=7f9313503685b4b7	7f9313503685b4b7		
+lab-Y2-ts1-http-auto-same-main-r3	lab	Y2	ts1	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=cedaf880196a71c2	1444f2f98bab2252	GET=cedaf880196a71c2,POST=7f9313503685b4b7	
+lab-Y2-ts1-http-auto-same-main-r4	lab	Y2	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=a3e6ff4daa4734dd	a3e6ff4daa4734dd		
+lab-Y2-ts1-http-auto-same-main-r4	lab	Y2	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=de2f8db966f5644e	de2f8db966f5644e		
+lab-Y2-ts1-http-auto-same-main-r4	lab	Y2	ts1	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=c74764ff84df644a	a3e6ff4daa4734dd	GET=c74764ff84df644a,POST=de2f8db966f5644e	
+lab-Y2-ts1-http-auto-same-main-r5	lab	Y2	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=0fe88a3f27dc3442	0fe88a3f27dc3442		
+lab-Y2-ts1-http-auto-same-main-r5	lab	Y2	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=51edd140486023de	51edd140486023de		
+lab-Y2-ts1-http-auto-same-main-r5	lab	Y2	ts1	http	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=2c40fc6b95b14de3	0fe88a3f27dc3442	GET=2c40fc6b95b14de3,POST=51edd140486023de	
+lab-Y2-ts1-http-auto-split-K1-r1	lab	Y2	ts1	http	auto	split	K1	0	A	NEW	ROOT	n/a	COMPLETE				HDR=cd6d8765f06b8ed2			
+lab-Y2-ts1-http-auto-split-K1-r1	lab	Y2	ts1	http	auto	split	K1	0	O	NEW	EXPECTED	n/a	COMPLETE				A=113a9cf8df04c823	113a9cf8df04c823		
+lab-Y2-ts1-http-auto-split-K1-r1	lab	Y2	ts1	http	auto	split	K1	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=c2c90aafccd52fe1	c2c90aafccd52fe1		
+lab-Y2-ts1-http-auto-split-K2-r1	lab	Y2	ts1	http	auto	split	K2	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=88646f6ce10af79f	88646f6ce10af79f		
+lab-Y2-ts1-http-auto-split-K2-r1	lab	Y2	ts1	http	auto	split	K2	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=ea725309aabea94a	ea725309aabea94a		
+lab-Y2-ts1-http-auto-split-K2-r1	lab	Y2	ts1	http	auto	split	K2	0	D	HEADER	EXPECTED	n/a	COMPLETE	HEADER-VALUE	HEADER-VALUE	server:A	O=6308944767d4b15c	6308944767d4b15c		
+lab-Y2-ts1-http-auto-split-K3-r1	lab	Y2	ts1	http	auto	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=f56ac114ffcc1706			
+lab-Y2-ts1-http-auto-split-K3-r1	lab	Y2	ts1	http	auto	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=8a2280a033863841	8a2280a033863841		
+lab-Y2-ts1-http-auto-split-K3-r1	lab	Y2	ts1	http	auto	split	K3	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=359747a9f3189f49	9a53e1e79cd58ada	GET=359747a9f3189f49,POST=8a2280a033863841	
+lab-Y2-ts1-http-auto-split-K4-r1	lab	Y2	ts1	http	auto	split	K4	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=2d98e56f788cbf14	2d98e56f788cbf14		
+lab-Y2-ts1-http-auto-split-K4-r1	lab	Y2	ts1	http	auto	split	K4	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=7b2c8b1e011775af	7b2c8b1e011775af		
+lab-Y2-ts1-http-auto-split-K4-r1	lab	Y2	ts1	http	auto	split	K4	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=402b1c74ff33657c	48c4950bb4507fc6	GET=402b1c74ff33657c,POST=7b2c8b1e011775af	
+lab-Y2-ts1-http-auto-split-K4-r1	lab	Y2	ts1	http	auto	split	K4	1	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=7c47e67620af5972	7c47e67620af5972		
+lab-Y2-ts1-http-auto-split-K4-r1	lab	Y2	ts1	http	auto	split	K4	1	O	HEADER	EXPECTED	n/a	COMPLETE				A=31ba171ddbb8402a	31ba171ddbb8402a		
+lab-Y2-ts1-http-auto-split-K4-r1	lab	Y2	ts1	http	auto	split	K4	1	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=a14f8e9680274c6e	1aa4d21e8703c82e	GET=a14f8e9680274c6e,POST=31ba171ddbb8402a	
+lab-Y2-ts1-http-auto-split-K5-r1	lab	Y2	ts1	http	auto	split	K5	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=b73033d7d33554d4	b73033d7d33554d4		
+lab-Y2-ts1-http-auto-split-K5-r1	lab	Y2	ts1	http	auto	split	K5	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=a988d82f5249b91b	a988d82f5249b91b		
+lab-Y2-ts1-http-auto-split-K5-r1	lab	Y2	ts1	http	auto	split	K5	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=f49f2e1eb7ecf822	84d6440d8f224876	GET=f49f2e1eb7ecf822,POST=a988d82f5249b91b	
+lab-Y2-ts1-http-auto-split-K5-r1	lab	Y2	ts1	http	auto	split	K5	1	A	NEW	ROOT	n/a	COMPLETE				HDR=a710315ae8d5db9b			
+lab-Y2-ts1-http-auto-split-K5-r1	lab	Y2	ts1	http	auto	split	K5	1	O	NEW	EXPECTED	n/a	COMPLETE				A=5bb28c318d421ec2	5bb28c318d421ec2		
+lab-Y2-ts1-http-auto-split-K5-r1	lab	Y2	ts1	http	auto	split	K5	1	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=6e6350133349c398	6e6350133349c398		
+lab-Y2-ts1-http-auto-split-main-r1	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e2cb213c7817f0ef	e2cb213c7817f0ef		
+lab-Y2-ts1-http-auto-split-main-r1	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=2e647bf419399d36	2e647bf419399d36		
+lab-Y2-ts1-http-auto-split-main-r1	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=5e6fa6d2dadebb3b	685354838a9aaffb	GET=5e6fa6d2dadebb3b,POST=2e647bf419399d36	
+lab-Y2-ts1-http-auto-split-main-r2	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=d1385cc746eea3c1	d1385cc746eea3c1		
+lab-Y2-ts1-http-auto-split-main-r2	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=b0ecd0ee4e542664	b0ecd0ee4e542664		
+lab-Y2-ts1-http-auto-split-main-r2	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=d94e844f46690fa2	dcdf713f8781d0fa	GET=d94e844f46690fa2,POST=b0ecd0ee4e542664	
+lab-Y2-ts1-http-auto-split-main-r3	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=74b898c155dd38d1	74b898c155dd38d1		
+lab-Y2-ts1-http-auto-split-main-r3	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=c6840cdd0c27025a	c6840cdd0c27025a		
+lab-Y2-ts1-http-auto-split-main-r3	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=773ab97b6e5d422a	2a573916d280c207	GET=773ab97b6e5d422a,POST=c6840cdd0c27025a	
+lab-Y2-ts1-http-auto-split-main-r4	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=7d960c239d493e88	7d960c239d493e88		
+lab-Y2-ts1-http-auto-split-main-r4	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=c80000d89b7a3891	c80000d89b7a3891		
+lab-Y2-ts1-http-auto-split-main-r4	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=9fba4d9996436d25	a2cf501339dc073a	GET=9fba4d9996436d25,POST=c80000d89b7a3891	
+lab-Y2-ts1-http-auto-split-main-r5	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=90dd91e9afe56998	90dd91e9afe56998		
+lab-Y2-ts1-http-auto-split-main-r5	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=1ad472e038f8e6c8	1ad472e038f8e6c8		
+lab-Y2-ts1-http-auto-split-main-r5	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=28f63c15f3a5d3c7	eb3130439501496b	GET=28f63c15f3a5d3c7,POST=1ad472e038f8e6c8	
+lab-Y2-ts1-http-auto-split-main-tapoff-r1	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e40f2980d8cda12f	e40f2980d8cda12f		
+lab-Y2-ts1-http-auto-split-main-tapoff-r1	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=159904b5d42c2b71	159904b5d42c2b71		
+lab-Y2-ts1-http-auto-split-main-tapoff-r1	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=ebc2b25476410293	bda597ceb924758d	GET=ebc2b25476410293,POST=159904b5d42c2b71	
+lab-Y2-ts1-http-auto-split-main-tapoff-r2	lab	Y2	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=f4e9c42303454c8c	f4e9c42303454c8c		
+lab-Y2-ts1-http-auto-split-main-tapoff-r2	lab	Y2	ts1	http	auto	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=d708dedfcf444d4c	d708dedfcf444d4c		
+lab-Y2-ts1-http-auto-split-main-tapoff-r2	lab	Y2	ts1	http	auto	split	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=86abb33df6c08f7e	f0108177eef572ea	GET=86abb33df6c08f7e,POST=d708dedfcf444d4c	
+lab-Y2-ts1-http-none-same-main-r1	lab	Y2	ts1	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=9074d2b579494fc4	9074d2b579494fc4		
+lab-Y2-ts1-http-none-same-main-r2	lab	Y2	ts1	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=98824f92365f6244	98824f92365f6244		
+lab-Y2-ts1-http-none-same-main-r3	lab	Y2	ts1	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=b2ea5fe4ba9e9c9b	b2ea5fe4ba9e9c9b		
+lab-Y2-ts1-http-none-same-main-r4	lab	Y2	ts1	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=68a6a2b1334e93a8	68a6a2b1334e93a8		
+lab-Y2-ts1-http-none-same-main-r5	lab	Y2	ts1	http	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	META=425237c5f493646e	425237c5f493646e		
+lab-Y2-ts1-http-none-split-main-r1	lab	Y2	ts1	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=2f2f68d1354afddc	2f2f68d1354afddc		
+lab-Y2-ts1-http-none-split-main-r2	lab	Y2	ts1	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=683a829945211752	683a829945211752		
+lab-Y2-ts1-http-none-split-main-r3	lab	Y2	ts1	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=b05428f9dd38f344	b05428f9dd38f344		
+lab-Y2-ts1-http-none-split-main-r4	lab	Y2	ts1	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=a666d03c8f47f9bd	a666d03c8f47f9bd		
+lab-Y2-ts1-http-none-split-main-r5	lab	Y2	ts1	http	none	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=9fc965f09a0ccd74	9fc965f09a0ccd74		
+lab-Y2-ts1-stdio-auto-same-main-r1	lab	Y2	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=69788e20a0363bb6			
+lab-Y2-ts1-stdio-auto-same-main-r1	lab	Y2	ts1	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:O	O=bb0dbea6786e089c	69788e20a0363bb6	GET=bb0dbea6786e089c	
+lab-Y2-ts1-stdio-auto-same-main-r2	lab	Y2	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=569f2931812bc8b7			
+lab-Y2-ts1-stdio-auto-same-main-r2	lab	Y2	ts1	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:O	O=23d8428c48d29b21	569f2931812bc8b7	GET=23d8428c48d29b21	
+lab-Y2-ts1-stdio-auto-same-main-r3	lab	Y2	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=35e70710f1802fd0			
+lab-Y2-ts1-stdio-auto-same-main-r3	lab	Y2	ts1	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:O	O=4f18f3619c9fe3eb	35e70710f1802fd0	GET=4f18f3619c9fe3eb	
+lab-Y2-ts1-stdio-auto-same-main-r4	lab	Y2	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=6688022ba18f4b07			
+lab-Y2-ts1-stdio-auto-same-main-r4	lab	Y2	ts1	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:O	O=3f51b5e117f96afe	6688022ba18f4b07	GET=3f51b5e117f96afe	
+lab-Y2-ts1-stdio-auto-same-main-r5	lab	Y2	ts1	stdio	auto	same	main	0	O	NEW	ROOT	n/a	COMPLETE				META=b27e95488f2134d9			
+lab-Y2-ts1-stdio-auto-same-main-r5	lab	Y2	ts1	stdio	auto	same	main	0	D	META	SPEC-BYPASS	n/a	COMPLETE	META-VALUE	META-VALUE	server:O	O=3f99c244a9824b20	b27e95488f2134d9	GET=3f99c244a9824b20	
+lab-Y2-ts1-stdio-none-same-main-r1	lab	Y2	ts1	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=7d896b49d3587fe9	7d896b49d3587fe9		
+lab-Y2-ts1-stdio-none-same-main-r2	lab	Y2	ts1	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=6d15b635975786aa	6d15b635975786aa		
+lab-Y2-ts1-stdio-none-same-main-r3	lab	Y2	ts1	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=ba2b1c025e23a64e	ba2b1c025e23a64e		
+lab-Y2-ts1-stdio-none-same-main-r4	lab	Y2	ts1	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=e68005912125f6f6	e68005912125f6f6		
+lab-Y2-ts1-stdio-none-same-main-r5	lab	Y2	ts1	stdio	none	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	META=766a3028576d443a	766a3028576d443a		
+lab-Y2b-py2-http-auto-same-main-r1	lab	Y2b	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=65fa15606c7c4fd8	65fa15606c7c4fd8		
+lab-Y2b-py2-http-auto-same-main-r1	lab	Y2b	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=65fa15606c7c4fd8	65fa15606c7c4fd8		
+lab-Y2b-py2-http-auto-same-main-r1	lab	Y2b	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=f996a9041e893b29	f996a9041e893b29		
+lab-Y2b-py2-http-auto-same-main-r1	lab	Y2b	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=f1fa2a8ff317fc0e	f1fa2a8ff317fc0e		
+lab-Y2b-py2-http-auto-same-main-r2	lab	Y2b	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=3ccd2cd7e9d21a74	3ccd2cd7e9d21a74		
+lab-Y2b-py2-http-auto-same-main-r2	lab	Y2b	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=3ccd2cd7e9d21a74	3ccd2cd7e9d21a74		
+lab-Y2b-py2-http-auto-same-main-r2	lab	Y2b	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=e66ce5cdc7155a87	e66ce5cdc7155a87		
+lab-Y2b-py2-http-auto-same-main-r2	lab	Y2b	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ca04bd222f0b86b9	ca04bd222f0b86b9		
+lab-Y2b-py2-http-auto-same-main-r3	lab	Y2b	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=eb188c9640bb5b07	eb188c9640bb5b07		
+lab-Y2b-py2-http-auto-same-main-r3	lab	Y2b	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=eb188c9640bb5b07	eb188c9640bb5b07		
+lab-Y2b-py2-http-auto-same-main-r3	lab	Y2b	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=3a64eda1d1dcfda9	3a64eda1d1dcfda9		
+lab-Y2b-py2-http-auto-same-main-r3	lab	Y2b	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=8f0605532c1f1c9a	8f0605532c1f1c9a		
+lab-Y2b-py2-http-auto-same-main-r4	lab	Y2b	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=22a88d98831370be	22a88d98831370be		
+lab-Y2b-py2-http-auto-same-main-r4	lab	Y2b	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=22a88d98831370be	22a88d98831370be		
+lab-Y2b-py2-http-auto-same-main-r4	lab	Y2b	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=c228e4c27b2f19b5	c228e4c27b2f19b5		
+lab-Y2b-py2-http-auto-same-main-r4	lab	Y2b	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=fcffdbdc916a145d	fcffdbdc916a145d		
+lab-Y2b-py2-http-auto-same-main-r5	lab	Y2b	py2	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=5f87763399a0af57	5f87763399a0af57		
+lab-Y2b-py2-http-auto-same-main-r5	lab	Y2b	py2	http	auto	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=5f87763399a0af57	5f87763399a0af57		
+lab-Y2b-py2-http-auto-same-main-r5	lab	Y2b	py2	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=a3c6a45b51aff6f1	a3c6a45b51aff6f1		
+lab-Y2b-py2-http-auto-same-main-r5	lab	Y2b	py2	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=d7272af0dff203c7	d7272af0dff203c7		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=f41eae274ba0b756	f41eae274ba0b756		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	0	S	META	EXPECTED	ABSENT	COMPLETE				META=27a67dec74389f13	27a67dec74389f13		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	0	O	META	EXPECTED	n/a	COMPLETE				S=c59f1a6e18299188	c59f1a6e18299188		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=664c4b5eb37d4b6b	664c4b5eb37d4b6b		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	1	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=f455ace661138775	f455ace661138775		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	1	S	META	EXPECTED	ABSENT	COMPLETE				META=9eb6b800724b06b1	9eb6b800724b06b1		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	1	O	META	EXPECTED	n/a	COMPLETE				S=932038ed412ccb96	932038ed412ccb96		
+lab-Y2b-py2-http-auto-split-K4-tapoff-r1	lab	Y2b	py2	http	auto	split	K4	1	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=7032007f7b98fe02	7032007f7b98fe02		
+lab-Y2b-py2-http-auto-split-main-r1	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e238a5260d51d91f	e238a5260d51d91f		
+lab-Y2b-py2-http-auto-split-main-r1	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=6666f92a38bd6ff0	6666f92a38bd6ff0		
+lab-Y2b-py2-http-auto-split-main-r1	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=1bcdac41a619d79e	1bcdac41a619d79e		
+lab-Y2b-py2-http-auto-split-main-r1	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=93a4ff513f334a42	93a4ff513f334a42		
+lab-Y2b-py2-http-auto-split-main-r2	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=6566b4c1a9b694d4	6566b4c1a9b694d4		
+lab-Y2b-py2-http-auto-split-main-r2	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=f1b7ef7251010012	f1b7ef7251010012		
+lab-Y2b-py2-http-auto-split-main-r2	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=af0dad5f455a6059	af0dad5f455a6059		
+lab-Y2b-py2-http-auto-split-main-r2	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=80d1b13c64ee0913	80d1b13c64ee0913		
+lab-Y2b-py2-http-auto-split-main-r3	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=448609044fef0ef6	448609044fef0ef6		
+lab-Y2b-py2-http-auto-split-main-r3	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=d0838b1e778bd5eb	d0838b1e778bd5eb		
+lab-Y2b-py2-http-auto-split-main-r3	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=2d3c706374f23fa3	2d3c706374f23fa3		
+lab-Y2b-py2-http-auto-split-main-r3	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=2e5aa2a8569887cc	2e5aa2a8569887cc		
+lab-Y2b-py2-http-auto-split-main-r4	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=a251b440c0f05154	a251b440c0f05154		
+lab-Y2b-py2-http-auto-split-main-r4	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=b6057cae311e53bf	b6057cae311e53bf		
+lab-Y2b-py2-http-auto-split-main-r4	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=f45d9247ff91a6d3	f45d9247ff91a6d3		
+lab-Y2b-py2-http-auto-split-main-r4	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=6d0d11e3906cefea	6d0d11e3906cefea		
+lab-Y2b-py2-http-auto-split-main-r5	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=79cf5ad656a59a1f	79cf5ad656a59a1f		
+lab-Y2b-py2-http-auto-split-main-r5	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=cef36e4e22f0de12	cef36e4e22f0de12		
+lab-Y2b-py2-http-auto-split-main-r5	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ca1bef14eae3a349	ca1bef14eae3a349		
+lab-Y2b-py2-http-auto-split-main-r5	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=57110055b9b33187	57110055b9b33187		
+lab-Y2b-py2-http-auto-split-main-tapoff-r1	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=2755af2e4ceab7fa	2755af2e4ceab7fa		
+lab-Y2b-py2-http-auto-split-main-tapoff-r1	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=eee7acfa04b3b2f1	eee7acfa04b3b2f1		
+lab-Y2b-py2-http-auto-split-main-tapoff-r1	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=a02dedc812a853b1	a02dedc812a853b1		
+lab-Y2b-py2-http-auto-split-main-tapoff-r1	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=488324daea6f2b4a	488324daea6f2b4a		
+lab-Y2b-py2-http-auto-split-main-tapoff-r2	lab	Y2b	py2	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=35ffd8d7ca6a5f32	35ffd8d7ca6a5f32		
+lab-Y2b-py2-http-auto-split-main-tapoff-r2	lab	Y2b	py2	http	auto	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=77b557b0a2905c69	77b557b0a2905c69		
+lab-Y2b-py2-http-auto-split-main-tapoff-r2	lab	Y2b	py2	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=95348e176711f4af	95348e176711f4af		
+lab-Y2b-py2-http-auto-split-main-tapoff-r2	lab	Y2b	py2	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=7007d405231497a0	7007d405231497a0		
+lab-Y2b-py2-stdio-auto-same-main-r1	lab	Y2b	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=06ad1db8a1ae6d4a	06ad1db8a1ae6d4a		
+lab-Y2b-py2-stdio-auto-same-main-r1	lab	Y2b	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=0ae257f90ee73c55	0ae257f90ee73c55		
+lab-Y2b-py2-stdio-auto-same-main-r1	lab	Y2b	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=f13d5eb487e614e3	f13d5eb487e614e3		
+lab-Y2b-py2-stdio-auto-same-main-r2	lab	Y2b	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=e85f34654796efbf	e85f34654796efbf		
+lab-Y2b-py2-stdio-auto-same-main-r2	lab	Y2b	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=8b3885fc683f8d81	8b3885fc683f8d81		
+lab-Y2b-py2-stdio-auto-same-main-r2	lab	Y2b	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=70706ddeaccbba57	70706ddeaccbba57		
+lab-Y2b-py2-stdio-auto-same-main-r3	lab	Y2b	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=732c00d7b534bc41	732c00d7b534bc41		
+lab-Y2b-py2-stdio-auto-same-main-r3	lab	Y2b	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=74d3b1d008aa92de	74d3b1d008aa92de		
+lab-Y2b-py2-stdio-auto-same-main-r3	lab	Y2b	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=094e3c6138a14fd6	094e3c6138a14fd6		
+lab-Y2b-py2-stdio-auto-same-main-r4	lab	Y2b	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=463fb4cf5018f957	463fb4cf5018f957		
+lab-Y2b-py2-stdio-auto-same-main-r4	lab	Y2b	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=1749a395eff28b39	1749a395eff28b39		
+lab-Y2b-py2-stdio-auto-same-main-r4	lab	Y2b	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=eb5996051e534ee2	eb5996051e534ee2		
+lab-Y2b-py2-stdio-auto-same-main-r5	lab	Y2b	py2	stdio	auto	same	main	0	S	META	EXPECTED	n/a	COMPLETE				META=9fa4a00ad5956ef4	9fa4a00ad5956ef4		
+lab-Y2b-py2-stdio-auto-same-main-r5	lab	Y2b	py2	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=daf5549477190526	daf5549477190526		
+lab-Y2b-py2-stdio-auto-same-main-r5	lab	Y2b	py2	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=631105c88fd299ab	631105c88fd299ab		
+lab-Y2b-ts1-http-auto-same-main-r1	lab	Y2b	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=c995dfc8470b7d43	c995dfc8470b7d43		
+lab-Y2b-ts1-http-auto-same-main-r1	lab	Y2b	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=c995dfc8470b7d43	c995dfc8470b7d43		
+lab-Y2b-ts1-http-auto-same-main-r1	lab	Y2b	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ea4319fb6b8c215a	ea4319fb6b8c215a		
+lab-Y2b-ts1-http-auto-same-main-r2	lab	Y2b	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=91ea91d0b07ed288	91ea91d0b07ed288		
+lab-Y2b-ts1-http-auto-same-main-r2	lab	Y2b	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=91ea91d0b07ed288	91ea91d0b07ed288		
+lab-Y2b-ts1-http-auto-same-main-r2	lab	Y2b	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=7646ec1bf2300c33	7646ec1bf2300c33		
+lab-Y2b-ts1-http-auto-same-main-r3	lab	Y2b	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=b3a332750c602d12	b3a332750c602d12		
+lab-Y2b-ts1-http-auto-same-main-r3	lab	Y2b	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=b3a332750c602d12	b3a332750c602d12		
+lab-Y2b-ts1-http-auto-same-main-r3	lab	Y2b	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=acf5446f59183714	acf5446f59183714		
+lab-Y2b-ts1-http-auto-same-main-r4	lab	Y2b	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=d1b282008c93be21	d1b282008c93be21		
+lab-Y2b-ts1-http-auto-same-main-r4	lab	Y2b	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=d1b282008c93be21	d1b282008c93be21		
+lab-Y2b-ts1-http-auto-same-main-r4	lab	Y2b	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=40a4088b39f78b98	40a4088b39f78b98		
+lab-Y2b-ts1-http-auto-same-main-r5	lab	Y2b	ts1	http	auto	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=757955afec99a47b	757955afec99a47b		
+lab-Y2b-ts1-http-auto-same-main-r5	lab	Y2b	ts1	http	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=757955afec99a47b	757955afec99a47b		
+lab-Y2b-ts1-http-auto-same-main-r5	lab	Y2b	ts1	http	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=001f623c813dff5e	001f623c813dff5e		
+lab-Y2b-ts1-http-auto-split-K4-tapoff-r1	lab	Y2b	ts1	http	auto	split	K4	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=70f403af7f46fc48	70f403af7f46fc48		
+lab-Y2b-ts1-http-auto-split-K4-tapoff-r1	lab	Y2b	ts1	http	auto	split	K4	0	O	META	EXPECTED	n/a	COMPLETE				META=c2086cce3cd90fe5	c2086cce3cd90fe5		
+lab-Y2b-ts1-http-auto-split-K4-tapoff-r1	lab	Y2b	ts1	http	auto	split	K4	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=2ca7a24ce503b41b	2ca7a24ce503b41b		
+lab-Y2b-ts1-http-auto-split-K4-tapoff-r1	lab	Y2b	ts1	http	auto	split	K4	1	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=bde5a831144ec9d2	bde5a831144ec9d2		
+lab-Y2b-ts1-http-auto-split-K4-tapoff-r1	lab	Y2b	ts1	http	auto	split	K4	1	O	META	EXPECTED	n/a	COMPLETE				META=b6c99b49ceabf19c	b6c99b49ceabf19c		
+lab-Y2b-ts1-http-auto-split-K4-tapoff-r1	lab	Y2b	ts1	http	auto	split	K4	1	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=1b1cd87b6fa8c611	1b1cd87b6fa8c611		
+lab-Y2b-ts1-http-auto-split-main-r1	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=84f8e8f8d0cb7541	84f8e8f8d0cb7541		
+lab-Y2b-ts1-http-auto-split-main-r1	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=4b2a43694977303a	4b2a43694977303a		
+lab-Y2b-ts1-http-auto-split-main-r1	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=64fa1b85453565c8	64fa1b85453565c8		
+lab-Y2b-ts1-http-auto-split-main-r2	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=8a144e98e836b229	8a144e98e836b229		
+lab-Y2b-ts1-http-auto-split-main-r2	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=3cbc15b278debf12	3cbc15b278debf12		
+lab-Y2b-ts1-http-auto-split-main-r2	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=7603eb5c2d4a1d35	7603eb5c2d4a1d35		
+lab-Y2b-ts1-http-auto-split-main-r3	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=931a0322842e6730	931a0322842e6730		
+lab-Y2b-ts1-http-auto-split-main-r3	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=265e5b320e40d6b4	265e5b320e40d6b4		
+lab-Y2b-ts1-http-auto-split-main-r3	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=31be77be44c00f02	31be77be44c00f02		
+lab-Y2b-ts1-http-auto-split-main-r4	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=303c5127c36f32e0	303c5127c36f32e0		
+lab-Y2b-ts1-http-auto-split-main-r4	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=2db15f3ef9cdb4a3	2db15f3ef9cdb4a3		
+lab-Y2b-ts1-http-auto-split-main-r4	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=07918e55e3e050c7	07918e55e3e050c7		
+lab-Y2b-ts1-http-auto-split-main-r5	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=1804578f51ad4eb5	1804578f51ad4eb5		
+lab-Y2b-ts1-http-auto-split-main-r5	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=a47534711b7bc002	a47534711b7bc002		
+lab-Y2b-ts1-http-auto-split-main-r5	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=055e0f9ce4cef02b	055e0f9ce4cef02b		
+lab-Y2b-ts1-http-auto-split-main-tapoff-r1	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=0fbd7ec9ccbaab84	0fbd7ec9ccbaab84		
+lab-Y2b-ts1-http-auto-split-main-tapoff-r1	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=1faf11508bab712c	1faf11508bab712c		
+lab-Y2b-ts1-http-auto-split-main-tapoff-r1	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=35b432108c6139d2	35b432108c6139d2		
+lab-Y2b-ts1-http-auto-split-main-tapoff-r2	lab	Y2b	ts1	http	auto	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=a8e8872822a16bd1	a8e8872822a16bd1		
+lab-Y2b-ts1-http-auto-split-main-tapoff-r2	lab	Y2b	ts1	http	auto	split	main	0	O	META	EXPECTED	n/a	COMPLETE				META=482bbd0d1e52af71	482bbd0d1e52af71		
+lab-Y2b-ts1-http-auto-split-main-tapoff-r2	lab	Y2b	ts1	http	auto	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	server:A	O=48656fc09bbe7b65	48656fc09bbe7b65		
+lab-Y2b-ts1-stdio-auto-same-main-r1	lab	Y2b	ts1	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=5880a79f18bf1084	5880a79f18bf1084		
+lab-Y2b-ts1-stdio-auto-same-main-r1	lab	Y2b	ts1	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=71c3f102c6f16c3a	71c3f102c6f16c3a		
+lab-Y2b-ts1-stdio-auto-same-main-r2	lab	Y2b	ts1	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=0872590667cfe1f6	0872590667cfe1f6		
+lab-Y2b-ts1-stdio-auto-same-main-r2	lab	Y2b	ts1	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=0ad9b0fdfd6f4f62	0ad9b0fdfd6f4f62		
+lab-Y2b-ts1-stdio-auto-same-main-r3	lab	Y2b	ts1	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=65529a612998eb36	65529a612998eb36		
+lab-Y2b-ts1-stdio-auto-same-main-r3	lab	Y2b	ts1	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=5bea590171a944fd	5bea590171a944fd		
+lab-Y2b-ts1-stdio-auto-same-main-r4	lab	Y2b	ts1	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=ed816a7a64e67a7b	ed816a7a64e67a7b		
+lab-Y2b-ts1-stdio-auto-same-main-r4	lab	Y2b	ts1	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=03245b744d94c2aa	03245b744d94c2aa		
+lab-Y2b-ts1-stdio-auto-same-main-r5	lab	Y2b	ts1	stdio	auto	same	main	0	O	META	EXPECTED	n/a	COMPLETE				META=dd68b948e2d034c3	dd68b948e2d034c3		
+lab-Y2b-ts1-stdio-auto-same-main-r5	lab	Y2b	ts1	stdio	auto	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=11c12e0b9e674cb1	11c12e0b9e674cb1		

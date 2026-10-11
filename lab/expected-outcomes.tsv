@@ -314,10 +314,10 @@ tap	Y2-ts1-http-auto-split-main-tapoff	2	0	O	HEADER	EXPECTED	n/a				COMPLETE
 tap	Y2b-ts1-http-auto-split-main-tapoff	2	0	A	HEADER	EXPECTED	n/a				COMPLETE	
 tap	Y2b-ts1-http-auto-split-main-tapoff	2	0	D	META	EXPECTED	n/a	META-VALUE	META-VALUE	server:A	COMPLETE	
 tap	Y2b-ts1-http-auto-split-main-tapoff	2	0	O	META	EXPECTED	n/a				COMPLETE	
-tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	A	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	D	HEADER	EXPECTED	n/a	HEADER-VALUE	HEADER-VALUE	server:A	COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	G	HEADER	HEADER-SPAN(Ch)	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	O	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	A	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	D	HEADER	EXPECTED	n/a	HEADER-VALUE	HEADER-VALUE	server:A	COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	G	HEADER	HEADER-SPAN(Ch)	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-ts1-http-auto-split-main-notap	2	0	O	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
 tap	Y2b-ts1-http-auto-split-K4-tapoff	1	0	A	HEADER	EXPECTED	n/a				COMPLETE	
 tap	Y2b-ts1-http-auto-split-K4-tapoff	1	0	D	META	EXPECTED	n/a	META-VALUE	META-VALUE	server:A	COMPLETE	
 tap	Y2b-ts1-http-auto-split-K4-tapoff	1	0	O	META	EXPECTED	n/a				COMPLETE	
@@ -339,11 +339,11 @@ tap	Y2b-py2-http-auto-split-main-tapoff	2	0	A	HEADER	EXPECTED	n/a				COMPLETE
 tap	Y2b-py2-http-auto-split-main-tapoff	2	0	D	META	EXPECTED	n/a	META-VALUE	META-VALUE	server:A	COMPLETE	
 tap	Y2b-py2-http-auto-split-main-tapoff	2	0	O	META	EXPECTED	n/a				COMPLETE	
 tap	Y2b-py2-http-auto-split-main-tapoff	2	0	S	META	EXPECTED	ABSENT				COMPLETE	
-tap	Y1gwon-py2-http-auto-split-main-notap	2	0	A	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-py2-http-auto-split-main-notap	2	0	D	HEADER	EXPECTED	n/a	HEADER-VALUE	HEADER-VALUE	server:A	COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-py2-http-auto-split-main-notap	2	0	G	HEADER	HEADER-SPAN(Ch)	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-py2-http-auto-split-main-notap	2	0	O	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
-tap	Y1gwon-py2-http-auto-split-main-notap	2	0	S	HEADER	EXPECTED	ABSENT				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode (see gateway-config.yaml); expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-py2-http-auto-split-main-notap	2	0	A	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-py2-http-auto-split-main-notap	2	0	D	HEADER	EXPECTED	n/a	HEADER-VALUE	HEADER-VALUE	server:A	COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-py2-http-auto-split-main-notap	2	0	G	HEADER	HEADER-SPAN(Ch)	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-py2-http-auto-split-main-notap	2	0	O	HEADER	EXPECTED	n/a				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
+tap	Y1gwon-py2-http-auto-split-main-notap	2	0	S	HEADER	EXPECTED	ABSENT				COMPLETE	published runs of this cell are a known defect (evidence/measured/known-defects.tsv): gateway upstream ignored the tap mode; expected = what they recorded (the tapped cell's outcome)
 tap	Y2b-py2-http-auto-split-K4-tapoff	1	0	A	HEADER	EXPECTED	n/a				COMPLETE	
 tap	Y2b-py2-http-auto-split-K4-tapoff	1	0	D	META	EXPECTED	n/a	META-VALUE	META-VALUE	server:A	COMPLETE	
 tap	Y2b-py2-http-auto-split-K4-tapoff	1	0	O	META	EXPECTED	n/a				COMPLETE	

@@ -1,0 +1,54 @@
+
+==> pull base images (by digest)
+
+==> TypeScript server, MCP TypeScript SDK 1.32 (localhost/oa-ts1:1.32.1)
+
+==> Python server, MCP Python SDK 1.30 (localhost/oa-py1:1.30.0)
+
+==> Python server, MCP Python SDK 2.3 (localhost/oa-py2:2.3.0)
+
+==> built images
+localhost/oa-py1:1.30.0
+localhost/oa-py2:2.3.0
+localhost/oa-ts1:1.32.1
+
+==> helm uninstall oa-lab (removes its namespaces oa-lab and oa-obs, with every server and gateway the tests started)
+release "oa-lab" uninstalled
+namespace "oa-lab-release" deleted
+removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)
+
+==> images: pull third-party, import all into k3d
+[36mINFO[0m[0000] Importing image(s) into cluster 'oa-trace-context' 
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-oa-trace-context-tools'   
+[36mINFO[0m[0000] Saving 1 tarball(s) to shared image volume... 
+[36mINFO[0m[0001] Importing images into nodes...               
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-oa-trace-context-images-20261011220344-file-images.tar' into node 'k3d-oa-trace-context-server-0'... 
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-oa-trace-context-images-20261011220344-file-images.tar' into node 'k3d-oa-trace-context-agent-0'... 
+[36mINFO[0m[0011] Removing the tarball(s) from image volume... 
+[36mINFO[0m[0012] Removing k3d-tools node...                   
+[36mINFO[0m[0012] Successfully imported image(s)               
+[36mINFO[0m[0012] Successfully imported 1 image(s) into 1 cluster(s) 
+all 6 images present on every node
+
+==> helm upgrade --install oa-lab (context k3d-oa-trace-context)
+Release "oa-lab" does not exist. Installing it now.
+NAME: oa-lab
+LAST DEPLOYED: Sun Oct 11 22:03:57 2026
+NAMESPACE: oa-lab-release
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+
+==> collector and downstream answer
+ready
+NAME: oa-lab
+LAST DEPLOYED: Sun Oct 11 22:03:57 2026
+NAMESPACE: oa-lab-release
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+oa-obs  otel-collector-d55775b54-zxwjz   2/2   Running   0     7s
+oa-lab  downstream-api-76cf54cb58-v68qx   1/1   Running   0     7s
+oa-lab  driver                            1/1   Running   0     7s

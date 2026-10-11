@@ -81,9 +81,11 @@ that sets both carriers on purpose. The `Y2` hooks are our reading of a draft, n
 |---|---|---|---|
 | Published measurement, stage A (Y0, Y2) | 24 cell-modes × 5 runs + controls (c1: 155 run directories + P0, P5) | Node 22, CPython 3.12, Collector 0.151.0, k3s v1.37.1 | `evidence/measured/c1-*`, rows `config=c1` in `results/measurements.tsv` |
 | Published measurement, stage B (Y1, Y2b, py1, tap neutrality) | 24 cell-modes × 5 runs + gateway probes + tap runs (c2: 148) | same | `evidence/measured/c2-*`, rows `config=c2` |
-| Reproduction on an updated stack, fresh Ubuntu VMs | Ubuntu 26.04: 306 runs (RUNS=5), then reinstall + 114 runs; Ubuntu 24.04: PENDING | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
+| Reproduction on an updated stack, fresh Ubuntu VMs | Ubuntu 26.04 and 24.04: 306 runs each (RUNS=5), then reinstall + 114 runs | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
 
-Every published number below comes from `results/measurements.tsv`, which `lab/verdict.py` regenerates exactly from
+The published runs were made before this repository existed, with the lab code of the first commit except for the
+runner changes it describes (cluster and images from the environment, gateway upstream per tap mode) and comment
+edits; each run's `images.txt` records the image IDs it ran with. Every published number below comes from `results/measurements.tsv`, which `lab/verdict.py` regenerates exactly from
 `evidence/measured/` (a test checks it). In the published runs every (cell-mode, call, subject) gave the same verdict
 in every complete run (one TS P6 run had no verdict, see `lab/expected-outcomes.tsv`).
 
@@ -149,11 +151,11 @@ one more round, `lab.sh uninstall`:
 | VM | Commit | Main round | After reinstall | Evidence |
 |---|---|---|---|---|
 | Ubuntu 26.04 | `a567fc7` | 306 runs, 864 verdict rows: **every planned cell-mode and control gave the published outcome in every run** | 114 runs, 384 rows: same | [`evidence/e2e-multipass/20261011T174925Z-ubuntu26.04/`](evidence/e2e-multipass/20261011T174925Z-ubuntu26.04/) (`summary.md`, `measurements.tsv`, raw runs in `raw-evidence-*.tar.gz`) |
-| Ubuntu 24.04 | PENDING | | | |
+| Ubuntu 24.04 | `22e5606` | 306 runs, 864 verdict rows: same | 114 runs, 384 rows: same | [`evidence/e2e-multipass/20261011T183123Z-ubuntu24.04/`](evidence/e2e-multipass/20261011T183123Z-ubuntu24.04/) |
 
 The tolerated setup failure did not occur. The gateway cell with the hook module absent, which now reaches the
-server without the module (`gateway-config.yaml` of those runs), gave the outcome of the tapped cell in all 8 runs
-(2 per SDK in each round): tap neutrality holds behind the gateway too.
+server without the module (`gateway-config.yaml` of those runs), gave the outcome of the tapped cell in all 16 runs
+(2 per SDK per round, in both VMs): tap neutrality holds behind the gateway too.
 
 The reproduction is a regression check on current versions (Node 24, CPython 3.14, Collector 0.162, zod 4 — within
 the TypeScript SDK's declared `^3.25 || ^4.0` — and `@opentelemetry/api` 1.9.1; the MCP and OpenTelemetry SDK versions

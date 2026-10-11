@@ -19,7 +19,7 @@ import argparse, collections, csv, json, re, sys
 
 # The only setup failure that may be tolerated (and only in cells marked 77-tolerated in the expected file): the
 # server's outbound span O was not exported within the driver's 15 s window, everything else of the run complete.
-TOLERATED_FAILURE = re.compile(r"^control failed: nonce=True complete=\{'downstream_and_D': True, 'server_O': False\}$")
+TOLERATED_FAILURE = re.compile(r"control failed: nonce=True complete=\{'downstream_and_D': True, 'server_O': False\}")  # fullmatch
 VALUE = ["trace_identity", "parentage", "link", "fwd_tracestate", "fwd_baggage", "first_divergence", "evidence"]
 
 
@@ -93,29 +93,32 @@ def main():
         g["cells"] += 1
         g["runs"] += len(runs)
         planned_ids = {f"{prefix}-r{i}" for i in range(1, x["runs"] + 1)}
+        cell_ok_ids = True
         if set(runs) != planned_ids:
+            cell_ok_ids = False
             missing, unplanned = sorted(planned_ids - set(runs)), sorted(set(runs) - planned_ids)
             problems.append(f"{name}: {len(runs)} of {x['runs']} planned runs measured"
                             + (f"; missing {', '.join(missing)}" if missing else "") + (f"; unplanned {', '.join(unplanned)}" if unplanned else ""))
         complete_runs, tol = 0, 0
-        cell_ok = True
+        cell_ok = cell_ok_ids
         for rid in runs:
             rr = by_run[rid]
+            keys = [(r["call"], r["subject"]) for r in rr]
+            dup = sorted(k for k, n in collections.Counter(keys).items() if n > 1)
+            if dup:
+                problems.append(f"{rid}: duplicate verdict rows for {', '.join(f'call {c} {s}' for c, s in dup)}")
+                cell_ok = False
+                continue
             if any(r["subject"] == "run" for r in rr):
                 why = "; ".join(r["note"] for r in rr if r["subject"] == "run")
                 only_runlevel = all(r["subject"] == "run" for r in rr)
-                if name in tolerated and tol == 0 and only_runlevel and all(TOLERATED_FAILURE.match(r["note"]) for r in rr):
+                if name in tolerated and tol == 0 and only_runlevel and all(TOLERATED_FAILURE.fullmatch(r["note"]) for r in rr):
                     tol += 1
                     notes.append(f"{rid}: tolerated setup failure ({why})")
                 else:
                     problems.append(f"{rid}: no verdict (77): {why}")
                     cell_ok = False
                 continue
-            keys = [(r["call"], r["subject"]) for r in rr]
-            dup = sorted(k for k, n in collections.Counter(keys).items() if n > 1)
-            if dup:
-                problems.append(f"{rid}: duplicate verdict rows for {', '.join(f'call {c} {s}' for c, s in dup)}")
-                cell_ok = False
             got = {(r["call"], r["subject"]): tuple(r[c] for c in VALUE) for r in rr}
             for k in sorted(set(want) | set(got)):
                 if k not in got:
@@ -135,9 +138,9 @@ def main():
         if name in tolerated and tol and not complete_runs:
             problems.append(f"{name}: only the tolerated setup failure, no complete run")
             cell_ok = False
-        g["cells_ok"] += cell_ok and len(runs) == x["runs"]
+        g["cells_ok"] += cell_ok
         d = want.get(("0", "D"))
-        lines.append(f"| {x['group']} | {name} | {len(runs)}/{x['runs']} | {'match' if cell_ok and len(runs) == x['runs'] else 'DIFFERS'}"
+        lines.append(f"| {x['group']} | {name} | {len(runs)}/{x['runs']} | {'match' if cell_ok else 'DIFFERS'}"
                      + (f" (D: {d[0]}/{d[1]}, tracestate {d[3]}, baggage {d[4]})" if d else "") + " |")
     extra = sorted(rid for rid in by_run if rid not in seen_runs and rid not in {f"{cfg}-P0", f"{cfg}-P5"})
     if extra:

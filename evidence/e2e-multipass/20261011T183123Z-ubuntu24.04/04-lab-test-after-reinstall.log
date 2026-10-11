@@ -1,0 +1,119 @@
+
+==> test plan: 102 entries, 114 runs (RUNS=1); evidence: evidence/runs/20261011T190407Z
+[1/102] controls P0
+[2/102] stage-a  lab-Y0-ts1-stdio-none-same-main x1
+[3/102] stage-a  lab-Y0-ts1-http-none-same-main x1
+[4/102] stage-a  lab-Y0-ts1-http-none-split-main x1
+[5/102] stage-a  lab-Y0-ts1-stdio-auto-same-main x1
+[6/102] stage-a  lab-Y0-ts1-http-auto-same-main x1
+[7/102] stage-a  lab-Y0-ts1-http-auto-split-main x1
+[8/102] stage-a  lab-Y0-py2-stdio-none-same-main x1
+[9/102] stage-a  lab-Y0-py2-http-none-same-main x1
+[10/102] stage-a  lab-Y0-py2-http-none-split-main x1
+[11/102] stage-a  lab-Y0-py2-stdio-auto-same-main x1
+[12/102] stage-a  lab-Y0-py2-http-auto-same-main x1
+[13/102] stage-a  lab-Y0-py2-http-auto-split-main x1
+[14/102] stage-a  lab-Y2-ts1-stdio-none-same-main x1
+[15/102] stage-a  lab-Y2-ts1-http-none-same-main x1
+[16/102] stage-a  lab-Y2-ts1-http-none-split-main x1
+[17/102] stage-a  lab-Y2-ts1-stdio-auto-same-main x1
+[18/102] stage-a  lab-Y2-ts1-http-auto-same-main x1
+[19/102] stage-a  lab-Y2-ts1-http-auto-split-main x1
+[20/102] stage-a  lab-Y2-py2-stdio-none-same-main x1
+[21/102] stage-a  lab-Y2-py2-http-none-same-main x1
+[22/102] stage-a  lab-Y2-py2-http-none-split-main x1
+[23/102] stage-a  lab-Y2-py2-stdio-auto-same-main x1
+[24/102] stage-a  lab-Y2-py2-http-auto-same-main x1
+[25/102] stage-a  lab-Y2-py2-http-auto-split-main x1
+[26/102] controls lab-Y0-ts1-stdio-auto-same-P4 x1
+[27/102] controls lab-Y0-ts1-http-auto-same-P4 x1
+[28/102] controls lab-Y0-py2-stdio-auto-same-P4 x1
+[29/102] controls lab-Y0-py2-http-auto-same-P4 x1
+[30/102] controls lab-Y0-ts1-stdio-auto-same-main-notap x1
+[31/102] controls lab-Y0-ts1-http-auto-same-main-notap x2
+[32/102] controls lab-Y0-py2-stdio-auto-same-main-notap x1
+[33/102] controls lab-Y0-py2-http-auto-same-main-notap x2
+[34/102] controls lab-Y0-ts1-http-auto-split-K1 x1
+[35/102] controls lab-Y0-ts1-http-auto-split-K2 x1
+[36/102] controls lab-Y0-ts1-http-auto-split-K3 x1
+[37/102] controls lab-Y0-ts1-http-auto-split-K4 x1
+[38/102] controls lab-Y0-ts1-http-auto-split-K5 x1
+[39/102] controls lab-Y0-py2-http-auto-split-K1 x1
+[40/102] controls lab-Y0-py2-http-auto-split-K2 x1
+[41/102] controls lab-Y0-py2-http-auto-split-K3 x1
+[42/102] controls lab-Y0-py2-http-auto-split-K4 x1
+[43/102] controls lab-Y0-py2-http-auto-split-K5 x1
+[44/102] controls lab-Y2-ts1-http-auto-split-K1 x1
+[45/102] controls lab-Y2-ts1-http-auto-split-K2 x1
+[46/102] controls lab-Y2-ts1-http-auto-split-K3 x1
+[47/102] controls lab-Y2-ts1-http-auto-split-K4 x1
+[48/102] controls lab-Y2-ts1-http-auto-split-K5 x1
+[49/102] controls lab-Y2-py2-http-auto-split-K1 x1
+[50/102] controls lab-Y2-py2-http-auto-split-K2 x1
+[51/102] controls lab-Y2-py2-http-auto-split-K3 x1
+[52/102] controls lab-Y2-py2-http-auto-split-K4 x1
+[53/102] controls lab-Y2-py2-http-auto-split-K5 x1
+[54/102] controls lab-Y2-ts1-http-auto-same-B5 x1
+[55/102] controls lab-Y2-ts1-http-auto-same-B6 x1
+[56/102] controls lab-Y2-ts1-http-auto-same-B7 x1
+[57/102] controls lab-Y2-py2-http-auto-same-B5 x1
+[58/102] controls lab-Y2-py2-http-auto-same-B6 x1
+[59/102] controls lab-Y2-py2-http-auto-same-B7 x1
+[60/102] controls P5
+[61/102] py1      lab-Y0-py1-stdio-none-same-main x1
+[62/102] py1      lab-Y0-py1-http-none-same-main x1
+[63/102] py1      lab-Y0-py1-http-none-split-main x1
+[64/102] py1      lab-Y0-py1-stdio-auto-same-main x1
+[65/102] py1      lab-Y0-py1-http-auto-same-main x1
+[66/102] py1      lab-Y0-py1-http-auto-split-main x1
+[67/102] gateway  lab-Y1gwon-ts1-http-none-same-main x1
+[68/102] gateway  lab-Y1gwon-ts1-http-none-split-main x1
+[69/102] gateway  lab-Y1gwon-ts1-http-auto-same-main x1
+[70/102] gateway  lab-Y1gwon-ts1-http-auto-split-main x1
+[71/102] gateway  lab-Y1gwon-py2-http-none-same-main x1
+[72/102] gateway  lab-Y1gwon-py2-http-none-split-main x1
+[73/102] gateway  lab-Y1gwon-py2-http-auto-same-main x1
+[74/102] gateway  lab-Y1gwon-py2-http-auto-split-main x1
+[75/102] gateway  lab-Y1gwoff-ts1-http-auto-same-main x1
+[76/102] gateway  lab-Y1gwoff-ts1-http-auto-split-main x1
+[77/102] gateway  lab-Y1gwoff-py2-http-auto-same-main x1
+[78/102] gateway  lab-Y1gwoff-py2-http-auto-split-main x1
+[79/102] gateway  lab-Y1gwon-ts1-http-auto-split-K1 x1
+[80/102] gateway  lab-Y1gwon-ts1-http-auto-split-K2 x1
+[81/102] gateway  lab-Y1gwon-ts1-http-auto-split-K3 x1
+[82/102] gateway  lab-Y1gwon-py2-http-auto-split-K1 x1
+[83/102] gateway  lab-Y1gwon-py2-http-auto-split-K2 x1
+[84/102] gateway  lab-Y1gwon-py2-http-auto-split-K3 x1
+[85/102] y2b      lab-Y2b-ts1-stdio-auto-same-main x1
+[86/102] y2b      lab-Y2b-ts1-http-auto-same-main x1
+[87/102] y2b      lab-Y2b-ts1-http-auto-split-main x1
+[88/102] y2b      lab-Y2b-py2-stdio-auto-same-main x1
+[89/102] y2b      lab-Y2b-py2-http-auto-same-main x1
+[90/102] y2b      lab-Y2b-py2-http-auto-split-main x1
+[91/102] tap      lab-Y0-ts1-http-auto-split-main-tapoff x2
+[92/102] tap      lab-Y0-ts1-stdio-auto-same-main-tapoff x2
+[93/102] tap      lab-Y2-ts1-http-auto-split-main-tapoff x2
+[94/102] tap      lab-Y2b-ts1-http-auto-split-main-tapoff x2
+[95/102] tap      lab-Y1gwon-ts1-http-auto-split-main-notap x2
+[96/102] tap      lab-Y2b-ts1-http-auto-split-K4-tapoff x1
+[97/102] tap      lab-Y0-py2-http-auto-split-main-tapoff x2
+[98/102] tap      lab-Y0-py2-stdio-auto-same-main-tapoff x2
+[99/102] tap      lab-Y2-py2-http-auto-split-main-tapoff x2
+[100/102] tap      lab-Y2b-py2-http-auto-split-main-tapoff x2
+[101/102] tap      lab-Y1gwon-py2-http-auto-split-main-notap x2
+[102/102] tap      lab-Y2b-py2-http-auto-split-K4-tapoff x1
+
+==> verdicts
+384 rows -> /home/ubuntu/oa/results/runs/20261011T190407Z.tsv
+
+Test run 2026-10-11T19:04:07Z -> 2026-10-11T19:12:35Z, RUNS=1, 114 runs, 384 verdict rows
+
+group            cells   runs   rows matching
+controls     34 of 34       36    150 of 150     controls 3 of 3 pass
+stage-a      24 of 24       24     50 of 50    
+py1           6 of 6         6     11 of 11    
+gateway      18 of 18       18     67 of 67    
+y2b           6 of 6         6     19 of 19    
+tap          12 of 12       22     84 of 84    
+
+ALL CHECKS PASSED: every planned cell-mode and control gave the published outcome in every run
