@@ -5,6 +5,8 @@ hop: TypeScript and Python MCP SDKs, stdio and Streamable HTTP, with and without
 directly and through agentgateway, plus a prototype of the draft SEP-2028 and one alternative design.
 Everything runs on a local k3d cluster and can be reproduced from zero with a few commands ([Quickstart](#quickstart)).
 
+Project page: https://graphsentinel.github.io/mcp-trace-context/
+
 - [The problem](#the-problem)
 - [What is measured](#what-is-measured)
 - [Results](#results)
@@ -298,6 +300,7 @@ scripts/                   platform.sh, lab.sh, summary.py, versions.env, check-
 evidence/measured/         the published runs (c1, c2)
 evidence/e2e-multipass/    reproduction runs in fresh VMs
 results/measurements.tsv   verdicts of the published runs
+docs/                      project page (GitHub Pages: index.html, span-tree figures)
 ```
 
 ## License
