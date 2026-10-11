@@ -334,7 +334,9 @@ Skip `cluster-up`, set `KUBE_CONTEXT=<context>` and `REGISTRY=<registry/prefix>`
 `scripts/lab.sh build` and `install` push the three server images there.
 
 A single-node k3s on the same machine (no registry): `KUBE_CONTEXT=default K3S_IMPORT=1 scripts/lab.sh install`
-imports every image into k3s's containerd (`sudo k3s ctr`). This is how the Y3 (OBI) cells were measured:
+imports every image into k3s's containerd (`sudo k3s ctr`). This is how the Y3 (OBI) cells were measured, and the
+demos of the talk were recorded the same way: on a single-node k3s (v1.37.1+k3s1) in an Ubuntu 24.04 VM, not on k3d
+(one recording is on the [project page](https://graphsentinel.github.io/mcp-trace-context/#demo)):
 
 ```sh
 scripts/platform.sh install          # tools; no cluster-up

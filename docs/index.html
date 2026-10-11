@@ -94,6 +94,7 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
       <a class="btn primary" href="https://github.com/graphsentinel/mcp-trace-context">Repository</a>
       <a class="btn" href="#run">Run it yourself</a>
       <a class="btn" href="#results">Results</a>
+      <a class="btn" href="#demo">Demo</a>
     </div>
   </div>
 </header>
@@ -216,6 +217,20 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
   <p class="note">Scope: this lab, the tested versions, plaintext HTTP/1.1, a driver that sets both carriers on purpose,
     our reading of a draft. Four published gateway control runs did not test what their label said; they are listed in
     the repository and were re-measured.</p>
+</section>
+
+<section id="demo">
+  <h2>Demo: the cluster reconciles</h2>
+  <p>One recording from the talk (single-node k3s, Python SDK 2.3 server behind agentgateway 1.6.0, the agent's
+    <code>_meta</code> and the HTTP header set to different traces). Three calls: the gateway as released, the gateway
+    with a policy that copies <code>_meta</code> into the trace headers and gateway tracing off, and the same policy
+    with gateway tracing on. Left: what the driver sent and what the API received; right: the server's read-only tap
+    and the span tree derived from the exported spans.</p>
+  <video controls preload="metadata" playsinline poster="demo/act4-poster.jpg" style="width:100%;height:auto;border:1px solid var(--line);border-radius:8px">
+    <source src="demo/act4.mp4" type="video/mp4">
+  </video>
+  <p class="muted">Every call is one normal lab run (<code>lab/run_cell.py</code>); the published outcomes of these
+    configurations are in <code>results/measurements.tsv</code> (c2 Y1, c3 Y4), identical in 5 of 5 runs.</p>
 </section>
 
 <section id="test">
