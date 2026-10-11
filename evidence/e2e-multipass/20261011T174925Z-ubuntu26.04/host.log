@@ -1,0 +1,27 @@
+
+==> launch oa-e2e: Ubuntu 26.04, 8 CPU, 16G, 60G
+
+==> copy source: committed tree a567fc7ee0cb175f3bf0ce410fa9245acc2b2ca6
+
+==> scripts/platform.sh install && scripts/platform.sh cluster-up
+01-platform-install-cluster-up: exit 0, 182 s
+
+==> RUNS=5 scripts/lab.sh all
+02-lab-all: exit 0, 1447 s
+raw evidence: raw-evidence-main.tar.gz
+
+==> scripts/lab.sh reinstall && scripts/lab.sh status
+03-lab-reinstall: exit 0, 106 s
+
+==> RUNS=1 scripts/lab.sh test
+04-lab-test-after-reinstall: exit 0, 511 s
+raw evidence: raw-evidence-after-reinstall.tar.gz
+
+==> scripts/lab.sh uninstall
+05-lab-uninstall: exit 0, 52 s
+
+==> scripts/platform.sh status && kubectl --context k3d-oa-trace-context wait --for=condition=Ready node --all --timeout=60s
+06-platform-after-uninstall: exit 0, 1 s
+
+==> fetch results
+result: exit 0

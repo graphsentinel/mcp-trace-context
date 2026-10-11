@@ -1,0 +1,5 @@
+
+==> helm uninstall oa-lab (removes its namespaces oa-lab and oa-obs, with every server and gateway the tests started)
+release "oa-lab" uninstalled
+namespace "oa-lab-release" deleted
+removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)

@@ -58,7 +58,7 @@ For each subject the verdict records:
 - **trace identity**: `META` (the `_meta` trace) · `HEADER` (the header trace) · `NEW` (a trace the driver never sent)
   · `UNRELATED` (P4 control) · `ABSENT` (no `traceparent` at the API);
 - **parentage** against a reference parent written **before** each run (`evidence/.../expected.json`, `lab/expected.py`):
-  `EXPECTED` · `ROOT` · `UNEXPECTED` · `UNASSESSABLE` (the parent span exists in no backend) · `SPEC-BYPASS`
+  `EXPECTED` · `ROOT` · `UNEXPECTED` · `UNASSESSABLE` (the parent span is not among the collected spans) · `SPEC-BYPASS`
   (D's parent is the agent's client span although the server's own spans exist);
 - the **`tracestate` and `baggage` values** the API received, and where the chain first left the `_meta` trace.
 
@@ -81,11 +81,11 @@ that sets both carriers on purpose. The `Y2` hooks are our reading of a draft, n
 |---|---|---|---|
 | Published measurement, stage A (Y0, Y2) | 24 cell-modes × 5 runs + controls (c1: 155 run directories + P0, P5) | Node 22, CPython 3.12, Collector 0.151.0, k3s v1.37.1 | `evidence/measured/c1-*`, rows `config=c1` in `results/measurements.tsv` |
 | Published measurement, stage B (Y1, Y2b, py1, tap neutrality) | 24 cell-modes × 5 runs + gateway probes + tap runs (c2: 148) | same | `evidence/measured/c2-*`, rows `config=c2` |
-| Reproduction on a fresh Ubuntu VM | FILLED AFTER THE E2E RUN | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
+| Reproduction on an updated stack, fresh Ubuntu VMs | Ubuntu 26.04: 306 runs (RUNS=5), then reinstall + 114 runs; Ubuntu 24.04: PENDING | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
 
 Every published number below comes from `results/measurements.tsv`, which `lab/verdict.py` regenerates exactly from
 `evidence/measured/` (a test checks it). In the published runs every (cell-mode, call, subject) gave the same verdict
-in every run.
+in every complete run (one TS P6 run had no verdict, see `lab/expected-outcomes.tsv`).
 
 **Known defect in the published runs.** The four c2 runs labelled "gateway, hook module absent"
 (`c2-Y1gwon-*-http-auto-split-main-notap-r*`) reached the server **with** the module: the gateway's upstream ignored the
@@ -105,7 +105,8 @@ measures the gateway in front of a server without the module.
 | Python 2.3 | http | auto | split | **`_meta`'s trace** | **`_meta`'s / header's** (mixed) |
 | Python 1.30 | stdio / http | auto | same / split | as TS 1.32: new trace on stdio, header's trace in split | |
 
-- **Without OpenTelemetry in the server, no released SDK forwarded `traceparent`**, in either transport.
+- **Without OpenTelemetry in the server, none of the three tested SDK versions forwarded `traceparent`**, in either
+  transport.
 - **When header and `_meta` differ (split), TS SDK 1.32 and Python SDK 1.30 follow the header; Python SDK 2.3 follows
   `_meta` for `traceparent` and `tracestate` but forwards the header's `baggage`.** The mix comes from
   `start_as_current_span(context=ctx)`: the context chooses the parent, but the span is attached to the current
@@ -129,13 +130,37 @@ Y2b shows that in these cells the bypass comes from replacing the header below t
   mode the agent's `_meta` trace never reached the server, with gateway tracing on or off.
 - With tracing **on**, the gateway's `tools/call` span is seeded from the header.
 - With tracing **off**, the gateway still rewrites the `traceparent` span id (and writes it into `_meta`) but exports
-  no span: the server's spans point to a parent that exists in no backend (`UNASSESSABLE`).
+  no span: the server's spans point to a parent span that is not among the spans the lab collected (`UNASSESSABLE`).
 - `_meta` only (K3, one run per SDK): the gateway starts a new trace and overwrites `_meta.traceparent`, but leaves the
   agent's `tracestate` and `baggage`; the Python server forwarded that `tracestate` on the new trace.
 
-### Reproduction
+### Tap neutrality
 
-FILLED AFTER THE E2E RUN
+The servers carry a read-only tap (it logs what crosses the boundary; it creates no spans and changes no headers).
+With the tap module loaded but silent (`-tapoff`), the verdicts equal the tapped runs in all 8 published c2 cells that
+have a tapped counterpart (`python3 lab/compare_tap.py`); with the module absent (`-notap`, P6) they equal the tapped
+runs for both SDKs over stdio and HTTP. Behind the gateway with the module absent, see the known defect above.
+
+### Reproduction on an updated stack
+
+From the committed tree, in fresh multipass VMs (8 CPUs, 16 GB), the quickstart as written, then `lab.sh reinstall`,
+one more round, `lab.sh uninstall`:
+
+| VM | Commit | Main round | After reinstall | Evidence |
+|---|---|---|---|---|
+| Ubuntu 26.04 | `a567fc7` | 306 runs, 864 verdict rows: **every planned cell-mode and control gave the published outcome in every run** | 114 runs, 384 rows: same | [`evidence/e2e-multipass/20261011T174925Z-ubuntu26.04/`](evidence/e2e-multipass/20261011T174925Z-ubuntu26.04/) (`summary.md`, `measurements.tsv`, raw runs in `raw-evidence-*.tar.gz`) |
+| Ubuntu 24.04 | PENDING | | | |
+
+The tolerated setup failure did not occur. The gateway cell with the hook module absent, which now reaches the
+server without the module (`gateway-config.yaml` of those runs), gave the outcome of the tapped cell in all 8 runs
+(2 per SDK in each round): tap neutrality holds behind the gateway too.
+
+The reproduction is a regression check on current versions (Node 24, CPython 3.14, Collector 0.162, zod 4 — within
+the TypeScript SDK's declared `^3.25 || ^4.0` — and `@opentelemetry/api` 1.9.1; the MCP and OpenTelemetry SDK versions
+are unchanged). It does not re-create the published environment, whose versions are listed under
+[Versions](#versions) and in each run's `images.txt`. Its plan differs from the published measurement in two
+places: the Python P6 HTTP control runs twice (published: once), and the gateway cell with the hook module absent now
+reaches the server without the module.
 
 ## Quickstart
 
@@ -226,7 +251,10 @@ docker run --rm -v "$PWD":/src -w /src python:3.14-slim sh -c 'pip install -q py
 
 They check that the published TSV is regenerated exactly from the evidence, that an independent implementation of
 the verdict rules (`lab/verdict_independent.py`, walks the span graph instead) agrees except on five known rows, that
-the plan covers every published cell-mode, and that `summary.py` accepts the published runs.
+the plan covers every published cell-mode, and that `summary.py` accepts the published runs and rejects a changed
+outcome, a duplicate row, an unlisted setup failure and an unplanned run. The expected outcomes are the published
+ones: a check of consistency over time, not an independent proof that a verdict is right; that is the role of
+`lab/verdict_independent.py`.
 
 ### Versions
 

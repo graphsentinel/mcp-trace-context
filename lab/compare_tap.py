@@ -2,7 +2,9 @@
 """Tap neutrality: verdicts of runs with the tap silent (-tapoff) or the module absent (-notap) vs the tapped main
 runs of the same cell (any config). Prints per cell: identical / differs."""
 import collections, csv, re
-rows = list(csv.DictReader(open("results/measurements.tsv"), delimiter="\t"))
+# runs that did not measure what their label says (evidence/measured/known-defects.tsv) are left out
+DEFECTS = {d["run_id"] for d in csv.DictReader(open("evidence/measured/known-defects.tsv"), delimiter="\t")}
+rows = [r for r in csv.DictReader(open("results/measurements.tsv"), delimiter="\t") if r["run_id"] not in DEFECTS]
 def key(r):  # cell identity without config, run number and tap suffix
     return (r["Y"], r["S"], r["T"], r["I"], r["M"], r["variant"], r["call"], r["subject"])
 def v(r):

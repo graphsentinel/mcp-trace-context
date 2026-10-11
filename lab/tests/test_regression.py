@@ -115,15 +115,57 @@ def test_expected_outcomes_file_is_current(tmp_path):
     assert open(make_expected.OUT).read() == old
 
 
-def test_summary_accepts_the_published_runs(tmp_path):
-    """The published runs, relabelled as a test run, pass every check except one: the plan runs the Python P6 HTTP
-    control twice, the published measurement once."""
+def _published_as_test_run(tmp_path, edit=None):
+    """The published runs relabelled as a test run (config 'lab'); edit(rows) may change the verdict rows first."""
     import json, plan, re
     lines = open("results/measurements.tsv").read().splitlines()
-    out = [lines[0]] + ["\t".join([re.sub(r"^c[12]-", "lab-", f[0]), "lab", *f[2:]]) for f in (l.split("\t") for l in lines[1:])]
-    (tmp_path / "m.tsv").write_text("\n".join(out) + "\n")
+    rows = [[re.sub(r"^c[12]-", "lab-", f[0]), "lab", *f[2:]] for f in (l.split("\t") for l in lines[1:])]
+    if edit:
+        rows = edit(rows)
+    (tmp_path / "m.tsv").write_text("\n".join([lines[0]] + ["\t".join(r) for r in rows]) + "\n")
     (tmp_path / "plan.json").write_text(json.dumps({"runs": 5, "config": "lab", "complete": True, "entries": plan.entries(5)}))
     r = subprocess.run([sys.executable, "scripts/summary.py", "--plan", str(tmp_path / "plan.json"), "--expected",
                         "lab/expected-outcomes.tsv", str(tmp_path / "m.tsv")], capture_output=True, text=True, check=False)
     failed = [l.strip() for l in r.stdout.split("CHECKS FAILED:")[-1].splitlines() if l.strip().startswith("- ")]
-    assert failed == ["- Y0-py2-http-auto-same-main-notap: 1 of 2 planned runs measured"], r.stdout
+    return r, failed
+
+
+KNOWN_COUNT_DIFF = ("- Y0-py2-http-auto-same-main-notap: 1 of 2 planned runs measured; "
+                    "missing lab-Y0-py2-http-auto-same-main-notap-r2")
+
+
+def test_summary_accepts_the_published_runs(tmp_path):
+    """Every check passes except one: the plan runs the Python P6 HTTP control twice, the published measurement once."""
+    r, failed = _published_as_test_run(tmp_path)
+    assert failed == [KNOWN_COUNT_DIFF], r.stdout
+
+
+def test_summary_rejects_a_duplicate_row(tmp_path):
+    r, failed = _published_as_test_run(tmp_path, lambda rows: rows + [rows[10]])
+    assert r.returncode == 1 and any("duplicate verdict rows" in f for f in failed), r.stdout
+
+
+def test_summary_rejects_a_changed_outcome(tmp_path):
+    def edit(rows):
+        k = next(i for i, x in enumerate(rows) if x[0].startswith("lab-Y0-ts1-http-auto-split-main-r1") and x[9] == "D")
+        rows[k][10] = "META"  # trace identity HEADER -> META
+        return rows
+    r, failed = _published_as_test_run(tmp_path, edit)
+    assert any("trace_identity HEADER->META" in f for f in failed), r.stdout
+
+
+def test_summary_tolerates_only_the_listed_setup_failure(tmp_path):
+    def edit(rows):
+        return [x[:20] + ["control failed: something else"] if x[9] == "run" else x for x in rows]
+    r, failed = _published_as_test_run(tmp_path, edit)
+    assert any("no verdict (77): control failed: something else" in f for f in failed), r.stdout
+
+
+def test_summary_rejects_an_unplanned_run(tmp_path):
+    def edit(rows):
+        extra = [x[:] for x in rows if x[0] == "lab-Y0-ts1-http-auto-split-main-r1"]
+        for x in extra:
+            x[0] = "lab-Y0-ts1-http-auto-split-main-r6"
+        return rows + extra
+    r, failed = _published_as_test_run(tmp_path, edit)
+    assert any("unplanned lab-Y0-ts1-http-auto-split-main-r6" in f for f in failed), r.stdout
