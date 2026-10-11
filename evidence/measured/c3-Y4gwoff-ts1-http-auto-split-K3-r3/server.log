@@ -1,0 +1,6 @@
+OA_TAP {"t":1791753275392,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791753275394,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"4644f83589d56bf6a33f5ad96c57b08d","span":"6825f50f34a2a74c"}}
+OA_TAP {"t":1791753275397,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791753275403,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-a03af0a3dd1b1ce0fb27bdbb498befca-7fba1cba3f4ea749-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791753275405,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-a03af0a3dd1b1ce0fb27bdbb498befca-7fba1cba3f4ea749-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"a03af0a3dd1b1ce0fb27bdbb498befca","span":"8f5923975a72f157"}}
+OA_TAP {"t":1791753275405,"at":"http-outbound","path":"/items/c3-Y4gwoff-ts1-http-auto-split-K3-r3-0-f8900a","active":{"trace":"a03af0a3dd1b1ce0fb27bdbb498befca","span":"8f5923975a72f157"},"headers":{"traceparent":"00-a03af0a3dd1b1ce0fb27bdbb498befca-2397abed53303e55-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}

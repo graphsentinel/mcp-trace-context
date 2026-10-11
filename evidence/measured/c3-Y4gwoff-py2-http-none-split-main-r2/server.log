@@ -1,0 +1,14 @@
+OA_TAP {"t": 1791753450153, "at": "http-inbound", "path": "/mcp", "headers": {}}
+OA_TAP {"t": 1791753450154, "at": "sdk-request", "method": "initialize", "meta": {}, "active": null}
+INFO:     10.42.0.14:52062 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791753450160, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.14:52062 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791753450161, "at": "sdk-request", "method": "notifications/initialized", "meta": {}, "active": null}
+OA_TAP {"t": 1791753450165, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-dd059d91df91ded1bc27671423fc62f9-4a83889975cbf974-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_TAP {"t": 1791753450166, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-dd059d91df91ded1bc27671423fc62f9-4a83889975cbf974-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": {"trace": "dd059d91df91ded1bc27671423fc62f9", "span": "4a83889975cbf974"}}
+OA_TAP {"t": 1791753450175, "at": "http-outbound", "path": "/items/c3-Y4gwoff-py2-http-none-split-main-r2-0-5c6706", "active": {"trace": "dd059d91df91ded1bc27671423fc62f9", "span": "4a83889975cbf974"}, "headers": {}}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c3-Y4gwoff-py2-http-none-split-main-r2-0-5c6706 "HTTP/1.1 200 OK"
+INFO:     10.42.0.14:52062 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

@@ -1,0 +1,23 @@
+frontendPolicies:
+  tracing:
+    host: otel-collector.oa-obs:4317
+    randomSampling: true
+binds:
+- port: 8080
+  listeners:
+  - routes:
+    - matches:
+      - path: {exact: /mcp}
+      policies:
+        transformations:
+          request:
+            set:
+              traceparent: 'coalesce(json(request.body).params._meta.traceparent, request.headers["traceparent"])'
+              tracestate: 'coalesce(json(request.body).params._meta.tracestate, request.headers["tracestate"])'
+              baggage: 'coalesce(json(request.body).params._meta.baggage, request.headers["baggage"])'
+      backends:
+      - mcp:
+          targets:
+          - name: oa
+            mcp:
+              host: http://mcp-py2-none-y4.oa-lab:8000/mcp

@@ -1,0 +1,27 @@
+{
+ "cell": {
+  "Y": "Y4",
+  "S": "py2",
+  "T": "http",
+  "I": "none",
+  "M": "split",
+  "variant": "main",
+  "config": "c3",
+  "tap": "1",
+  "gw_tracing": "off"
+ },
+ "graph": {
+  "exists": {
+   "G": false,
+   "A": false,
+   "S": false,
+   "O": false,
+   "D": true
+  },
+  "reference_parent": {
+   "D": "META"
+  },
+  "link_expected": {},
+  "spec_bypass_possible": false
+ }
+}

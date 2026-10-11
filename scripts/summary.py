@@ -177,7 +177,7 @@ def main():
 
 
 def _name(x):
-    return (f"{x['Y']}" + (f"gw{x['gw']}" if x["Y"] == "Y1" else "") + f"-{x['S']}-{x['T']}-{x['I']}-{x['M']}-{x['variant']}"
+    return (f"{x['Y']}" + (f"gw{x['gw']}" if x["Y"] in ("Y1", "Y4") else "") + f"-{x['S']}-{x['T']}-{x['I']}-{x['M']}-{x['variant']}"
             + {"1": "", "0": "-notap", "L0": "-tapoff"}[x["tap"]])
 
 

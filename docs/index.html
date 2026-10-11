@@ -134,9 +134,13 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
       proposals add a declarative way to set headers from body fields; as of 11 October 2026 neither mentions trace
       context.</li>
   </ul>
-  <p>The results below cover released SDKs, a SEP-2028 prototype, an alternative design and agentgateway as released.
-    Next: a gateway policy that copies <code>_meta</code> into headers, OpenTelemetry Operator injection and eBPF
-    instrumentation, each asked which carrier it reads, writes or drops.</p>
+  <p>The results cover released SDKs, a SEP-2028 prototype, an alternative design, agentgateway as released, and the
+    cluster option: agentgateway with a policy that copies <code>_meta</code> into the trace headers. With gateway
+    tracing off, that policy brought both SDKs onto <code>_meta</code>'s trace, tracestate and baggage, with the server's
+    own spans kept; with gateway tracing on, the gateway's span came from the header it received before the policy ran,
+    and the trace was mixed. Uninstrumented servers stayed disconnected either way: the SDK and the cluster are
+    complementary. Next: OpenTelemetry Operator injection and eBPF instrumentation, each asked which carrier it reads,
+    writes or drops.</p>
 </section>
 
 <section id="method">

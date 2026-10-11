@@ -52,10 +52,10 @@ layer has to decide which one the next hop sees. Today that decision is being di
   proposals (both Proposed) add a declarative way to set headers from body fields. As of 11 October 2026 neither
   mentions trace context.
 
-The lab measures the first two today: released SDKs, the SEP-2028 prototype (Y2), the alternative design (Y2b) and
-agentgateway as released (Y1). The cluster option, a gateway policy that copies `_meta` into headers before the MCP
-server (Y4), is being added next, together with OpenTelemetry Operator injection and eBPF instrumentation (Y3); for
-each, the question is which carrier it reads, writes or drops.
+The lab measures released SDKs, the SEP-2028 prototype (Y2), the alternative design (Y2b), agentgateway as released
+(Y1) and the cluster option: agentgateway with a policy that copies `_meta` into the trace headers before the MCP
+server (Y4, see [Results](#results)). OpenTelemetry Operator injection and eBPF instrumentation (Y3) are next; for each,
+the question is which carrier it reads, writes or drops.
 
 ## What is measured
 
@@ -107,7 +107,8 @@ that sets both carriers on purpose. The `Y2` hooks are our reading of a draft, n
 |---|---|---|---|
 | Published measurement, stage A (Y0, Y2) | 24 cell-modes × 5 runs + controls (c1: 155 run directories + P0, P5) | Node 22, CPython 3.12, Collector 0.151.0, k3s v1.37.1 | `evidence/measured/c1-*`, rows `config=c1` in `results/measurements.tsv` |
 | Published measurement, stage B (Y1, Y2b, py1, tap neutrality) | 24 cell-modes × 5 runs + gateway probes + tap runs (c2: 148) | same | `evidence/measured/c2-*`, rows `config=c2` |
-| Reproduction on an updated stack, fresh Ubuntu VMs | Ubuntu 26.04 and 24.04: 306 runs each (RUNS=5), then reinstall + 114 runs | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
+| Published measurement, stage C (Y4) | 20 cell-modes × 5 runs + 4 header-only controls (c3: 104), from commit `7afe77c` plus the Y4 runner | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/measured/c3-*`, rows `config=c3` |
+| Reproduction on an updated stack, fresh Ubuntu VMs | Ubuntu 26.04 and 24.04: 306 runs each (RUNS=5), then reinstall + 114 runs; made before Y4 was added (a rerun with Y4 is pending) | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
 
 The published runs were made before this repository existed, with the lab code of the first commit except for the
 runner changes it describes (cluster and images from the environment, gateway upstream per tap mode) and comment
@@ -161,6 +162,30 @@ Y2b shows that in these cells the bypass comes from replacing the header below t
   no span: the server's spans point to a parent span that is not among the spans the lab collected (`UNASSESSABLE`).
 - `_meta` only (K3, one run per SDK): the gateway starts a new trace and overwrites `_meta.traceparent`, but leaves the
   agent's `tracestate` and `baggage`; the Python server forwarded that `tracestate` on the new trace.
+
+### The cluster reconciles: a gateway policy copies `_meta` into the headers (Y4)
+
+agentgateway v1.6.0 with one route-level transformation policy (`lab/run_cell.py`, `Y4_POLICY`): set `traceparent`,
+`tracestate` and `baggage` from `params._meta`, falling back to the incoming header. The servers are the released SDKs
+without any bridge. 5 runs per cell-mode, every cell-mode identical in 5 of 5 (c3).
+
+| Gateway tracing | Server | Split (header ≠ `_meta`) and `_meta` only (K3): at the API (D) | `tracestate` / `baggage` at D |
+|---|---|---|---|
+| **off** | TS 1.32, Python 2.3, OTel auto | **agent's `_meta` trace, expected parent: the server's outbound span**; every server span in the `_meta` trace | `_meta`'s / `_meta`'s |
+| **on** | TS 1.32, Python 2.3, OTel auto | split: **header's trace**; K3: a **new trace** started by the gateway | `_meta`'s / `_meta`'s (**mixed** with the trace) |
+| on or off | TS 1.32, Python 2.3, OTel none | **no `traceparent`** | none |
+
+- With gateway tracing **off**, the policy does what neither SDK did alone: both SDKs converge on `_meta`'s trace,
+  tracestate and baggage, and the server's own spans stay in the chain (compare Y2's bypass and Python 2.3's mixed
+  baggage under Y0).
+- With gateway tracing **on**, the gateway starts its own span from the header it received **before** the policy
+  runs; the policy's `tracestate` and `baggage` then travel on that trace. The order of payload processing and the
+  gateway's trace extraction decides the outcome.
+- **Uninstrumented servers stay disconnected**: the policy only changes what reaches the server, and a server without
+  OpenTelemetry forwards nothing. There the SDK rule (Y2) is what connects them. The SDK and the cluster are
+  complementary, not alternatives.
+- Header only (K2, one run per SDK and tracing mode): the policy falls back to the header; the header's context
+  reaches the API.
 
 ### Tap neutrality
 
@@ -237,7 +262,7 @@ Options (environment): `RUNS` (5), `KUBE_CONTEXT`, `REGISTRY`, `ENGINE` (`docker
 ### The test plan and the expected outcomes
 
 `python3 lab/plan.py list` prints every entry: the 24 stage-A cell-modes, the controls, Python SDK 1.30, the gateway
-cell-modes, Y2b and the tap-neutrality runs (102 entries, 306 runs at `RUNS=5`). `lab/expected-outcomes.tsv` holds,
+cell-modes, Y2b, the tap-neutrality runs and Y4 (126 entries, 410 runs at `RUNS=5`). `lab/expected-outcomes.tsv` holds,
 for each entry, call and subject, the outcome of the published measurement; `lab/make_expected.py` regenerates it.
 `scripts/summary.py` fails when the run did not finish, a runner exited with an error, a planned run is missing or
 extra, or any verdict differs from the expected one.
@@ -278,7 +303,7 @@ docker run --rm -v "$PWD":/src -w /src python:3.14-slim sh -c 'pip install -q py
 ```
 
 They check that the published TSV is regenerated exactly from the evidence, that an independent implementation of
-the verdict rules (`lab/verdict_independent.py`, walks the span graph instead) agrees except on five known rows, that
+the verdict rules (`lab/verdict_independent.py`, walks the span graph instead) agrees except on three known rows (the TS P6 run without a verdict), that
 the plan covers every published cell-mode, and that `summary.py` accepts the published runs and rejects a changed
 outcome, a duplicate row, an unlisted setup failure and an unplanned run. The expected outcomes are the published
 ones: a check of consistency over time, not an independent proof that a verdict is right; that is the role of

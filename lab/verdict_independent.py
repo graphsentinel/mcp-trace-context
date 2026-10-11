@@ -58,10 +58,14 @@ def evaluate(run_dir):
             # S not an ancestor of O (should not happen for py2) — look for the tools/call span whose child is O
             pass
         if graph["exists"]["A"] and "A" not in roles:
-            gw_client = {s["span"] for s in spans if (s["service"] or "").startswith("agentgateway") and s["kind"] == 3}
-            hdr_parents = {ids.get("Ch") or ids.get("C")} | gw_client
+            gw_call = {s["span"] for s in spans if (s["service"] or "").startswith("agentgateway") and s["kind"] == 3
+                       and s["name"].startswith("tools/call")}
+            # the inbound header may carry the header span (Ch), or C when a gateway policy copied _meta into it (Y4);
+            # behind a tracing gateway the trace may be one the gateway started (K1/K3), so the gateway parent suffices
+            hdr_parents = {ids.get("Ch"), ids.get("C")} - {None}
             cand = [s for s in spans if s["service"] == svc and s["kind"] == 2 and not s["name"].startswith(MCP_METHOD)
-                    and s["parent"] in hdr_parents and s["trace"] in {ids.get("Tm"), ids.get("Th")}]
+                    and ((s["parent"] in hdr_parents and s["trace"] in {ids.get("Tm"), ids.get("Th")})
+                         or s["parent"] in gw_call)]
             if len(cand) == 1:
                 roles["A"] = cand[0]
             # tracing-off gateway: A's parent is a span id nobody exported → identify A as the only POST in the call trace
@@ -111,10 +115,10 @@ def expected_label(cell_graph, subject, prole, cell):
 
 def main():
     tsv = {(r["run_id"], int(r["call"]), r["subject"]): r for r in csv.DictReader(open("results/measurements.tsv"), delimiter="\t")
-           if r["config"] in ("c1", "c2") and r["call"] != ""}
+           if r["config"] in ("c1", "c2", "c3") and r["call"] != ""}
     agree = disagree = 0
     diffs = []
-    for d in sorted(glob.glob("evidence/measured/c[12]-Y*")):
+    for d in sorted(glob.glob("evidence/measured/c[123]-Y*")):
         if not os.path.exists(os.path.join(d, "expected.json")):
             continue
         exp, _ = load(d)

@@ -4,7 +4,7 @@
 def graph(cell):
     Y, S, T, I = cell["Y"], cell["S"], cell["T"], cell["I"]
     exists = {
-        "G": Y == "Y1" and cell.get("gw_tracing", "on") == "on",
+        "G": Y in ("Y1", "Y4") and cell.get("gw_tracing", "on") == "on",
         "A": T == "http" and I == "auto",          # transport server span for the tools/call POST
         "S": S == "py2" and I == "auto",            # MCP server span (Python SDK v2 middleware)
         "O": I == "auto",                           # server outbound HTTP client span
@@ -16,6 +16,8 @@ def graph(cell):
         ref["G"] = "SENT"                           # the context the gateway received
     if exists["A"]:
         ref["A"] = "G" if exists["G"] else "HDR"    # inbound HTTP header context
+        if Y == "Y4" and not exists["G"]:  # pre-registered: the gateway policy copied _meta into the header
+            ref["A"] = "META"
     if exists["S"]:
         ref["S"] = "G" if exists["G"] else "META"   # _meta context (semconv); link to A expected if A exists
     if exists["O"]:

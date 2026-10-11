@@ -18,6 +18,8 @@ Groups:
   py1       Python SDK 1.30, Y0                                        6 cell-modes x RUNS
   gateway   agentgateway in front of the Y0 server, tracing on / off   12 cell-modes x RUNS + K1-K3
   y2b       design experiment: activate _meta before the MCP handler   6 cell-modes x RUNS
+  y4        agentgateway + policy copying _meta into headers (route), tracing on / off   16 cell-modes x RUNS
+            + K3 (_meta only) x RUNS + K2 (header only) once
   tap       tap neutrality: hook module loaded but silent (L0), or absent (0)   2 runs each, K4 once
 """
 import argparse, json, os, subprocess, sys, time
@@ -76,6 +78,14 @@ def entries(runs):
         e.append(cell("y2b", "Y2b", S, "stdio", "auto", runs=runs))
         for M in ("same", "split"):
             e.append(cell("y2b", "Y2b", S, "http", "auto", M, runs=runs))
+    # Y4: agentgateway plus a route-level policy that sets the trace headers from params._meta (cluster reconciles)
+    for S in ("ts1", "py2"):
+        for gw in ("on", "off"):
+            for I in ("none", "auto"):
+                for M in ("same", "split"):
+                    e.append(cell("y4", "Y4", S, "http", I, M, gw=gw, runs=runs))
+            e.append(cell("y4", "Y4", S, "http", "auto", "split", "K3", gw=gw, runs=runs))  # _meta only
+            e.append(cell("y4", "Y4", S, "http", "auto", "split", "K2", gw=gw))             # header only
     # tap neutrality
     for S in ("ts1", "py2"):
         e.append(cell("tap", "Y0", S, "http", "auto", "split", tap="L0", runs=2))
@@ -89,7 +99,7 @@ def entries(runs):
 
 def run_id_prefix(c):
     """Run id without the -r<N> suffix, as lab/run_cell.py names it."""
-    return (f"{CONFIG}-{c['Y']}" + (f"gw{c['gw']}" if c["Y"] == "Y1" else "") + f"-{c['S']}-{c['T']}-{c['I']}-{c['M']}-{c['variant']}"
+    return (f"{CONFIG}-{c['Y']}" + (f"gw{c['gw']}" if c["Y"] in ("Y1", "Y4") else "") + f"-{c['S']}-{c['T']}-{c['I']}-{c['M']}-{c['variant']}"
             + {"1": "", "0": "-notap", "L0": "-tapoff"}[c["tap"]])
 
 

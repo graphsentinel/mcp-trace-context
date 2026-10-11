@@ -1,0 +1,6 @@
+OA_TAP {"t":1791753285582,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791753285584,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"03d1aea7e9af4ecde08cda15d42953ba","span":"dcf21c3a8c842c4d"}}
+OA_TAP {"t":1791753285588,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791753285594,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-e4ba97ba0cc6f549c42d620ae068f963-7f3de5124f3a0bb9-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_TAP {"t":1791753285596,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-e4ba97ba0cc6f549c42d620ae068f963-7f3de5124f3a0bb9-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"},"active":{"trace":"e4ba97ba0cc6f549c42d620ae068f963","span":"5d40857fdf04f06a"}}
+OA_TAP {"t":1791753285596,"at":"http-outbound","path":"/items/c3-Y4gwoff-ts1-http-auto-split-K2-r1-0-807574","active":{"trace":"e4ba97ba0cc6f549c42d620ae068f963","span":"5d40857fdf04f06a"},"headers":{"traceparent":"00-e4ba97ba0cc6f549c42d620ae068f963-2e5d2158b9aeba16-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}

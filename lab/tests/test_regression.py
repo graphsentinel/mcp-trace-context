@@ -42,12 +42,12 @@ def main_rows(cfg):
 
 
 def test_no_setup_failure_in_main_cells():
-    for cfg in ("c1", "c2"):
+    for cfg in ("c1", "c2", "c3"):
         assert not [r for r in main_rows(cfg) if r["evidence"] == "77"], cfg
 
 
 def test_every_main_group_identical_in_5_of_5():
-    for cfg in ("c1", "c2"):
+    for cfg in ("c1", "c2", "c3"):
         g = collections.defaultdict(set)
         runs = collections.defaultdict(set)
         for r in main_rows(cfg):
@@ -77,8 +77,7 @@ def test_bridge_ran_after_otel_in_every_instrumented_y2_run():
 KNOWN = {  # the independent implementation differs only here (README: independent verdict check)
     ("c1-Y0-ts1-http-auto-same-main-notap-r1", 0, "A"), ("c1-Y0-ts1-http-auto-same-main-notap-r1", 0, "O"),
     ("c1-Y0-ts1-http-auto-same-main-notap-r1", 0, "D"),
-    ("c2-Y1gwon-py2-http-auto-split-K1-r1", 0, "A"), ("c2-Y1gwon-py2-http-auto-split-K3-r1", 0, "A"),
-}
+}  # c2 Y1 K1/K3 A agree since the independent A rule accepts the gateway's tools/call client span as parent (2026-10-12)
 
 
 def test_independent_implementation_agrees():
@@ -119,7 +118,7 @@ def _published_as_test_run(tmp_path, edit=None):
     """The published runs relabelled as a test run (config 'lab'); edit(rows) may change the verdict rows first."""
     import json, plan, re
     lines = open("results/measurements.tsv").read().splitlines()
-    rows = [[re.sub(r"^c[12]-", "lab-", f[0]), "lab", *f[2:]] for f in (l.split("\t") for l in lines[1:])]
+    rows = [[re.sub(r"^c[123]-", "lab-", f[0]), "lab", *f[2:]] for f in (l.split("\t") for l in lines[1:])]
     if edit:
         rows = edit(rows)
     (tmp_path / "m.tsv").write_text("\n".join([lines[0]] + ["\t".join(r) for r in rows]) + "\n")

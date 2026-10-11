@@ -1,0 +1,6 @@
+OA_TAP {"t":1791753090066,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-c5fd740a25807ca70216dcb1cd56df4e-ac1066d841f25880-01"}}
+OA_TAP {"t":1791753090068,"at":"sdk-request","method":"initialize","meta":{"traceparent":"00-c5fd740a25807ca70216dcb1cd56df4e-ac1066d841f25880-01"},"active":null}
+OA_TAP {"t":1791753090072,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-19b10064888eecd11ff830c269573e0c-e9c3ac47f119aced-01"}}
+OA_TAP {"t":1791753090077,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-abd0def13d6a60fa54b7b62fbe513c64-7fc4b96bc09f56be-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791753090078,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-abd0def13d6a60fa54b7b62fbe513c64-7fc4b96bc09f56be-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":null}
+OA_TAP {"t":1791753090079,"at":"http-outbound","path":"/items/c3-Y4gwon-ts1-http-none-split-main-r1-0-72f730","active":null,"headers":{}}

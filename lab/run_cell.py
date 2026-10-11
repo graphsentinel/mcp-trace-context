@@ -15,6 +15,7 @@ import expected  # noqa: E402
 
 CTX = os.environ.get("KUBE_CONTEXT", "k3d-oa-trace-context")
 NS = "oa-lab"
+GW = ("Y1", "Y4")  # methods with agentgateway in front of the server
 IMG = {"ts1": os.environ.get("OA_IMAGE_TS1", "localhost/oa-ts1:1.32.1"),
        "py1": os.environ.get("OA_IMAGE_PY1", "localhost/oa-py1:1.30.0"),
        "py2": os.environ.get("OA_IMAGE_PY2", "localhost/oa-py2:2.3.0")}
@@ -77,17 +78,25 @@ def ensure_http_server(S, I, Y, tap="1"):
     return name
 
 
-def ensure_gateway(S, I, gw, tap="1"):
-    """agentgateway v1.6.0 as released in front of the Y1 server of the same tap mode; tracing on/off.
+Y4_POLICY = (  # Y4: copy the client's params._meta trace context into the headers before the MCP backend (route level)
+    "      policies:\n        transformations:\n          request:\n            set:\n"
+    + "".join(f"              {h}: 'coalesce(json(request.body).params._meta.{h}, request.headers[\"{h}\"])'\n"
+              for h in ("traceparent", "tracestate", "baggage")))
+
+
+def ensure_gateway(S, I, gw, tap="1", Y="Y1"):
+    """agentgateway v1.6.0 as released in front of the server of the same method and tap mode; tracing on/off.
+    Y1: as released. Y4: plus a route-level transformation policy that sets the trace headers from params._meta.
     (Before 2026-10-11 the upstream ignored the tap mode: the published c2 Y1 '-notap' runs reached the tapped server.)"""
-    name = f"agw-{S}-{I}-{gw}" + {"1": "", "0": "-notap", "L0": "-tapoff"}[tap]
-    upstream = f"http://{name_for(S, I, 'Y1', tap)}.{NS}:8000/mcp"
+    name = ("agw4" if Y == "Y4" else "agw") + f"-{S}-{I}-{gw}" + {"1": "", "0": "-notap", "L0": "-tapoff"}[tap]
+    upstream = f"http://{name_for(S, I, Y, tap)}.{NS}:8000/mcp"
     cfg = ""
     if gw == "on":
         # syntax of agentgateway's own examples/mcp-telemetry/config.yaml (v1.6.0); `config.tracing` is deprecated
         cfg = ("frontendPolicies:\n  tracing:\n    host: otel-collector.oa-obs:4317\n    randomSampling: true\n")
     cfg += ("binds:\n- port: 8080\n  listeners:\n  - routes:\n    - matches:\n      - path: {exact: /mcp}\n"
-            f"      backends:\n      - mcp:\n          targets:\n          - name: oa\n            mcp:\n              host: {upstream}\n")
+            + (Y4_POLICY if Y == "Y4" else "")
+            + f"      backends:\n      - mcp:\n          targets:\n          - name: oa\n            mcp:\n              host: {upstream}\n")
     cm = {"apiVersion": "v1", "kind": "ConfigMap", "metadata": {"name": name, "namespace": NS}, "data": {"config.yaml": cfg}}
     dep = {"apiVersion": "apps/v1", "kind": "Deployment", "metadata": {"name": name, "namespace": NS},
            "spec": {"replicas": 1, "selector": {"matchLabels": {"app": name}},
@@ -137,16 +146,16 @@ def main():
     cell = {"Y": a.Y, "S": a.S, "T": a.T, "I": a.I, "M": a.M, "variant": a.variant, "config": a.config, "tap": a.tap}
     svc = f"mcp-{a.S}"
     gwname = gwcfg = None
-    if a.Y == "Y1":
+    if a.Y in GW:
         cell["gw_tracing"] = a.gw
     if a.T == "http":
         name = ensure_http_server(a.S, a.I, a.Y, a.tap)
-        if a.Y == "Y1":
-            gwname, gwcfg = ensure_gateway(a.S, a.I, a.gw, a.tap)
+        if a.Y in GW:
+            gwname, gwcfg = ensure_gateway(a.S, a.I, a.gw, a.tap, a.Y)
     else:
         name = ensure_stdio_pod(a.S)
     for r in range(a.start, a.start + a.runs):
-        run = f"{a.config}-{a.Y}" + (f"gw{a.gw}" if a.Y == "Y1" else "") + f"-{a.S}-{a.T}-{a.I}-{a.M}-{a.variant}" \
+        run = f"{a.config}-{a.Y}" + (f"gw{a.gw}" if a.Y in GW else "") + f"-{a.S}-{a.T}-{a.I}-{a.M}-{a.variant}" \
             + {"1": "", "0": "-notap", "L0": "-tapoff"}[a.tap] + f"-r{r}"
         ev = os.path.join(a.evidence, run)
         os.makedirs(ev, exist_ok=True)
@@ -154,7 +163,7 @@ def main():
             json.dump({"cell": cell, "graph": expected.graph(cell)}, f, indent=1)
         since = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         wait_o = ["--wait-o", "--server-service", svc] if a.I == "auto" else []
-        if a.Y == "Y1" and a.gw == "on":
+        if a.Y in GW and a.gw == "on":
             wait_o.append("--wait-gw")
         if a.T == "http":
             cmd = ["-n", NS, "exec", "driver", "--", "python3", "/lab/driver/driver.py", "--run", run, "--variant",

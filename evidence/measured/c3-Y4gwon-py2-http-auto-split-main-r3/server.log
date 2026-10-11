@@ -1,0 +1,14 @@
+OA_TAP {"t": 1791753384736, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-48947c1ee8dd73f7af353bf3af48508d-e7bad2c82da059ce-01"}}
+OA_TAP {"t": 1791753384737, "at": "sdk-request", "method": "initialize", "meta": {"traceparent": "00-48947c1ee8dd73f7af353bf3af48508d-e7bad2c82da059ce-01"}, "active": {"trace": "48947c1ee8dd73f7af353bf3af48508d", "span": "9af7ca7454cdfa03"}}
+INFO:     10.42.0.13:35430 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791753384741, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-4e33c52cc770a4c79e239aa590b0faca-38f74a683b986919-01"}}
+INFO:     10.42.0.13:35430 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791753384744, "at": "sdk-request", "method": "notifications/initialized", "meta": {"traceparent": "00-4e33c52cc770a4c79e239aa590b0faca-38f74a683b986919-01"}, "active": {"trace": "4e33c52cc770a4c79e239aa590b0faca", "span": "78cfdd22e5db4fd1"}}
+OA_TAP {"t": 1791753384746, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-e9843c0ea010d9320c389915ba52bab2-ea315164902b2b71-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_TAP {"t": 1791753384748, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-e9843c0ea010d9320c389915ba52bab2-ea315164902b2b71-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": {"trace": "e9843c0ea010d9320c389915ba52bab2", "span": "c57edcb2d120b24d"}}
+OA_TAP {"t": 1791753384756, "at": "http-outbound", "path": "/items/c3-Y4gwon-py2-http-auto-split-main-r3-0-f6f40a", "active": {"trace": "e9843c0ea010d9320c389915ba52bab2", "span": "3a7ba6cd4c4eb623"}, "headers": {"traceparent": "00-e9843c0ea010d9320c389915ba52bab2-3a7ba6cd4c4eb623-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c3-Y4gwon-py2-http-auto-split-main-r3-0-f6f40a "HTTP/1.1 200 OK"
+INFO:     10.42.0.13:35430 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

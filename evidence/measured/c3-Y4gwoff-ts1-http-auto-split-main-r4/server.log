@@ -1,0 +1,6 @@
+OA_TAP {"t":1791753262109,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791753262111,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"af45006b6cd18e5956ef6b2a47a0d0fb","span":"75fe2ed1ef06f153"}}
+OA_TAP {"t":1791753262114,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791753262119,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-2f9029201b514703460b11f1027c901a-160f20f2dda8f812-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791753262120,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-2f9029201b514703460b11f1027c901a-160f20f2dda8f812-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"2f9029201b514703460b11f1027c901a","span":"741925f6ddeb40c7"}}
+OA_TAP {"t":1791753262121,"at":"http-outbound","path":"/items/c3-Y4gwoff-ts1-http-auto-split-main-r4-0-c9c31b","active":{"trace":"2f9029201b514703460b11f1027c901a","span":"741925f6ddeb40c7"},"headers":{"traceparent":"00-2f9029201b514703460b11f1027c901a-116e45715e122125-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}

@@ -1,0 +1,33 @@
+{
+ "cell": {
+  "Y": "Y4",
+  "S": "py2",
+  "T": "http",
+  "I": "auto",
+  "M": "same",
+  "variant": "main",
+  "config": "c3",
+  "tap": "1",
+  "gw_tracing": "on"
+ },
+ "graph": {
+  "exists": {
+   "G": true,
+   "A": true,
+   "S": true,
+   "O": true,
+   "D": true
+  },
+  "reference_parent": {
+   "G": "SENT",
+   "A": "G",
+   "S": "G",
+   "O": "S",
+   "D": "O"
+  },
+  "link_expected": {
+   "S": "A"
+  },
+  "spec_bypass_possible": false
+ }
+}
