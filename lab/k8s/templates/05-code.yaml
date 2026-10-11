@@ -1,0 +1,17 @@
+{{- range $name, $file := dict "lab-common" (dict "key" "otlp.py" "src" .Values.code.otlp) "driver-code" (dict "key" "driver.py" "src" .Values.code.driver) "downstream-code" (dict "key" "downstream.py" "src" .Values.code.downstream) }}
+{{- if not $file.src }}{{ fail (printf "code for %s is empty: install with scripts/lab.sh (it passes --set-file code.*)" $name) }}{{ end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: {{ $name }}, namespace: oa-lab}
+data:
+  {{ $file.key }}: |
+{{ $file.src | indent 4 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: span-reader-code, namespace: oa-obs}
+data:
+  span_reader.py: |
+{{ required "code.spanReader is empty: install with scripts/lab.sh" .Values.code.spanReader | indent 4 }}

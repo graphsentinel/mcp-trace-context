@@ -1,0 +1,8 @@
+OA_TAP {"t":1791449952820,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449952822,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449952823,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"981e64913222ccec368d6739d28a09ac","span":"0c9a9e95dc527f1d"}}
+OA_TAP {"t":1791449952824,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449952827,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449952828,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-9e2a2b1fdcbbff8e8d1b30400af3cfac-f599d836b7f9728b-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"a5e29333f829272753405c1d08db7547","span":"f20e1d1fce41b1f1"}}
+OA_TAP {"t":1791449952829,"at":"http-outbound","path":"/items/c1-Y2-ts1-http-auto-split-K3-r1-0-f6781f","active":{"trace":"a5e29333f829272753405c1d08db7547","span":"f20e1d1fce41b1f1"},"headers":{"traceparent":"00-a5e29333f829272753405c1d08db7547-7a245243420dc061-01"}}
+OA_BRIDGE {"override":"trace-context","replaced":[["traceparent","00-a5e29333f829272753405c1d08db7547-7a245243420dc061-01"]]}

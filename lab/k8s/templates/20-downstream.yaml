@@ -1,0 +1,33 @@
+# downstream-api: the HTTP API the MCP tool calls; it records the trace headers it received (stdlib Python).
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: downstream-api, namespace: oa-lab}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: downstream-api}}
+  template:
+    metadata:
+      labels: {app: downstream-api}
+      annotations: {oa/code-hash: {{ printf "%s%s" .Values.code.downstream .Values.code.otlp | sha256sum | trunc 12 }}}
+    spec:
+      containers:
+        - name: api
+          image: {{ .Values.images.python }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          command: ["python3", "/lab/downstream/downstream.py"]
+          env: [{name: OTLP_HTTP, value: "http://otel-collector.oa-obs:4318"}]
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 2}
+          volumeMounts:
+            - {name: downstream, mountPath: /lab/downstream}
+            - {name: common, mountPath: /lab/common}
+      volumes:
+        - {name: downstream, configMap: {name: downstream-code}}
+        - {name: common, configMap: {name: lab-common}}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: downstream-api, namespace: oa-lab}
+spec:
+  selector: {app: downstream-api}
+  ports: [{port: 8080}]

@@ -1,0 +1,30 @@
+{
+ "cell": {
+  "Y": "Y1",
+  "S": "ts1",
+  "T": "http",
+  "I": "auto",
+  "M": "split",
+  "variant": "main",
+  "config": "c2",
+  "tap": "0",
+  "gw_tracing": "on"
+ },
+ "graph": {
+  "exists": {
+   "G": true,
+   "A": true,
+   "S": false,
+   "O": true,
+   "D": true
+  },
+  "reference_parent": {
+   "G": "SENT",
+   "A": "G",
+   "O": "A",
+   "D": "O"
+  },
+  "link_expected": {},
+  "spec_bypass_possible": false
+ }
+}

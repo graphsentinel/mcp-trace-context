@@ -1,0 +1,18 @@
+# Build outputs and local state
+node_modules/
+dist/
+target/
+__pycache__/
+.venv/
+*.tar
+lab/.runtime/
+# Test runs (scripts/lab.sh test); the published runs are evidence/measured/ and results/measurements.tsv
+evidence/runs/
+evidence/e2e-multipass/*/raw-evidence-*.tar.gz
+results/runs/
+results/figures/
+# Never commit credentials or cluster access
+.env
+*.key
+*.pem
+*.kubeconfig

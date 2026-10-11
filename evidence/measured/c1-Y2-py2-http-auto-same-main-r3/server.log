@@ -1,0 +1,19 @@
+OA_TAP {"t": 1791449366029, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.16:40232 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+OA_TAP {"t": 1791449366031, "at": "http-inbound", "path": "/mcp", "headers": {}}
+OA_TAP {"t": 1791449366032, "at": "sdk-request", "method": "initialize", "meta": {}, "active": {"trace": "bf6337594a82a64019c4d2e1fd6945fc", "span": "b669a29a0035ba62"}}
+INFO:     10.42.0.16:40240 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791449366033, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.16:40248 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791449366034, "at": "sdk-request", "method": "notifications/initialized", "meta": {}, "active": {"trace": "360c112930085f71cf40ee9f1817574e", "span": "37c21eccbe8dd3f8"}}
+OA_TAP {"t": 1791449366036, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-acc3e2c5db61c06c7867d30fa7465631-c825e01634527118-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_TAP {"t": 1791449366037, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-acc3e2c5db61c06c7867d30fa7465631-c825e01634527118-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": {"trace": "acc3e2c5db61c06c7867d30fa7465631", "span": "2f6239ec9cd3df24"}}
+OA_TAP {"t": 1791449366046, "at": "http-outbound", "path": "/items/c1-Y2-py2-http-auto-same-main-r3-0-7bfd29", "active": {"trace": "acc3e2c5db61c06c7867d30fa7465631", "span": "7221efdfca4cab16"}, "headers": {"traceparent": "00-acc3e2c5db61c06c7867d30fa7465631-7221efdfca4cab16-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_BRIDGE {"override": "trace-context", "replaced": [["traceparent", "00-acc3e2c5db61c06c7867d30fa7465631-7221efdfca4cab16-01"], ["tracestate", "oa=meta"]]}
+OA_BRIDGE {"override": "baggage", "replaced": [["baggage", "oa.src=meta"]]}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c1-Y2-py2-http-auto-same-main-r3-0-7bfd29 "HTTP/1.1 200 OK"
+INFO:     10.42.0.16:40250 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

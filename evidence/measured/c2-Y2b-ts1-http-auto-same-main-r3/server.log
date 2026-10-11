@@ -1,0 +1,7 @@
+OA_TAP {"t":1791450927201,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791450927203,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791450927205,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"16c37420424ed856c8946b3837bd697a","span":"7963918c7f826bbb"}}
+OA_TAP {"t":1791450927207,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791450927211,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-19027c44b30e36aa74502fad56508127-b98684c9ef70bb54-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791450927213,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-19027c44b30e36aa74502fad56508127-b98684c9ef70bb54-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"19027c44b30e36aa74502fad56508127","span":"f7619bc43ed4a6f3"}}
+OA_TAP {"t":1791450927214,"at":"http-outbound","path":"/items/c2-Y2b-ts1-http-auto-same-main-r3-0-dcb9fc","active":{"trace":"19027c44b30e36aa74502fad56508127","span":"b98684c9ef70bb54"},"headers":{"traceparent":"00-19027c44b30e36aa74502fad56508127-25b787d8bdacb54d-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}

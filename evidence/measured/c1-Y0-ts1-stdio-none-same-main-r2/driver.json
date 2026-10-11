@@ -1,0 +1,159 @@
+{
+ "run": "c1-Y0-ts1-stdio-none-same-main-r2",
+ "variant": "main",
+ "mode": "same",
+ "url": null,
+ "stdio": "cd /app && env OA_TAP=1 OA_BRIDGE=0 MCP_TRANSPORT=stdio OTEL_SERVICE_NAME=mcp-ts1 DOWNSTREAM=http://downstream-api.oa-lab:8080 node --import ./oa-hooks.mjs server.mjs",
+ "calls": [
+  {
+   "item": "c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0",
+   "ids": {
+    "Tm": "8b67c502747cbd6e8d1367ca48cbafcf",
+    "R": "dd133983d5dce810",
+    "C": "480ea00cd41046bf",
+    "Th": null,
+    "Ch": null
+   },
+   "meta": {
+    "traceparent": "00-8b67c502747cbd6e8d1367ca48cbafcf-480ea00cd41046bf-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {},
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0\"}, \"_meta\": {\"traceparent\": \"00-8b67c502747cbd6e8d1367ca48cbafcf-480ea00cd41046bf-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+     "tools": {
+      "listChanged": true
+     }
+    },
+    "serverInfo": {
+     "name": "oa-ts1",
+     "version": "0.1.0"
+    }
+   },
+   "jsonrpc": "2.0",
+   "id": 1
+  },
+  {
+   "result": {
+    "content": [
+     {
+      "type": "text",
+      "text": "{\"id\": \"c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0\", \"nonce\": \"d9d32b2b1a63f04f\"}"
+     }
+    ]
+   },
+   "jsonrpc": "2.0",
+   "id": 10
+  }
+ ],
+ "server_stderr": "OA_TAP {\"t\":1791449115435,\"at\":\"sdk-request\",\"method\":\"initialize\",\"meta\":{},\"active\":null}\nOA_TAP {\"t\":1791449115439,\"at\":\"sdk-request\",\"method\":\"tools/call\",\"meta\":{\"traceparent\":\"00-8b67c502747cbd6e8d1367ca48cbafcf-480ea00cd41046bf-01\",\"tracestate\":\"oa=meta\",\"baggage\":\"oa.src=meta\"},\"active\":null}\nOA_TAP {\"t\":1791449115445,\"at\":\"http-outbound\",\"path\":\"/items/c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0\",\"active\":null,\"headers\":{}}\n",
+ "downstream": {
+  "c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0": [
+   {
+    "item": "c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0",
+    "headers": [
+     [
+      "host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "connection",
+      "keep-alive"
+     ],
+     [
+      "accept",
+      "*/*"
+     ],
+     [
+      "accept-language",
+      "*"
+     ],
+     [
+      "sec-fetch-mode",
+      "cors"
+     ],
+     [
+      "user-agent",
+      "node"
+     ],
+     [
+      "accept-encoding",
+      "gzip, deflate"
+     ]
+    ],
+    "traceparent_count": 0,
+    "d_trace": "6a0e76acd0d3b2f9af1fd11c3eb28dd4",
+    "d_span": "fd63308201056f29",
+    "d_parent": null,
+    "nonce": "d9d32b2b1a63f04f",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "6a0e76acd0d3b2f9af1fd11c3eb28dd4",
+   "span": "fd63308201056f29",
+   "parent": null,
+   "kind": 2,
+   "start": "1791449115454306775",
+   "end": "1791449115454337083",
+   "links": [],
+   "attrs": {
+    "oa.item": "c1-Y0-ts1-stdio-none-same-main-r2-0-05bbd0"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "8b67c502747cbd6e8d1367ca48cbafcf",
+   "span": "dd133983d5dce810",
+   "parent": null,
+   "kind": 1,
+   "start": "1791449115264162915",
+   "end": "1791449115469449391",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "8b67c502747cbd6e8d1367ca48cbafcf",
+   "span": "480ea00cd41046bf",
+   "parent": "dd133983d5dce810",
+   "kind": 3,
+   "start": "1791449115264162915",
+   "end": "1791449115469454540",
+   "links": [],
+   "attrs": {}
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true
+ },
+ "t_end_ms": 1791449116988
+}

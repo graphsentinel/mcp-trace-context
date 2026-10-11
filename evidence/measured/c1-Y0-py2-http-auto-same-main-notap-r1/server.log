@@ -1,0 +1,14 @@
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     10.42.0.16:44314 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+INFO:     10.42.0.16:44326 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     10.42.0.16:44338 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c1-Y0-py2-http-auto-same-main-notap-r1-0-0a5bb8 "HTTP/1.1 200 OK"
+INFO:     10.42.0.16:44340 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

@@ -1,0 +1,7 @@
+OA_TAP {"t":1791449924983,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449924985,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449924987,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"6d1e40880369fdbda085059d1e6ca17b","span":"99cf3452b0998bdb"}}
+OA_TAP {"t":1791449924989,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449924994,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449924996,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-cebe8f77eb5c41abd50cd16342c62425-e7e29bc38dd066eb-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"e9ce81cdb47f6bd18309b5bd4f2bb8f0","span":"ba24244fb53ac349"}}
+OA_TAP {"t":1791449924997,"at":"http-outbound","path":"/items/c1-Y0-ts1-http-auto-split-K3-r1-0-2dfb9f","active":{"trace":"e9ce81cdb47f6bd18309b5bd4f2bb8f0","span":"ba24244fb53ac349"},"headers":{"traceparent":"00-e9ce81cdb47f6bd18309b5bd4f2bb8f0-2bbac3cf9d0a5bf3-01"}}

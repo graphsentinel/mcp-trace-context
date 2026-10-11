@@ -1,0 +1,28 @@
+{
+ "cell": {
+  "Y": "Y0",
+  "S": "ts1",
+  "T": "http",
+  "I": "auto",
+  "M": "split",
+  "variant": "K3",
+  "config": "c1",
+  "tap": "1"
+ },
+ "graph": {
+  "exists": {
+   "G": false,
+   "A": true,
+   "S": false,
+   "O": true,
+   "D": true
+  },
+  "reference_parent": {
+   "A": "HDR",
+   "O": "A",
+   "D": "O"
+  },
+  "link_expected": {},
+  "spec_bypass_possible": false
+ }
+}

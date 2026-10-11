@@ -1,0 +1,599 @@
+{
+ "run": "c2-Y1gwon-py2-http-auto-split-K1-r1",
+ "variant": "K1",
+ "mode": "split",
+ "url": "http://agw-py2-auto-on.oa-lab:8080/mcp",
+ "stdio": null,
+ "calls": [
+  {
+   "item": "c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10",
+   "ids": {
+    "Tm": "4891379be7f0d563a3f1d976578d3479",
+    "R": "3b410ed11b30ba89",
+    "C": "0620d4bc54422bfe",
+    "Th": "6faf4769a9da2d7250b41e082a8503fe",
+    "Ch": "2dbf9f730ea1bbb4"
+   },
+   "meta": {},
+   "hdr": {},
+   "variant": "K1"
+  }
+ ],
+ "sent": [
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18",
+    "Mcp-Session-Id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiMzIyMmU4NGItOWU0OS00Njg5LTljMzctMjlmMzAyZTFhYjgxIn0"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18",
+    "Mcp-Session-Id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiMzIyMmU4NGItOWU0OS00Njg5LTljMzctMjlmMzAyZTFhYjgxIn0"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "status": 200,
+   "body": "event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":false},\"tools\":{\"listChanged\":false}},\"serverInfo\":{\"name\":\"oa-py2\",\"version\":\"\"}}}\n\n",
+   "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiMzIyMmU4NGItOWU0OS00Njg5LTljMzctMjlmMzAyZTFhYjgxIn0"
+  },
+  {
+   "status": 202,
+   "body": "",
+   "session": null
+  },
+  {
+   "status": 200,
+   "body": "event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":10,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"id\\\": \\\"c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10\\\", \\\"nonce\\\": \\\"afd615d234efbd1f\\\"}\"}],\"structuredContent\":{\"result\":\"{\\\"id\\\": \\\"c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10\\\", \\\"nonce\\\": \\\"afd615d234efbd1f\\\"}\"},\"isError\":false}}\n\n",
+   "session": null
+  }
+ ],
+ "downstream": {
+  "c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10": [
+   {
+    "item": "c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10",
+    "headers": [
+     [
+      "Host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "Accept",
+      "*/*"
+     ],
+     [
+      "Accept-Encoding",
+      "gzip, deflate"
+     ],
+     [
+      "Connection",
+      "keep-alive"
+     ],
+     [
+      "User-Agent",
+      "python-httpx/0.28.1"
+     ],
+     [
+      "traceparent",
+      "00-8eae3d9e2d2ec571624dda1020a7657b-6670cc9331f9f33c-01"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "8eae3d9e2d2ec571624dda1020a7657b",
+    "d_span": "77cd999c00bb2218",
+    "d_parent": "6670cc9331f9f33c",
+    "nonce": "afd615d234efbd1f",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "77cd999c00bb2218",
+   "parent": "6670cc9331f9f33c",
+   "kind": 2,
+   "start": "1791451520551304647",
+   "end": "1791451520551328396",
+   "links": [],
+   "attrs": {
+    "oa.item": "c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http receive",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "b4219a3a21ed620b",
+   "parent": "aa615cf11cf8cefc",
+   "kind": 1,
+   "start": "1791451520532215996",
+   "end": "1791451520532234821",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.request"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http send",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "dc0da393b5f72e8b",
+   "parent": "aa615cf11cf8cefc",
+   "kind": 1,
+   "start": "1791451520533592138",
+   "end": "1791451520533623233",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.response.start",
+    "http.status_code": "200"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http send",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "7fa27061d5a95a2f",
+   "parent": "aa615cf11cf8cefc",
+   "kind": 1,
+   "start": "1791451520534001502",
+   "end": "1791451520534019368",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.response.body"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "aa615cf11cf8cefc",
+   "parent": "a9803011838dabc9",
+   "kind": 2,
+   "start": "1791451520532069372",
+   "end": "1791451520534167863",
+   "links": [],
+   "attrs": {
+    "http.scheme": "http",
+    "http.host": "10.42.0.27:8000",
+    "net.host.port": "8000",
+    "http.flavor": "1.1",
+    "http.target": "/mcp",
+    "http.url": "http://mcp-py2-auto-y1.oa-lab/mcp",
+    "http.method": "POST",
+    "http.server_name": "mcp-py2-auto-y1.oa-lab",
+    "http.user_agent": "Python-urllib/3.12",
+    "net.peer.ip": "10.42.1.21",
+    "net.peer.port": "39532",
+    "http.route": "/mcp",
+    "http.status_code": "200"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http receive",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "d384ce59bcbd30c6",
+   "parent": "54554891657fe71d",
+   "kind": 1,
+   "start": "1791451520536658108",
+   "end": "1791451520536675387",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.request"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http send",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "c2587cb92f09492f",
+   "parent": "54554891657fe71d",
+   "kind": 1,
+   "start": "1791451520537006239",
+   "end": "1791451520537031583",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.response.start",
+    "http.status_code": "202"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http send",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "5ce89cad74b2340d",
+   "parent": "54554891657fe71d",
+   "kind": 1,
+   "start": "1791451520537304952",
+   "end": "1791451520537321477",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.response.body"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "54554891657fe71d",
+   "parent": "2b90481f717defd9",
+   "kind": 2,
+   "start": "1791451520536522233",
+   "end": "1791451520537386346",
+   "links": [],
+   "attrs": {
+    "http.scheme": "http",
+    "http.host": "10.42.0.27:8000",
+    "net.host.port": "8000",
+    "http.flavor": "1.1",
+    "http.target": "/mcp",
+    "http.url": "http://mcp-py2-auto-y1.oa-lab/mcp",
+    "http.method": "POST",
+    "http.server_name": "mcp-py2-auto-y1.oa-lab",
+    "http.user_agent": "Python-urllib/3.12",
+    "net.peer.ip": "10.42.1.21",
+    "net.peer.port": "39532",
+    "http.route": "/mcp",
+    "http.status_code": "202"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http receive",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "49201c73757d0b25",
+   "parent": "6f2be1c97ec49164",
+   "kind": 1,
+   "start": "1791451520540010938",
+   "end": "1791451520540030983",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.request"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http send",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "08fc24dee633f9bf",
+   "parent": "6f2be1c97ec49164",
+   "kind": 1,
+   "start": "1791451520554846767",
+   "end": "1791451520554880569",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.response.start",
+    "http.status_code": "200"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp http send",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "01eeb8c5e04f8e52",
+   "parent": "6f2be1c97ec49164",
+   "kind": 1,
+   "start": "1791451520555236379",
+   "end": "1791451520555254824",
+   "links": [],
+   "attrs": {
+    "asgi.event.type": "http.response.body"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.starlette",
+   "name": "POST /mcp",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "6f2be1c97ec49164",
+   "parent": "bded02d0018bb4c8",
+   "kind": 2,
+   "start": "1791451520539876680",
+   "end": "1791451520555402759",
+   "links": [],
+   "attrs": {
+    "http.scheme": "http",
+    "http.host": "10.42.0.27:8000",
+    "net.host.port": "8000",
+    "http.flavor": "1.1",
+    "http.target": "/mcp",
+    "http.url": "http://mcp-py2-auto-y1.oa-lab/mcp",
+    "http.method": "POST",
+    "http.server_name": "mcp-py2-auto-y1.oa-lab",
+    "http.user_agent": "Python-urllib/3.12",
+    "net.peer.ip": "10.42.1.21",
+    "net.peer.port": "39532",
+    "http.route": "/mcp",
+    "http.status_code": "200"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "mcp-python-sdk",
+   "name": "initialize",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "6e0dfcd0861cbcc2",
+   "parent": "a9803011838dabc9",
+   "kind": 2,
+   "start": "1791451520533020970",
+   "end": "1791451520533299395",
+   "links": [],
+   "attrs": {
+    "mcp.method.name": "initialize",
+    "mcp.protocol.version": "2025-06-18",
+    "jsonrpc.request.id": "1"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "mcp-python-sdk",
+   "name": "notifications/initialized",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "fee877bf0fe2a3a7",
+   "parent": "2b90481f717defd9",
+   "kind": 2,
+   "start": "1791451520537928509",
+   "end": "1791451520538016240",
+   "links": [],
+   "attrs": {
+    "mcp.method.name": "notifications/initialized",
+    "mcp.protocol.version": "2025-06-18"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "mcp-python-sdk",
+   "name": "tools/call fetch_item",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "73959270c249b3e7",
+   "parent": "bded02d0018bb4c8",
+   "kind": 2,
+   "start": "1791451520540713442",
+   "end": "1791451520554573585",
+   "links": [],
+   "attrs": {
+    "mcp.method.name": "tools/call",
+    "mcp.protocol.version": "2025-06-18",
+    "jsonrpc.request.id": "10",
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.tool.name": "fetch_item"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.httpx",
+   "name": "GET",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "6670cc9331f9f33c",
+   "parent": "73959270c249b3e7",
+   "kind": 3,
+   "start": "1791451520548290782",
+   "end": "1791451520553127897",
+   "links": [],
+   "attrs": {
+    "http.method": "GET",
+    "http.url": "http://downstream-api.oa-lab:8080/items/c2-Y1gwon-py2-http-auto-split-K1-r1-0-b1ce10",
+    "http.status_code": "200"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "GET /mcp",
+   "trace": "fa9316e9e74b1cb80bb1fe1868e4c076",
+   "span": "0c193f51b023ac17",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451520527338544",
+   "end": "1791451520528242021",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "GET",
+    "server.address": "agw-py2-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "406",
+    "trace.id": "fa9316e9e74b1cb80bb1fe1868e4c076",
+    "span.id": "0c193f51b023ac17",
+    "protocol": "mcp",
+    "reason": "MCP",
+    "duration": "0ms",
+    "url.scheme": "http",
+    "server.port": "8080",
+    "error.type": "MCP"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "initialize",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "8f1f49991802a143",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451520529778236",
+   "end": "1791451520534306912",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "POST",
+    "server.address": "agw-py2-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "200",
+    "trace.id": "1ca0efec124734ecf59846a608f6a59a",
+    "span.id": "8f1f49991802a143",
+    "protocol": "mcp",
+    "mcp.method.name": "initialize",
+    "mcp.session.id": "655a336f-89e4-4a7f-a0b8-f84418b9af31",
+    "duration": "4ms",
+    "url.scheme": "http",
+    "server.port": "8080"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "initialize oa",
+   "trace": "1ca0efec124734ecf59846a608f6a59a",
+   "span": "a9803011838dabc9",
+   "parent": "8f1f49991802a143",
+   "kind": 3,
+   "start": "1791451520529936209",
+   "end": "1791451520534164241",
+   "links": [],
+   "attrs": {
+    "agentgateway.outbound.kind": "Primary",
+    "agentgateway.outbound.subtype": "Mcp",
+    "mcp.target": "oa",
+    "mcp.method.name": "initialize"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "notifications/initialized",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "a2d19fb1c13d7f5a",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451520535817919",
+   "end": "1791451520537337546",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "POST",
+    "server.address": "agw-py2-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "202",
+    "trace.id": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+    "span.id": "a2d19fb1c13d7f5a",
+    "protocol": "mcp",
+    "mcp.method.name": "notifications/initialized",
+    "mcp.session.id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiMzIyMmU4NGItOWU0OS00Njg5LTljMzctMjlmMzAyZTFhYjgxIn0",
+    "duration": "1ms",
+    "url.scheme": "http",
+    "server.port": "8080"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "notifications/initialized oa",
+   "trace": "7a16f8ac7ee1a2313d0465e1e435ca1f",
+   "span": "2b90481f717defd9",
+   "parent": "a2d19fb1c13d7f5a",
+   "kind": 3,
+   "start": "1791451520535945873",
+   "end": "1791451520537304968",
+   "links": [],
+   "attrs": {
+    "agentgateway.outbound.kind": "Primary",
+    "agentgateway.outbound.subtype": "Mcp",
+    "mcp.target": "oa",
+    "mcp.method.name": "notifications/initialized"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "tools/call",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "ea716d045e18fd90",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451520539092609",
+   "end": "1791451520555681438",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "POST",
+    "server.address": "agw-py2-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "200",
+    "trace.id": "8eae3d9e2d2ec571624dda1020a7657b",
+    "span.id": "ea716d045e18fd90",
+    "protocol": "mcp",
+    "mcp.method.name": "tools/call",
+    "mcp.target": "oa",
+    "mcp.resource.type": "tool",
+    "gen_ai.tool.name": "fetch_item",
+    "mcp.session.id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiMzIyMmU4NGItOWU0OS00Njg5LTljMzctMjlmMzAyZTFhYjgxIn0",
+    "duration": "16ms",
+    "url.scheme": "http",
+    "server.port": "8080"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "tools/call oa_fetch_item",
+   "trace": "8eae3d9e2d2ec571624dda1020a7657b",
+   "span": "bded02d0018bb4c8",
+   "parent": "ea716d045e18fd90",
+   "kind": 3,
+   "start": "1791451520539242093",
+   "end": "1791451520555593470",
+   "links": [],
+   "attrs": {
+    "agentgateway.outbound.kind": "Primary",
+    "agentgateway.outbound.subtype": "Mcp",
+    "mcp.target": "oa",
+    "mcp.method.name": "tools/call",
+    "gen_ai.tool.name": "fetch_item"
+   }
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true,
+  "gateway_G": true
+ },
+ "t_end_ms": 1791451527159
+}

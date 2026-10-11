@@ -1,0 +1,191 @@
+{
+ "run": "c2-Y0-ts1-stdio-auto-same-main-tapoff-r2",
+ "variant": "main",
+ "mode": "same",
+ "url": null,
+ "stdio": "cd /app && env OA_TAP=0 OA_BRIDGE=0 MCP_TRANSPORT=stdio OTEL_SERVICE_NAME=mcp-ts1 DOWNSTREAM=http://downstream-api.oa-lab:8080 OTEL_PROPAGATORS=tracecontext,baggage OTEL_TRACES_SAMPLER=parentbased_always_on OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector.oa-obs:4318 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf OTEL_TRACES_EXPORTER=otlp OTEL_METRICS_EXPORTER=none OTEL_LOGS_EXPORTER=none OTEL_BSP_SCHEDULE_DELAY=200 OTEL_NODE_RESOURCE_DETECTORS=env,host,os node --experimental-loader=@opentelemetry/instrumentation/hook.mjs --import @opentelemetry/auto-instrumentations-node/register --import ./oa-hooks.mjs server.mjs",
+ "calls": [
+  {
+   "item": "c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6",
+   "ids": {
+    "Tm": "3802dff0b1b6feab93fd1b8ab38693ad",
+    "R": "70c9e9c492297c51",
+    "C": "0d0eab0d39d8e1cc",
+    "Th": null,
+    "Ch": null
+   },
+   "meta": {
+    "traceparent": "00-3802dff0b1b6feab93fd1b8ab38693ad-0d0eab0d39d8e1cc-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {},
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6\"}, \"_meta\": {\"traceparent\": \"00-3802dff0b1b6feab93fd1b8ab38693ad-0d0eab0d39d8e1cc-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "result": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+     "tools": {
+      "listChanged": true
+     }
+    },
+    "serverInfo": {
+     "name": "oa-ts1",
+     "version": "0.1.0"
+    }
+   },
+   "jsonrpc": "2.0",
+   "id": 1
+  },
+  {
+   "result": {
+    "content": [
+     {
+      "type": "text",
+      "text": "{\"id\": \"c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6\", \"nonce\": \"6e0c09a9fb0e1a7e\"}"
+     }
+    ]
+   },
+   "jsonrpc": "2.0",
+   "id": 10
+  }
+ ],
+ "server_stderr": "(node:190) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:\n--import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"%40opentelemetry/instrumentation/hook.mjs\", pathToFileURL(\"./\"));'\n(Use `node --trace-warnings ...` to show where the warning was created)\n",
+ "downstream": {
+  "c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6": [
+   {
+    "item": "c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6",
+    "headers": [
+     [
+      "host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "connection",
+      "keep-alive"
+     ],
+     [
+      "accept",
+      "*/*"
+     ],
+     [
+      "accept-language",
+      "*"
+     ],
+     [
+      "sec-fetch-mode",
+      "cors"
+     ],
+     [
+      "user-agent",
+      "node"
+     ],
+     [
+      "accept-encoding",
+      "gzip, deflate"
+     ],
+     [
+      "traceparent",
+      "00-7c616b8c33af7b387229b87b8c82ad9a-69c8c64bd393165c-01"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "7c616b8c33af7b387229b87b8c82ad9a",
+    "d_span": "be4ab70804200fdd",
+    "d_parent": "69c8c64bd393165c",
+    "nonce": "6e0c09a9fb0e1a7e",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "7c616b8c33af7b387229b87b8c82ad9a",
+   "span": "be4ab70804200fdd",
+   "parent": "69c8c64bd393165c",
+   "kind": 2,
+   "start": "1791453282560692408",
+   "end": "1791453282560714958",
+   "links": [],
+   "attrs": {
+    "oa.item": "c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": "@opentelemetry/instrumentation-undici",
+   "name": "GET",
+   "trace": "7c616b8c33af7b387229b87b8c82ad9a",
+   "span": "69c8c64bd393165c",
+   "parent": null,
+   "kind": 3,
+   "start": "1791453282551000000",
+   "end": "1791453282565618412",
+   "links": [],
+   "attrs": {
+    "http.request.method": "GET",
+    "http.request.method_original": "GET",
+    "url.full": "http://downstream-api.oa-lab:8080/items/c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6",
+    "url.path": "/items/c2-Y0-ts1-stdio-auto-same-main-tapoff-r2-0-7564a6",
+    "url.query": "",
+    "url.scheme": "http",
+    "server.address": "downstream-api.oa-lab",
+    "server.port": "8080",
+    "user_agent.original": "node",
+    "network.peer.address": "10.43.199.244",
+    "network.peer.port": "8080",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "200"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "3802dff0b1b6feab93fd1b8ab38693ad",
+   "span": "70c9e9c492297c51",
+   "parent": null,
+   "kind": 1,
+   "start": "1791453282028305578",
+   "end": "1791453282599846859",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "3802dff0b1b6feab93fd1b8ab38693ad",
+   "span": "0d0eab0d39d8e1cc",
+   "parent": "70c9e9c492297c51",
+   "kind": 3,
+   "start": "1791453282028305578",
+   "end": "1791453282599849861",
+   "links": [],
+   "attrs": {}
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true,
+  "gateway_G": true
+ },
+ "t_end_ms": 1791453284118
+}

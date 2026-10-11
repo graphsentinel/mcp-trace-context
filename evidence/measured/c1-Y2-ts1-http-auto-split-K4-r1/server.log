@@ -1,0 +1,14 @@
+OA_TAP {"t":1791449955553,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449955556,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449955556,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"c6a2b7e8cbb9c5b397aa79359e081b84","span":"e6649988d4ad1a3f"}}
+OA_TAP {"t":1791449955557,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449955560,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-344629cb86d8eb2fa864542c28227b11-b8933f09c65a5665-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_TAP {"t":1791449955561,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-b5945d977aafb9227fa2f83ea85a290c-2a3ed48df51c9252-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"344629cb86d8eb2fa864542c28227b11","span":"fa0f8e61514e5434"}}
+OA_TAP {"t":1791449955561,"at":"http-outbound","path":"/items/c1-Y2-ts1-http-auto-split-K4-r1-0-f05996","active":{"trace":"344629cb86d8eb2fa864542c28227b11","span":"fa0f8e61514e5434"},"headers":{"traceparent":"00-344629cb86d8eb2fa864542c28227b11-1dc6296dac5627c1-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_BRIDGE {"override":"trace-context","replaced":[["traceparent","00-344629cb86d8eb2fa864542c28227b11-1dc6296dac5627c1-01"],["tracestate","oa=hdr"]]}
+OA_BRIDGE {"override":"baggage","replaced":[["baggage","oa.src=hdr"]]}
+OA_TAP {"t":1791449955561,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-1da3491c74027892939a028ae63f9f85-979ad6373d0e5102-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_TAP {"t":1791449955562,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-ecea0cfa1dc8a08de0d4130b60e1beb1-057fddf186a522ff-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"1da3491c74027892939a028ae63f9f85","span":"30295b03b4bc5451"}}
+OA_TAP {"t":1791449955562,"at":"http-outbound","path":"/items/c1-Y2-ts1-http-auto-split-K4-r1-1-fc9cd5","active":{"trace":"1da3491c74027892939a028ae63f9f85","span":"30295b03b4bc5451"},"headers":{"traceparent":"00-1da3491c74027892939a028ae63f9f85-028aa10c008c216d-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_BRIDGE {"override":"trace-context","replaced":[["traceparent","00-1da3491c74027892939a028ae63f9f85-028aa10c008c216d-01"],["tracestate","oa=hdr"]]}
+OA_BRIDGE {"override":"baggage","replaced":[["baggage","oa.src=hdr"]]}

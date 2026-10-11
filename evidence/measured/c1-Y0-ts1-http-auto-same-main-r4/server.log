@@ -1,0 +1,7 @@
+OA_TAP {"t":1791449168834,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449168836,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449168837,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"b7bb4692cea43cf31854b4c28d546eb7","span":"fe58dad200e39b5d"}}
+OA_TAP {"t":1791449168840,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791449168846,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-cfd2588349f701dce3643e220f5526cd-9a84525003d4de40-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791449168848,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-cfd2588349f701dce3643e220f5526cd-9a84525003d4de40-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":{"trace":"cfd2588349f701dce3643e220f5526cd","span":"ba8a9dae734542c5"}}
+OA_TAP {"t":1791449168848,"at":"http-outbound","path":"/items/c1-Y0-ts1-http-auto-same-main-r4-0-ef9b0b","active":{"trace":"cfd2588349f701dce3643e220f5526cd","span":"ba8a9dae734542c5"},"headers":{"traceparent":"00-cfd2588349f701dce3643e220f5526cd-2b4225c591c30b93-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}

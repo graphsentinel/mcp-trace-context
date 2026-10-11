@@ -1,0 +1,16 @@
+OA_TAP {"t": 1791451991701, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.30:57730 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+OA_TAP {"t": 1791451991705, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.30:57732 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791451991707, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.30:57746 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791451991710, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-97c91a785564c7641398506e63b0c368-deb0493c001954a6-01", "tracestate": "oa=hdr", "baggage": "oa.src=hdr"}}
+OA_TAP {"t": 1791451991711, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-6b181d2fc98218398f34b512797bc092-afa796b43bd33c53-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": {"trace": "97c91a785564c7641398506e63b0c368", "span": "cbe2e50678fc4ce5"}}
+Processing request of type CallToolRequest
+OA_TAP {"t": 1791451991716, "at": "http-outbound", "path": "/items/c2-Y0-py1-http-auto-split-main-r1-0-c0c52e", "active": {"trace": "97c91a785564c7641398506e63b0c368", "span": "6076f4c16a4dd1b5"}, "headers": {"traceparent": "00-97c91a785564c7641398506e63b0c368-6076f4c16a4dd1b5-01", "tracestate": "oa=hdr", "baggage": "oa.src=hdr"}}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c2-Y0-py1-http-auto-split-main-r1-0-c0c52e "HTTP/1.1 200 OK"
+INFO:     10.42.0.30:57748 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

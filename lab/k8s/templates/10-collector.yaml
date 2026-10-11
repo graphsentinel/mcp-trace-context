@@ -1,0 +1,62 @@
+# OpenTelemetry Collector: OTLP in -> file exporter (the evidence). The span-reader sidecar serves that file to the driver.
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: otel-collector-config, namespace: oa-obs}
+data:
+  config.yaml: |
+    receivers:
+      otlp:
+        protocols:
+          http: {endpoint: 0.0.0.0:4318}
+          grpc: {endpoint: 0.0.0.0:4317}
+    processors:
+      batch: {timeout: 200ms}
+    exporters:
+      file:
+        path: /data/spans.jsonl
+        format: json
+        flush_interval: 100ms
+    service:
+      pipelines:
+        traces: {receivers: [otlp], processors: [batch], exporters: [file]}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: otel-collector, namespace: oa-obs}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: otel-collector}}
+  template:
+    metadata:
+      labels: {app: otel-collector}
+      annotations: {oa/code-hash: {{ .Values.code.spanReader | sha256sum | trunc 12 }}}
+    spec:
+      securityContext: {fsGroup: 10001}
+      containers:
+        - name: collector
+          image: {{ .Values.images.collector }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args: ["--config=/conf/config.yaml"]
+          ports: [{containerPort: 4318}, {containerPort: 4317}]
+          volumeMounts: [{name: conf, mountPath: /conf}, {name: data, mountPath: /data}]
+        - name: span-reader
+          image: {{ .Values.images.python }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          command: ["python3", "/code/span_reader.py"]
+          ports: [{containerPort: 8081}]
+          readinessProbe: {tcpSocket: {port: 8081}, periodSeconds: 2}
+          volumeMounts: [{name: code, mountPath: /code}, {name: data, mountPath: /data}]
+      volumes:
+        - {name: conf, configMap: {name: otel-collector-config}}
+        - {name: code, configMap: {name: span-reader-code}}
+        - {name: data, emptyDir: {}}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: otel-collector, namespace: oa-obs}
+spec:
+  selector: {app: otel-collector}
+  ports:
+    - {name: otlp-http, port: 4318}
+    - {name: otlp-grpc, port: 4317}
+    - {name: reader, port: 8081}

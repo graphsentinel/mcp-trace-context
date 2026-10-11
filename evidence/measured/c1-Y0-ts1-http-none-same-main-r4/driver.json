@@ -1,0 +1,164 @@
+{
+ "run": "c1-Y0-ts1-http-none-same-main-r4",
+ "variant": "main",
+ "mode": "same",
+ "url": "http://mcp-ts1-none-y0.oa-lab:8000/mcp",
+ "stdio": null,
+ "calls": [
+  {
+   "item": "c1-Y0-ts1-http-none-same-main-r4-0-800efe",
+   "ids": {
+    "Tm": "b35cd202faa320d0f216844fc03be46b",
+    "R": "aa202c66a4da33eb",
+    "C": "2bc772ca2e137b38",
+    "Th": null,
+    "Ch": null
+   },
+   "meta": {
+    "traceparent": "00-b35cd202faa320d0f216844fc03be46b-2bc772ca2e137b38-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {
+    "traceparent": "00-b35cd202faa320d0f216844fc03be46b-2bc772ca2e137b38-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18",
+    "traceparent": "00-b35cd202faa320d0f216844fc03be46b-2bc772ca2e137b38-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c1-Y0-ts1-http-none-same-main-r4-0-800efe\"}, \"_meta\": {\"traceparent\": \"00-b35cd202faa320d0f216844fc03be46b-2bc772ca2e137b38-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "status": 200,
+   "body": "{\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"tools\":{\"listChanged\":true}},\"serverInfo\":{\"name\":\"oa-ts1\",\"version\":\"0.1.0\"}},\"jsonrpc\":\"2.0\",\"id\":1}"
+  },
+  {
+   "status": 202,
+   "body": ""
+  },
+  {
+   "status": 200,
+   "body": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"id\\\": \\\"c1-Y0-ts1-http-none-same-main-r4-0-800efe\\\", \\\"nonce\\\": \\\"643c0053ec4e05b1\\\"}\"}]},\"jsonrpc\":\"2.0\",\"id\":10}"
+  }
+ ],
+ "downstream": {
+  "c1-Y0-ts1-http-none-same-main-r4-0-800efe": [
+   {
+    "item": "c1-Y0-ts1-http-none-same-main-r4-0-800efe",
+    "headers": [
+     [
+      "host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "connection",
+      "keep-alive"
+     ],
+     [
+      "accept",
+      "*/*"
+     ],
+     [
+      "accept-language",
+      "*"
+     ],
+     [
+      "sec-fetch-mode",
+      "cors"
+     ],
+     [
+      "user-agent",
+      "node"
+     ],
+     [
+      "accept-encoding",
+      "gzip, deflate"
+     ]
+    ],
+    "traceparent_count": 0,
+    "d_trace": "2c13e214820784ca8f3e8c85a19f0a71",
+    "d_span": "b47d227f20b9c91c",
+    "d_parent": null,
+    "nonce": "643c0053ec4e05b1",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "2c13e214820784ca8f3e8c85a19f0a71",
+   "span": "b47d227f20b9c91c",
+   "parent": null,
+   "kind": 2,
+   "start": "1791449130926667247",
+   "end": "1791449130926703777",
+   "links": [],
+   "attrs": {
+    "oa.item": "c1-Y0-ts1-http-none-same-main-r4-0-800efe"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "b35cd202faa320d0f216844fc03be46b",
+   "span": "aa202c66a4da33eb",
+   "parent": null,
+   "kind": 1,
+   "start": "1791449130916686078",
+   "end": "1791449130929444709",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "b35cd202faa320d0f216844fc03be46b",
+   "span": "2bc772ca2e137b38",
+   "parent": "aa202c66a4da33eb",
+   "kind": 3,
+   "start": "1791449130916686078",
+   "end": "1791449130929448279",
+   "links": [],
+   "attrs": {}
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true
+ },
+ "t_end_ms": 1791449132443
+}

@@ -1,0 +1,101 @@
+{
+ "run": "c1-P0",
+ "variant": "P0",
+ "mode": "same",
+ "url": null,
+ "stdio": null,
+ "calls": [
+  {
+   "item": "c1-P0-p0",
+   "ids": {
+    "Tm": "130de4d30d8184448f15eb26028c421f",
+    "C": "db1e11508e9a2df8"
+   },
+   "meta": {},
+   "hdr": {
+    "traceparent": "00-130de4d30d8184448f15eb26028c421f-db1e11508e9a2df8-01"
+   }
+  }
+ ],
+ "sent": [
+  {
+   "headers": {
+    "traceparent": "00-130de4d30d8184448f15eb26028c421f-db1e11508e9a2df8-01"
+   },
+   "url": "http://downstream-api.oa-lab:8080/items/c1-P0-p0"
+  }
+ ],
+ "responses": [
+  "{\"id\": \"c1-P0-p0\", \"nonce\": \"11e8035892af46ce\"}"
+ ],
+ "downstream": {
+  "c1-P0-p0": [
+   {
+    "item": "c1-P0-p0",
+    "headers": [
+     [
+      "Accept-Encoding",
+      "identity"
+     ],
+     [
+      "Host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "User-Agent",
+      "Python-urllib/3.12"
+     ],
+     [
+      "Traceparent",
+      "00-130de4d30d8184448f15eb26028c421f-db1e11508e9a2df8-01"
+     ],
+     [
+      "Connection",
+      "close"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "130de4d30d8184448f15eb26028c421f",
+    "d_span": "d507c84cd57fd930",
+    "d_parent": "db1e11508e9a2df8",
+    "nonce": "11e8035892af46ce",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "130de4d30d8184448f15eb26028c421f",
+   "span": "d507c84cd57fd930",
+   "parent": "db1e11508e9a2df8",
+   "kind": 2,
+   "start": "1791449111208601238",
+   "end": "1791449111208633050",
+   "links": [],
+   "attrs": {
+    "oa.item": "c1-P0-p0"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver P0",
+   "trace": "130de4d30d8184448f15eb26028c421f",
+   "span": "db1e11508e9a2df8",
+   "parent": null,
+   "kind": 1,
+   "start": "1791449111207001464",
+   "end": "1791449111210481230",
+   "links": [],
+   "attrs": {}
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true
+ },
+ "t_end_ms": 1791449112732
+}

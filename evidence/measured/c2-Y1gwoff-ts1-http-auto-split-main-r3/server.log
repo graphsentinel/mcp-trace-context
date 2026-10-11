@@ -1,0 +1,6 @@
+OA_TAP {"t":1791451445244,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791451445245,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"225c069bc8afe537f3e794324dd074ed","span":"1ea63cd1713c4569"}}
+OA_TAP {"t":1791451445248,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791451445251,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-09dfb0d911fb0c15869ce69a09bc9dc3-88edccf6beeba297-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_TAP {"t":1791451445253,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-09dfb0d911fb0c15869ce69a09bc9dc3-88edccf6beeba297-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"},"active":{"trace":"09dfb0d911fb0c15869ce69a09bc9dc3","span":"a8f1a84f7b7f1b23"}}
+OA_TAP {"t":1791451445253,"at":"http-outbound","path":"/items/c2-Y1gwoff-ts1-http-auto-split-main-r3-0-1dd48d","active":{"trace":"09dfb0d911fb0c15869ce69a09bc9dc3","span":"a8f1a84f7b7f1b23"},"headers":{"traceparent":"00-09dfb0d911fb0c15869ce69a09bc9dc3-13c4ff80ac596389-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}

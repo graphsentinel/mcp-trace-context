@@ -1,0 +1,479 @@
+{
+ "run": "c2-Y1gwon-ts1-http-auto-split-main-r4",
+ "variant": "main",
+ "mode": "split",
+ "url": "http://agw-ts1-auto-on.oa-lab:8080/mcp",
+ "stdio": null,
+ "calls": [
+  {
+   "item": "c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0",
+   "ids": {
+    "Tm": "eb4022b1757b76f0a8eb09302138f7a6",
+    "R": "d9b6e65e54516145",
+    "C": "51fee33a5c4a3c5b",
+    "Th": "b2d8244b7582a8b1de92ce15acd793f2",
+    "Ch": "4a148c64cfe2aa8e"
+   },
+   "meta": {
+    "traceparent": "00-eb4022b1757b76f0a8eb09302138f7a6-51fee33a5c4a3c5b-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {
+    "traceparent": "00-b2d8244b7582a8b1de92ce15acd793f2-4a148c64cfe2aa8e-01",
+    "tracestate": "oa=hdr",
+    "baggage": "oa.src=hdr"
+   },
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18",
+    "Mcp-Session-Id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiYmZhOTg5MjktN2YwMC00YTZkLWIxMDUtNmI5Njg0NzI2NzY5In0"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18",
+    "traceparent": "00-b2d8244b7582a8b1de92ce15acd793f2-4a148c64cfe2aa8e-01",
+    "tracestate": "oa=hdr",
+    "baggage": "oa.src=hdr",
+    "Mcp-Session-Id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiYmZhOTg5MjktN2YwMC00YTZkLWIxMDUtNmI5Njg0NzI2NzY5In0"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0\"}, \"_meta\": {\"traceparent\": \"00-eb4022b1757b76f0a8eb09302138f7a6-51fee33a5c4a3c5b-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "status": 200,
+   "body": "event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"tools\":{\"listChanged\":true}},\"serverInfo\":{\"name\":\"oa-ts1\",\"version\":\"0.1.0\"}}}\n\n",
+   "session": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiYmZhOTg5MjktN2YwMC00YTZkLWIxMDUtNmI5Njg0NzI2NzY5In0"
+  },
+  {
+   "status": 202,
+   "body": "",
+   "session": null
+  },
+  {
+   "status": 200,
+   "body": "event: message\ndata: {\"jsonrpc\":\"2.0\",\"id\":10,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"id\\\": \\\"c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0\\\", \\\"nonce\\\": \\\"10b24d11d4117b94\\\"}\"}]}}\n\n",
+   "session": null
+  }
+ ],
+ "downstream": {
+  "c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0": [
+   {
+    "item": "c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0",
+    "headers": [
+     [
+      "host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "connection",
+      "keep-alive"
+     ],
+     [
+      "accept",
+      "*/*"
+     ],
+     [
+      "accept-language",
+      "*"
+     ],
+     [
+      "sec-fetch-mode",
+      "cors"
+     ],
+     [
+      "user-agent",
+      "node"
+     ],
+     [
+      "accept-encoding",
+      "gzip, deflate"
+     ],
+     [
+      "traceparent",
+      "00-b2d8244b7582a8b1de92ce15acd793f2-fb08d3fc7e2cf3fb-01"
+     ],
+     [
+      "tracestate",
+      "oa=hdr"
+     ],
+     [
+      "baggage",
+      "oa.src=hdr"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "b2d8244b7582a8b1de92ce15acd793f2",
+    "d_span": "ac131266c61c37e4",
+    "d_parent": "fb08d3fc7e2cf3fb",
+    "nonce": "10b24d11d4117b94",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "b2d8244b7582a8b1de92ce15acd793f2",
+   "span": "ac131266c61c37e4",
+   "parent": "fb08d3fc7e2cf3fb",
+   "kind": 2,
+   "start": "1791451287134478720",
+   "end": "1791451287134522783",
+   "links": [],
+   "attrs": {
+    "oa.item": "c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "eb4022b1757b76f0a8eb09302138f7a6",
+   "span": "d9b6e65e54516145",
+   "parent": null,
+   "kind": 1,
+   "start": "1791451287122198811",
+   "end": "1791451287138681234",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "eb4022b1757b76f0a8eb09302138f7a6",
+   "span": "51fee33a5c4a3c5b",
+   "parent": "d9b6e65e54516145",
+   "kind": 3,
+   "start": "1791451287122198811",
+   "end": "1791451287138685869",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver header-carrier",
+   "trace": "b2d8244b7582a8b1de92ce15acd793f2",
+   "span": "4a148c64cfe2aa8e",
+   "parent": null,
+   "kind": 3,
+   "start": "1791451287122198811",
+   "end": "1791451287138688929",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": "@opentelemetry/instrumentation-http",
+   "name": "POST",
+   "trace": "466994d255b402a42d26d8045c895711",
+   "span": "b7542eb34f241924",
+   "parent": "997c9e6189cac99c",
+   "kind": 2,
+   "start": "1791451287125000000",
+   "end": "1791451287126301647",
+   "links": [],
+   "attrs": {
+    "http.request.method": "POST",
+    "url.scheme": "http",
+    "server.address": "mcp-ts1-auto-y1.oa-lab",
+    "network.peer.address": "10.42.1.16",
+    "network.peer.port": "35562",
+    "network.protocol.version": "1.1",
+    "user_agent.original": "Python-urllib/3.12",
+    "url.path": "/mcp",
+    "client.address": "10.42.1.16",
+    "server.port": "80",
+    "http.response.status_code": "200"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": "@opentelemetry/instrumentation-http",
+   "name": "POST",
+   "trace": "ab1750f5cabfffdb514f0d6dc46adae2",
+   "span": "b4182e985a977b43",
+   "parent": "bf08e5c9fc08f8f3",
+   "kind": 2,
+   "start": "1791451287128000000",
+   "end": "1791451287128907039",
+   "links": [],
+   "attrs": {
+    "http.request.method": "POST",
+    "url.scheme": "http",
+    "server.address": "mcp-ts1-auto-y1.oa-lab",
+    "network.peer.address": "10.42.1.16",
+    "network.peer.port": "35562",
+    "network.protocol.version": "1.1",
+    "user_agent.original": "Python-urllib/3.12",
+    "url.path": "/mcp",
+    "client.address": "10.42.1.16",
+    "server.port": "80",
+    "http.response.status_code": "202"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": "@opentelemetry/instrumentation-http",
+   "name": "POST",
+   "trace": "b2d8244b7582a8b1de92ce15acd793f2",
+   "span": "7da57b2678872cbf",
+   "parent": "15a1735dcefbfa9e",
+   "kind": 2,
+   "start": "1791451287131000000",
+   "end": "1791451287137373967",
+   "links": [],
+   "attrs": {
+    "http.request.method": "POST",
+    "url.scheme": "http",
+    "server.address": "mcp-ts1-auto-y1.oa-lab",
+    "network.peer.address": "10.42.1.16",
+    "network.peer.port": "35562",
+    "network.protocol.version": "1.1",
+    "user_agent.original": "Python-urllib/3.12",
+    "url.path": "/mcp",
+    "client.address": "10.42.1.16",
+    "server.port": "80",
+    "http.response.status_code": "200"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": "@opentelemetry/instrumentation-undici",
+   "name": "GET",
+   "trace": "b2d8244b7582a8b1de92ce15acd793f2",
+   "span": "fb08d3fc7e2cf3fb",
+   "parent": "7da57b2678872cbf",
+   "kind": 3,
+   "start": "1791451287133000000",
+   "end": "1791451287136564838",
+   "links": [],
+   "attrs": {
+    "http.request.method": "GET",
+    "http.request.method_original": "GET",
+    "url.full": "http://downstream-api.oa-lab:8080/items/c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0",
+    "url.path": "/items/c2-Y1gwon-ts1-http-auto-split-main-r4-0-cbdef0",
+    "url.query": "",
+    "url.scheme": "http",
+    "server.address": "downstream-api.oa-lab",
+    "server.port": "8080",
+    "user_agent.original": "node",
+    "network.peer.address": "10.43.199.244",
+    "network.peer.port": "8080",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "200"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "GET /mcp",
+   "trace": "30774b46659f0ae41179d7fb9aa56675",
+   "span": "81fe493b798dfe36",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451287123497226",
+   "end": "1791451287123612446",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "GET",
+    "server.address": "agw-ts1-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "406",
+    "trace.id": "30774b46659f0ae41179d7fb9aa56675",
+    "span.id": "81fe493b798dfe36",
+    "protocol": "mcp",
+    "reason": "MCP",
+    "duration": "0ms",
+    "url.scheme": "http",
+    "server.port": "8080",
+    "error.type": "MCP"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "initialize",
+   "trace": "466994d255b402a42d26d8045c895711",
+   "span": "dfc1bb44811e7051",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451287125021594",
+   "end": "1791451287127046920",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "POST",
+    "server.address": "agw-ts1-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "200",
+    "trace.id": "466994d255b402a42d26d8045c895711",
+    "span.id": "dfc1bb44811e7051",
+    "protocol": "mcp",
+    "mcp.method.name": "initialize",
+    "mcp.session.id": "3e02623c-9476-4da0-9390-f76b37dc12c3",
+    "duration": "2ms",
+    "url.scheme": "http",
+    "server.port": "8080"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "initialize oa",
+   "trace": "466994d255b402a42d26d8045c895711",
+   "span": "997c9e6189cac99c",
+   "parent": "dfc1bb44811e7051",
+   "kind": 3,
+   "start": "1791451287125098456",
+   "end": "1791451287127012831",
+   "links": [],
+   "attrs": {
+    "agentgateway.outbound.kind": "Primary",
+    "agentgateway.outbound.subtype": "Mcp",
+    "mcp.target": "oa",
+    "mcp.method.name": "initialize"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "notifications/initialized",
+   "trace": "ab1750f5cabfffdb514f0d6dc46adae2",
+   "span": "bb5d175d0c38b113",
+   "parent": null,
+   "kind": 2,
+   "start": "1791451287128202405",
+   "end": "1791451287129417419",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "POST",
+    "server.address": "agw-ts1-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "202",
+    "trace.id": "ab1750f5cabfffdb514f0d6dc46adae2",
+    "span.id": "bb5d175d0c38b113",
+    "protocol": "mcp",
+    "mcp.method.name": "notifications/initialized",
+    "mcp.session.id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiYmZhOTg5MjktN2YwMC00YTZkLWIxMDUtNmI5Njg0NzI2NzY5In0",
+    "duration": "1ms",
+    "url.scheme": "http",
+    "server.port": "8080"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "notifications/initialized oa",
+   "trace": "ab1750f5cabfffdb514f0d6dc46adae2",
+   "span": "bf08e5c9fc08f8f3",
+   "parent": "bb5d175d0c38b113",
+   "kind": 3,
+   "start": "1791451287128263361",
+   "end": "1791451287129404784",
+   "links": [],
+   "attrs": {
+    "agentgateway.outbound.kind": "Primary",
+    "agentgateway.outbound.subtype": "Mcp",
+    "mcp.target": "oa",
+    "mcp.method.name": "notifications/initialized"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "tools/call",
+   "trace": "b2d8244b7582a8b1de92ce15acd793f2",
+   "span": "038345d8cc2fea46",
+   "parent": "4a148c64cfe2aa8e",
+   "kind": 2,
+   "start": "1791451287131010089",
+   "end": "1791451287138048029",
+   "links": [],
+   "attrs": {
+    "gateway": "default/default",
+    "listener": "listener0",
+    "route": "default/route0",
+    "client.address": "10.42.0.30",
+    "http.request.method": "POST",
+    "server.address": "agw-ts1-auto-on.oa-lab",
+    "url.path": "/mcp",
+    "network.protocol.version": "1.1",
+    "http.response.status_code": "200",
+    "trace.id": "b2d8244b7582a8b1de92ce15acd793f2",
+    "span.id": "038345d8cc2fea46",
+    "protocol": "mcp",
+    "mcp.method.name": "tools/call",
+    "mcp.target": "oa",
+    "mcp.resource.type": "tool",
+    "gen_ai.tool.name": "fetch_item",
+    "mcp.session.id": "eyJ0IjoibWNwIiwicyI6W3sidCI6Im9hIn1dLCJyIjoiYmZhOTg5MjktN2YwMC00YTZkLWIxMDUtNmI5Njg0NzI2NzY5In0",
+    "duration": "7ms",
+    "url.scheme": "http",
+    "server.port": "8080"
+   }
+  },
+  {
+   "service": "agentgateway",
+   "scope": "agentgateway",
+   "name": "tools/call oa_fetch_item",
+   "trace": "b2d8244b7582a8b1de92ce15acd793f2",
+   "span": "15a1735dcefbfa9e",
+   "parent": "038345d8cc2fea46",
+   "kind": 3,
+   "start": "1791451287131122466",
+   "end": "1791451287137991703",
+   "links": [],
+   "attrs": {
+    "agentgateway.outbound.kind": "Primary",
+    "agentgateway.outbound.subtype": "Mcp",
+    "mcp.target": "oa",
+    "mcp.method.name": "tools/call",
+    "gen_ai.tool.name": "fetch_item"
+   }
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true,
+  "gateway_G": true
+ },
+ "t_end_ms": 1791451291206
+}

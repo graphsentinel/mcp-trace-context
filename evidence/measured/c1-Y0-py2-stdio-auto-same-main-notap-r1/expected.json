@@ -1,0 +1,28 @@
+{
+ "cell": {
+  "Y": "Y0",
+  "S": "py2",
+  "T": "stdio",
+  "I": "auto",
+  "M": "same",
+  "variant": "main",
+  "config": "c1",
+  "tap": "0"
+ },
+ "graph": {
+  "exists": {
+   "G": false,
+   "A": false,
+   "S": true,
+   "O": true,
+   "D": true
+  },
+  "reference_parent": {
+   "S": "META",
+   "O": "S",
+   "D": "O"
+  },
+  "link_expected": {},
+  "spec_bypass_possible": false
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "cell": {
+  "Y": "Y2b",
+  "S": "py2",
+  "T": "http",
+  "I": "auto",
+  "M": "split",
+  "variant": "main",
+  "config": "c2",
+  "tap": "L0"
+ },
+ "graph": {
+  "exists": {
+   "G": false,
+   "A": true,
+   "S": true,
+   "O": true,
+   "D": true
+  },
+  "reference_parent": {
+   "A": "HDR",
+   "S": "META",
+   "O": "S",
+   "D": "O"
+  },
+  "link_expected": {
+   "S": "A"
+  },
+  "spec_bypass_possible": false
+ }
+}

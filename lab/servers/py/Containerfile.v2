@@ -1,0 +1,10 @@
+# Python MCP server image (py2, MCP Python SDK 2.3.0).
+# BASE: Python image pinned by digest in scripts/versions.env (PYTHON_IMAGE). requirements-v2.txt lists the direct
+# dependencies; requirements-v2.lock.txt pins every package (regenerate both together).
+ARG BASE
+FROM ${BASE}
+WORKDIR /app
+COPY requirements-v2.txt requirements-v2.lock.txt ./
+RUN pip install --no-cache-dir --root-user-action=ignore -r requirements-v2.lock.txt && pip freeze > /app/pip-freeze.txt
+COPY server_v2.py launch.py oa_hooks.py ./
+CMD ["python3", "launch.py", "server_v2.py"]

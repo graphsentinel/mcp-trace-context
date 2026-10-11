@@ -1,0 +1,243 @@
+{
+ "run": "c2-Y2b-py2-stdio-auto-same-main-r1",
+ "variant": "main",
+ "mode": "same",
+ "url": null,
+ "stdio": "cd /app && env OA_TAP=1 OA_BRIDGE=activate MCP_TRANSPORT=stdio OTEL_SERVICE_NAME=mcp-py2 DOWNSTREAM=http://downstream-api.oa-lab:8080 OTEL_PROPAGATORS=tracecontext,baggage OTEL_TRACES_SAMPLER=parentbased_always_on OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector.oa-obs:4318 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf OTEL_TRACES_EXPORTER=otlp OTEL_METRICS_EXPORTER=none OTEL_LOGS_EXPORTER=none OTEL_BSP_SCHEDULE_DELAY=200 OTEL_NODE_RESOURCE_DETECTORS=env,host,os opentelemetry-instrument python3 launch.py server_v2.py",
+ "calls": [
+  {
+   "item": "c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2",
+   "ids": {
+    "Tm": "6491e29541fe50e77a40503fa7c8e6dd",
+    "R": "a1f9180c9204e43a",
+    "C": "b2ae67aa4d2c2cbb",
+    "Th": null,
+    "Ch": null
+   },
+   "meta": {
+    "traceparent": "00-6491e29541fe50e77a40503fa7c8e6dd-b2ae67aa4d2c2cbb-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {},
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2\"}, \"_meta\": {\"traceparent\": \"00-6491e29541fe50e77a40503fa7c8e6dd-b2ae67aa4d2c2cbb-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": {
+    "capabilities": {
+     "prompts": {
+      "listChanged": false
+     },
+     "resources": {
+      "listChanged": false,
+      "subscribe": false
+     },
+     "tools": {
+      "listChanged": false
+     }
+    },
+    "protocolVersion": "2025-06-18",
+    "serverInfo": {
+     "name": "oa-py2",
+     "version": ""
+    }
+   }
+  },
+  {
+   "jsonrpc": "2.0",
+   "id": 10,
+   "result": {
+    "content": [
+     {
+      "text": "{\"id\": \"c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2\", \"nonce\": \"38d5f395b77175c6\"}",
+      "type": "text"
+     }
+    ],
+    "isError": false,
+    "structuredContent": {
+     "result": "{\"id\": \"c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2\", \"nonce\": \"38d5f395b77175c6\"}"
+    }
+   }
+  }
+ ],
+ "server_stderr": "OA_TAP {\"t\": 1791450947690, \"at\": \"sdk-request\", \"method\": \"initialize\", \"meta\": {}, \"active\": {\"trace\": \"d216fb6cb4fad8f60c8f5e05aed5c81a\", \"span\": \"d545025bc24ea8c4\"}}\nOA_TAP {\"t\": 1791450947691, \"at\": \"sdk-request\", \"method\": \"notifications/initialized\", \"meta\": {}, \"active\": {\"trace\": \"5989ed6da374a5e61fca88e2aaf030f1\", \"span\": \"fdf85fc4111d9bdc\"}}\nOA_TAP {\"t\": 1791450947692, \"at\": \"sdk-request\", \"method\": \"tools/call\", \"meta\": {\"traceparent\": \"00-6491e29541fe50e77a40503fa7c8e6dd-b2ae67aa4d2c2cbb-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}, \"active\": {\"trace\": \"6491e29541fe50e77a40503fa7c8e6dd\", \"span\": \"9ea449189763ab6b\"}}\nOA_TAP {\"t\": 1791450947700, \"at\": \"http-outbound\", \"path\": \"/items/c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2\", \"active\": {\"trace\": \"6491e29541fe50e77a40503fa7c8e6dd\", \"span\": \"e7e4d40475ec805f\"}, \"headers\": {\"traceparent\": \"00-6491e29541fe50e77a40503fa7c8e6dd-e7e4d40475ec805f-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}\nHTTP Request: GET http://downstream-api.oa-lab:8080/items/c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2 \"HTTP/1.1 200 OK\"\n",
+ "downstream": {
+  "c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2": [
+   {
+    "item": "c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2",
+    "headers": [
+     [
+      "Host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "Accept",
+      "*/*"
+     ],
+     [
+      "Accept-Encoding",
+      "gzip, deflate"
+     ],
+     [
+      "Connection",
+      "keep-alive"
+     ],
+     [
+      "User-Agent",
+      "python-httpx/0.28.1"
+     ],
+     [
+      "traceparent",
+      "00-6491e29541fe50e77a40503fa7c8e6dd-e7e4d40475ec805f-01"
+     ],
+     [
+      "tracestate",
+      "oa=meta"
+     ],
+     [
+      "baggage",
+      "oa.src=meta"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "6491e29541fe50e77a40503fa7c8e6dd",
+    "d_span": "763e854e66f62a57",
+    "d_parent": "e7e4d40475ec805f",
+    "nonce": "38d5f395b77175c6",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "6491e29541fe50e77a40503fa7c8e6dd",
+   "span": "763e854e66f62a57",
+   "parent": "e7e4d40475ec805f",
+   "kind": 2,
+   "start": "1791450947704148091",
+   "end": "1791450947704179453",
+   "links": [],
+   "attrs": {
+    "oa.item": "c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "mcp-python-sdk",
+   "name": "initialize",
+   "trace": "d216fb6cb4fad8f60c8f5e05aed5c81a",
+   "span": "d545025bc24ea8c4",
+   "parent": null,
+   "kind": 2,
+   "start": "1791450947690255865",
+   "end": "1791450947690586316",
+   "links": [],
+   "attrs": {
+    "mcp.method.name": "initialize",
+    "mcp.protocol.version": "2025-11-25",
+    "jsonrpc.request.id": "1"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "mcp-python-sdk",
+   "name": "notifications/initialized",
+   "trace": "5989ed6da374a5e61fca88e2aaf030f1",
+   "span": "fdf85fc4111d9bdc",
+   "parent": null,
+   "kind": 2,
+   "start": "1791450947691841271",
+   "end": "1791450947691951466",
+   "links": [],
+   "attrs": {
+    "mcp.method.name": "notifications/initialized",
+    "mcp.protocol.version": "2025-06-18"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "mcp-python-sdk",
+   "name": "tools/call fetch_item",
+   "trace": "6491e29541fe50e77a40503fa7c8e6dd",
+   "span": "9ea449189763ab6b",
+   "parent": "b2ae67aa4d2c2cbb",
+   "kind": 2,
+   "start": "1791450947692564610",
+   "end": "1791450947707567576",
+   "links": [],
+   "attrs": {
+    "mcp.method.name": "tools/call",
+    "mcp.protocol.version": "2025-06-18",
+    "jsonrpc.request.id": "10",
+    "gen_ai.operation.name": "execute_tool",
+    "gen_ai.tool.name": "fetch_item"
+   }
+  },
+  {
+   "service": "mcp-py2",
+   "scope": "opentelemetry.instrumentation.httpx",
+   "name": "GET",
+   "trace": "6491e29541fe50e77a40503fa7c8e6dd",
+   "span": "e7e4d40475ec805f",
+   "parent": "9ea449189763ab6b",
+   "kind": 3,
+   "start": "1791450947700560543",
+   "end": "1791450947706068714",
+   "links": [],
+   "attrs": {
+    "http.method": "GET",
+    "http.url": "http://downstream-api.oa-lab:8080/items/c2-Y2b-py2-stdio-auto-same-main-r1-0-bddfa2",
+    "http.status_code": "200"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "6491e29541fe50e77a40503fa7c8e6dd",
+   "span": "a1f9180c9204e43a",
+   "parent": null,
+   "kind": 1,
+   "start": "1791450946956593974",
+   "end": "1791450947821932889",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "6491e29541fe50e77a40503fa7c8e6dd",
+   "span": "b2ae67aa4d2c2cbb",
+   "parent": "a1f9180c9204e43a",
+   "kind": 3,
+   "start": "1791450946956593974",
+   "end": "1791450947821944547",
+   "links": [],
+   "attrs": {}
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true
+ },
+ "t_end_ms": 1791450949342
+}

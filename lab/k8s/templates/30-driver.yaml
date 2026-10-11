@@ -1,0 +1,20 @@
+# Driver pod for HTTP cells (stdlib Python). stdio cells run the driver inside a pod of the server image (lab/run_cell.py).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: driver
+  namespace: oa-lab
+  labels: {app: driver}
+  annotations: {oa/code-hash: {{ printf "%s%s" .Values.code.driver .Values.code.otlp | sha256sum | trunc 12 }}}
+spec:
+  containers:
+    - name: driver
+      image: {{ .Values.images.python }}
+      imagePullPolicy: {{ .Values.imagePullPolicy }}
+      command: ["sleep", "infinity"]
+      volumeMounts:
+        - {name: common, mountPath: /lab/common}
+        - {name: driver, mountPath: /lab/driver}
+  volumes:
+    - {name: common, configMap: {name: lab-common}}
+    - {name: driver, configMap: {name: driver-code}}

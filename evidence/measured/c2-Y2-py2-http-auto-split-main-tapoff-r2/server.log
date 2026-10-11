@@ -1,0 +1,11 @@
+INFO:     10.42.0.30:59034 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+INFO:     10.42.0.30:59044 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     10.42.0.30:59054 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_BRIDGE {"override": "trace-context", "replaced": [["traceparent", "00-dff0c8a1ac967f0b7b1659c84061ef1c-db11650df22538ef-01"], ["tracestate", "oa=meta"]]}
+OA_BRIDGE {"override": "baggage", "replaced": [["baggage", "oa.src=hdr"]]}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c2-Y2-py2-http-auto-split-main-tapoff-r2-0-be5cbe "HTTP/1.1 200 OK"
+INFO:     10.42.0.30:59056 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

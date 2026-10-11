@@ -1,0 +1,6 @@
+OA_TAP {"t":1791451442782,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791451442783,"at":"sdk-request","method":"initialize","meta":{},"active":{"trace":"b23c475330cd8150a367664381650225","span":"31510c2c2acd50d6"}}
+OA_TAP {"t":1791451442785,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791451442788,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-137ba08c9ea2fb6192cf83bc4c1c59a7-5c9a6a727648e42f-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_TAP {"t":1791451442789,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-137ba08c9ea2fb6192cf83bc4c1c59a7-5c9a6a727648e42f-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"},"active":{"trace":"137ba08c9ea2fb6192cf83bc4c1c59a7","span":"35851b925942799f"}}
+OA_TAP {"t":1791451442789,"at":"http-outbound","path":"/items/c2-Y1gwoff-ts1-http-auto-split-main-r2-0-9bf697","active":{"trace":"137ba08c9ea2fb6192cf83bc4c1c59a7","span":"35851b925942799f"},"headers":{"traceparent":"00-137ba08c9ea2fb6192cf83bc4c1c59a7-84e789d0db3f8eb6-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}

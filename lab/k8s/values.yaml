@@ -1,0 +1,16 @@
+# Values for the oa-lab chart. scripts/lab.sh passes the image references from scripts/versions.env and the lab's
+# Python code (--set-file code.*), so these defaults matter only when the chart is installed by hand.
+
+# Never: images are imported into the k3d nodes. IfNotPresent: images come from a registry (REGISTRY=... scripts/lab.sh).
+imagePullPolicy: Never
+
+images:
+  python: docker.io/library/python:3.14.8-slim-trixie
+  collector: docker.io/otel/opentelemetry-collector-contrib:0.162.0
+
+# Source of the stdlib-only Python components, mounted as ConfigMaps (set by scripts/lab.sh from lab/)
+code:
+  otlp: ""          # lab/common/otlp.py
+  driver: ""        # lab/driver/driver.py
+  downstream: ""    # lab/downstream/downstream.py
+  spanReader: ""    # lab/collector/span_reader.py

@@ -1,0 +1,9 @@
+# oa-obs: the OpenTelemetry Collector (the evidence). oa-lab: downstream API, driver, and the MCP servers and gateways
+# that lab/run_cell.py starts per test (they live in this namespace, so 'helm uninstall' removes them with it).
+apiVersion: v1
+kind: Namespace
+metadata: {name: oa-obs, labels: {oa/role: observability}}
+---
+apiVersion: v1
+kind: Namespace
+metadata: {name: oa-lab, labels: {oa/role: lab}}

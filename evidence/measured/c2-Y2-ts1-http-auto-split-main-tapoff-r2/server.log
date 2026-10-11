@@ -1,0 +1,2 @@
+OA_BRIDGE {"override":"trace-context","replaced":[["traceparent","00-51f5ddd5d2a8c5108a3b2cd508bfd653-7e91fe3622f356ab-01"],["tracestate","oa=hdr"]]}
+OA_BRIDGE {"override":"baggage","replaced":[["baggage","oa.src=hdr"]]}

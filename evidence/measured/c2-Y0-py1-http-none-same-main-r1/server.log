@@ -1,0 +1,21 @@
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+OA_TAP {"t": 1791451939900, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.30:34266 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+OA_TAP {"t": 1791451939905, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.30:34282 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791451939910, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.30:34284 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791451939914, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-afe380b15fd43ead3f42ad230b99d915-c24e22f11bc1266e-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_TAP {"t": 1791451939924, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-afe380b15fd43ead3f42ad230b99d915-c24e22f11bc1266e-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": null}
+Processing request of type CallToolRequest
+OA_TAP {"t": 1791451939935, "at": "http-outbound", "path": "/items/c2-Y0-py1-http-none-same-main-r1-0-26190e", "active": null, "headers": {}}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c2-Y0-py1-http-none-same-main-r1-0-26190e "HTTP/1.1 200 OK"
+INFO:     10.42.0.30:34288 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

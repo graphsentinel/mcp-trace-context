@@ -1,0 +1,174 @@
+{
+ "run": "c1-Y2-py2-stdio-none-same-main-r2",
+ "variant": "main",
+ "mode": "same",
+ "url": null,
+ "stdio": "cd /app && env OA_TAP=1 OA_BRIDGE=1 MCP_TRANSPORT=stdio OTEL_SERVICE_NAME=mcp-py2 DOWNSTREAM=http://downstream-api.oa-lab:8080 python3 launch.py server_v2.py",
+ "calls": [
+  {
+   "item": "c1-Y2-py2-stdio-none-same-main-r2-0-150e60",
+   "ids": {
+    "Tm": "6a8e1eee3586cc5fb757b67f99c9aa1c",
+    "R": "99c3f57cdb95232b",
+    "C": "2a3ff82459fb6fce",
+    "Th": null,
+    "Ch": null
+   },
+   "meta": {
+    "traceparent": "00-6a8e1eee3586cc5fb757b67f99c9aa1c-2a3ff82459fb6fce-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {},
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "stdio": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c1-Y2-py2-stdio-none-same-main-r2-0-150e60\"}, \"_meta\": {\"traceparent\": \"00-6a8e1eee3586cc5fb757b67f99c9aa1c-2a3ff82459fb6fce-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": {
+    "capabilities": {
+     "prompts": {
+      "listChanged": false
+     },
+     "resources": {
+      "listChanged": false,
+      "subscribe": false
+     },
+     "tools": {
+      "listChanged": false
+     }
+    },
+    "protocolVersion": "2025-06-18",
+    "serverInfo": {
+     "name": "oa-py2",
+     "version": ""
+    }
+   }
+  },
+  {
+   "jsonrpc": "2.0",
+   "id": 10,
+   "result": {
+    "content": [
+     {
+      "text": "{\"id\": \"c1-Y2-py2-stdio-none-same-main-r2-0-150e60\", \"nonce\": \"6615073980db8ffb\"}",
+      "type": "text"
+     }
+    ],
+    "isError": false,
+    "structuredContent": {
+     "result": "{\"id\": \"c1-Y2-py2-stdio-none-same-main-r2-0-150e60\", \"nonce\": \"6615073980db8ffb\"}"
+    }
+   }
+  }
+ ],
+ "server_stderr": "OA_TAP {\"t\": 1791449337926, \"at\": \"sdk-request\", \"method\": \"initialize\", \"meta\": {}, \"active\": null}\nOA_TAP {\"t\": 1791449337928, \"at\": \"sdk-request\", \"method\": \"notifications/initialized\", \"meta\": {}, \"active\": null}\nOA_TAP {\"t\": 1791449337928, \"at\": \"sdk-request\", \"method\": \"tools/call\", \"meta\": {\"traceparent\": \"00-6a8e1eee3586cc5fb757b67f99c9aa1c-2a3ff82459fb6fce-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}, \"active\": {\"trace\": \"6a8e1eee3586cc5fb757b67f99c9aa1c\", \"span\": \"2a3ff82459fb6fce\"}}\nOA_TAP {\"t\": 1791449337937, \"at\": \"http-outbound\", \"path\": \"/items/c1-Y2-py2-stdio-none-same-main-r2-0-150e60\", \"active\": {\"trace\": \"6a8e1eee3586cc5fb757b67f99c9aa1c\", \"span\": \"2a3ff82459fb6fce\"}, \"headers\": {}}\nHTTP Request: GET http://downstream-api.oa-lab:8080/items/c1-Y2-py2-stdio-none-same-main-r2-0-150e60 \"HTTP/1.1 200 OK\"\n",
+ "downstream": {
+  "c1-Y2-py2-stdio-none-same-main-r2-0-150e60": [
+   {
+    "item": "c1-Y2-py2-stdio-none-same-main-r2-0-150e60",
+    "headers": [
+     [
+      "Host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "Accept",
+      "*/*"
+     ],
+     [
+      "Accept-Encoding",
+      "gzip, deflate"
+     ],
+     [
+      "Connection",
+      "keep-alive"
+     ],
+     [
+      "User-Agent",
+      "python-httpx/0.28.1"
+     ],
+     [
+      "traceparent",
+      "00-6a8e1eee3586cc5fb757b67f99c9aa1c-2a3ff82459fb6fce-01"
+     ],
+     [
+      "tracestate",
+      "oa=meta"
+     ],
+     [
+      "baggage",
+      "oa.src=meta"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "6a8e1eee3586cc5fb757b67f99c9aa1c",
+    "d_span": "6ef03fafda0460d7",
+    "d_parent": "2a3ff82459fb6fce",
+    "nonce": "6615073980db8ffb",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "6a8e1eee3586cc5fb757b67f99c9aa1c",
+   "span": "6ef03fafda0460d7",
+   "parent": "2a3ff82459fb6fce",
+   "kind": 2,
+   "start": "1791449337941308916",
+   "end": "1791449337941333481",
+   "links": [],
+   "attrs": {
+    "oa.item": "c1-Y2-py2-stdio-none-same-main-r2-0-150e60"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "6a8e1eee3586cc5fb757b67f99c9aa1c",
+   "span": "99c3f57cdb95232b",
+   "parent": null,
+   "kind": 1,
+   "start": "1791449337351245440",
+   "end": "1791449338058429497",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "6a8e1eee3586cc5fb757b67f99c9aa1c",
+   "span": "2a3ff82459fb6fce",
+   "parent": "99c3f57cdb95232b",
+   "kind": 3,
+   "start": "1791449337351245440",
+   "end": "1791449338058436766",
+   "links": [],
+   "attrs": {}
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true
+ },
+ "t_end_ms": 1791449339579
+}

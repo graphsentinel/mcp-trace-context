@@ -1,0 +1,20 @@
+OA_TAP {"t": 1791449988444, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.16:35492 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+OA_TAP {"t": 1791449988447, "at": "http-inbound", "path": "/mcp", "headers": {}}
+OA_TAP {"t": 1791449988448, "at": "sdk-request", "method": "initialize", "meta": {}, "active": {"trace": "f93407fc0e090c110a61add98e75d7b1", "span": "aa011192983926cd"}}
+INFO:     10.42.0.16:35508 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791449988450, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.16:35516 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791449988451, "at": "sdk-request", "method": "notifications/initialized", "meta": {}, "active": {"trace": "394d4484955f9fa24030d88bddfd69fd", "span": "cf0ea9dd78d74913"}}
+OA_TAP {"t": 1791449988452, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-a932b766725b12ecef89c1936668969d-d62329f712d5113c-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+Invalid baggage entry: `oa.src=meta
+X-Injected: yes`
+OA_TAP {"t": 1791449988453, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-a932b766725b12ecef89c1936668969d-d62329f712d5113c-01", "tracestate": "oa=meta", "baggage": "oa.src=meta\r\nX-Injected: yes"}, "active": {"trace": "a932b766725b12ecef89c1936668969d", "span": "40ca7d9872772c52"}}
+OA_TAP {"t": 1791449988458, "at": "http-outbound", "path": "/items/c1-Y2-py2-http-auto-same-B7-r1-0-743429", "active": {"trace": "a932b766725b12ecef89c1936668969d", "span": "0a71b8b968bf7e37"}, "headers": {"traceparent": "00-a932b766725b12ecef89c1936668969d-0a71b8b968bf7e37-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_BRIDGE {"override": "trace-context", "replaced": [["traceparent", "00-a932b766725b12ecef89c1936668969d-0a71b8b968bf7e37-01"], ["tracestate", "oa=meta"]]}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c1-Y2-py2-http-auto-same-B7-r1-0-743429 "HTTP/1.1 200 OK"
+INFO:     10.42.0.16:35528 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

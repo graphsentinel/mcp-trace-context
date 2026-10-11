@@ -1,0 +1,17 @@
+OA_TAP {"t": 1791449245752, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.16:38830 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+OA_TAP {"t": 1791449245755, "at": "http-inbound", "path": "/mcp", "headers": {}}
+OA_TAP {"t": 1791449245755, "at": "sdk-request", "method": "initialize", "meta": {}, "active": {"trace": "8cd2c75809d340d08abb583112b29d59", "span": "b49830adc96ba947"}}
+INFO:     10.42.0.16:38832 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791449245758, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.16:38840 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791449245759, "at": "sdk-request", "method": "notifications/initialized", "meta": {}, "active": {"trace": "a800c4b70c724f6911525a39d118be91", "span": "4d65365a29287a14"}}
+OA_TAP {"t": 1791449245761, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-ed7bfa9f4e0c54b9013c70549eaf054f-426fb5cd0f0aedf4-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_TAP {"t": 1791449245761, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-ed7bfa9f4e0c54b9013c70549eaf054f-426fb5cd0f0aedf4-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": {"trace": "ed7bfa9f4e0c54b9013c70549eaf054f", "span": "8b611cca0e9c931b"}}
+OA_TAP {"t": 1791449245768, "at": "http-outbound", "path": "/items/c1-Y0-py2-http-auto-same-main-r4-0-4a433a", "active": {"trace": "ed7bfa9f4e0c54b9013c70549eaf054f", "span": "9e57200a1f63839f"}, "headers": {"traceparent": "00-ed7bfa9f4e0c54b9013c70549eaf054f-9e57200a1f63839f-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c1-Y0-py2-http-auto-same-main-r4-0-4a433a "HTTP/1.1 200 OK"
+INFO:     10.42.0.16:38850 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

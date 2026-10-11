@@ -1,0 +1,16 @@
+frontendPolicies:
+  tracing:
+    host: otel-collector.oa-obs:4317
+    randomSampling: true
+binds:
+- port: 8080
+  listeners:
+  - routes:
+    - matches:
+      - path: {exact: /mcp}
+      backends:
+      - mcp:
+          targets:
+          - name: oa
+            mcp:
+              host: http://mcp-py2-none-y1.oa-lab:8000/mcp

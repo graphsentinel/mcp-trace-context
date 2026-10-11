@@ -1,0 +1,9 @@
+INFO:     10.42.0.30:33180 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+INFO:     10.42.0.30:33196 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+INFO:     10.42.0.30:33202 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c2-Y2b-py2-http-auto-split-main-tapoff-r2-0-508603 "HTTP/1.1 200 OK"
+INFO:     10.42.0.30:33204 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

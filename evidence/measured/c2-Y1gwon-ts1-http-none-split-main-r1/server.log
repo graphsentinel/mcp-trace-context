@@ -1,0 +1,6 @@
+OA_TAP {"t":1791451206790,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-5a3bc61e1b51422a12fb2867773cc372-80deb78ffcc6cbe8-01"}}
+OA_TAP {"t":1791451206792,"at":"sdk-request","method":"initialize","meta":{"traceparent":"00-5a3bc61e1b51422a12fb2867773cc372-80deb78ffcc6cbe8-01"},"active":null}
+OA_TAP {"t":1791451206797,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-111d96016230c291249d221efd678061-ae26e53baf375e44-01"}}
+OA_TAP {"t":1791451206803,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-6e17302311958561fbd4b6d0c1e91704-14183a5990f68a8e-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"}}
+OA_TAP {"t":1791451206805,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-6e17302311958561fbd4b6d0c1e91704-14183a5990f68a8e-01","tracestate":"oa=hdr","baggage":"oa.src=hdr"},"active":null}
+OA_TAP {"t":1791451206806,"at":"http-outbound","path":"/items/c2-Y1gwon-ts1-http-none-split-main-r1-0-70d4ca","active":null,"headers":{}}

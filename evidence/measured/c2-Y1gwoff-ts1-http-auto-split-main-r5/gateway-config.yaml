@@ -1,0 +1,12 @@
+binds:
+- port: 8080
+  listeners:
+  - routes:
+    - matches:
+      - path: {exact: /mcp}
+      backends:
+      - mcp:
+          targets:
+          - name: oa
+            mcp:
+              host: http://mcp-ts1-auto-y1.oa-lab:8000/mcp
