@@ -1,0 +1,17 @@
+# Instrumentation for I=op cells: the OpenTelemetry Operator injects auto-instrumentation into pods annotated
+# instrumentation.opentelemetry.io/inject-{nodejs,python}: "oa" (lab/run_cell.py OP_INJECT). The settings mirror the
+# lab's frozen OTEL_ENV for I=auto. Images: scripts/versions.env (the Operator's defaults for its version).
+apiVersion: opentelemetry.io/v1alpha1
+kind: Instrumentation
+metadata: {name: oa, namespace: oa-lab}
+spec:
+  exporter: {endpoint: "http://otel-collector.oa-obs:4318"}
+  propagators: [tracecontext, baggage]
+  sampler: {type: parentbased_always_on}
+  env:
+  - {name: OTEL_EXPORTER_OTLP_PROTOCOL, value: http/protobuf}
+  - {name: OTEL_BSP_SCHEDULE_DELAY, value: "200"}
+  - {name: OTEL_METRICS_EXPORTER, value: none}
+  - {name: OTEL_LOGS_EXPORTER, value: none}
+  nodejs: {image: "${OP_NODEJS_IMAGE}"}
+  python: {image: "${OP_PYTHON_IMAGE}"}

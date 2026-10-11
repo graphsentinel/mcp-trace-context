@@ -1,0 +1,10 @@
+OA_TAP {"t":1791756443988,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791756444041,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791756444065,"at":"sdk-request","method":"initialize","meta":{},"active":null}
+OA_TAP {"t":1791756444074,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791756444085,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-686ac9445d7824121b814adac51816f1-ca6309ea611d2862-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791756444089,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-686ac9445d7824121b814adac51816f1-ca6309ea611d2862-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":null}
+OA_TAP {"t":1791756444100,"at":"http-outbound","path":"/items/c5-Y3-ts1-http-obi-same-main-r1-0-671fb7","active":null,"headers":{}}
+Debugger listening on ws://127.0.0.1:9229/e3b1d48f-8007-454a-8d6d-1ab64fb84285
+For help, see: https://nodejs.org/learn/getting-started/debugging
+Debugger attached.

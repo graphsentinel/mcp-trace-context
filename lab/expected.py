@@ -5,9 +5,9 @@ def graph(cell):
     Y, S, T, I = cell["Y"], cell["S"], cell["T"], cell["I"]
     exists = {
         "G": Y in ("Y1", "Y4") and cell.get("gw_tracing", "on") == "on",
-        "A": T == "http" and I == "auto",          # transport server span for the tools/call POST
-        "S": S == "py2" and I == "auto",            # MCP server span (Python SDK v2 middleware)
-        "O": I == "auto",                           # server outbound HTTP client span
+        "A": T == "http" and I in ("auto", "op", "obi"),          # transport server span for the tools/call POST
+        "S": S == "py2" and I in ("auto", "op"),            # MCP server span (Python SDK v2 middleware)
+        "O": I in ("auto", "op", "obi"),                           # server outbound HTTP client span
         "D": True,
     }
     # Reference parent: the closest existing span upstream in the reference chain

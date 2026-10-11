@@ -19,7 +19,8 @@ import argparse, collections, csv, json, re, sys
 
 # The only setup failure that may be tolerated (and only in cells marked 77-tolerated in the expected file): the
 # server's outbound span O was not exported within the driver's 15 s window, everything else of the run complete.
-TOLERATED_FAILURE = re.compile(r"control failed: nonce=True complete=\{'downstream_and_D': True, 'server_O': False\}")  # fullmatch
+TOLERATED_FAILURE = re.compile(r"control failed: nonce=True complete=\{'downstream_and_D': True, 'server_O': False"
+                               r"(, 'gateway_G': True)?\}")  # fullmatch; newer drivers also record gateway_G
 VALUE = ["trace_identity", "parentage", "link", "fwd_tracestate", "fwd_baggage", "first_divergence", "evidence"]
 
 
@@ -56,6 +57,8 @@ def main():
         by_run[r["run_id"]].append(r)
 
     problems, notes = [], []
+    for grp, why in (plan.get("skipped") or {}).items():
+        notes.append(f"group {grp} not run: {why}")
     if not plan.get("complete"):
         problems.append("the test run did not reach its end (interrupted or aborted)")
     if a.runner_failures:

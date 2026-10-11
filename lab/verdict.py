@@ -106,7 +106,7 @@ def judge(run_dir):
         base = {"run_id": rec["run"], "config": cell["config"], "Y": cell["Y"] + ({"on": "-gw:on", "off": "-gw:off"}.get(cell.get("gw_tracing"), "")), "S": cell["S"], "T": cell["T"],
                 "I": cell["I"], "M": cell["M"], "variant": cell["variant"], "call": ci}
         entries = rec["downstream"].get(call["item"]) or []
-        ok = nonce_ok(rec, call) and rec["complete"]["downstream_and_D"] and (rec["complete"]["server_O"] or cell["I"] != "auto")
+        ok = nonce_ok(rec, call) and rec["complete"]["downstream_and_D"] and (rec["complete"]["server_O"] or cell["I"] not in ("auto", "op", "obi"))
         if cell["variant"] == "P0":
             ok = bool(entries)
         if not ok:
@@ -144,10 +144,16 @@ def judge(run_dir):
                 gcl = [x for x in rec["spans"] if (x["service"] or "").startswith("agentgateway") and x["kind"] == 3
                        and x["name"].startswith("tools/call") and x["trace"] == s["trace"]]
                 exp_parent = gcl[0]["span"] if len(gcl) == 1 else None
-            if exp_parent is None:
+            # eBPF instrumentation (OBI, Y3) puts INTERNAL spans of the same service between a server span and its
+            # outbound span ("in queue", "processing"); the server's own internal spans are skipped, no other span is
+            s = dict(s)
+            while s["parent"] in span_by_id and span_by_id[s["parent"]]["kind"] == 1 and span_by_id[s["parent"]]["service"] == svc \
+                    and r == "O" and cell["I"] == "obi":
+                s["parent"] = span_by_id[s["parent"]]["parent"]
+            if s["parent"] is None:
+                par = "ROOT"  # started a new trace (assessable even when the reference parent is missing)
+            elif exp_parent is None:
                 par = "UNASSESSABLE"  # the reference parent span itself is missing
-            elif s["parent"] is None:
-                par = "ROOT"  # started a new trace
             else:
                 exp_trace = (span_by_id.get(exp_parent) or {}).get("trace") or {ids.get("C"): ids.get("Tm"), ids.get("Ch"): ids.get("Th")}.get(exp_parent)
                 par = "EXPECTED" if (s["parent"] == exp_parent and (exp_trace is None or exp_trace == s["trace"])) else (

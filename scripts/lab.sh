@@ -28,7 +28,7 @@ RUNS=${RUNS:-5}; REGISTRY=${REGISTRY:-}
 export KUBE_CONTEXT=${KUBE_CONTEXT:-k3d-$CLUSTER}
 K="kubectl --context $KUBE_CONTEXT"
 H="helm --kube-context $KUBE_CONTEXT"
-RELEASE=oa-lab; RELEASE_NS=oa-lab-release; CHART="$ROOT/lab/k8s"
+RELEASE=oa-lab; RELEASE_NS=oa-lab-release; CHART="$ROOT/lab/k8s"; OPERATOR_RELEASE=oa-operator; OBI_RELEASE=oa-obi
 STATE="$ROOT/lab/.runtime"; mkdir -p "$STATE"
 
 log() { printf '\n==> %s\n' "$*"; }
@@ -52,11 +52,13 @@ case "$(uname -m)" in x86_64) ARCH=amd64 ;; aarch64|arm64) ARCH=arm64 ;; *) die 
 LAB_IMAGES=("$TS1_IMAGE" "$PY1_IMAGE" "$PY2_IMAGE")
 # the Python image runs the driver, downstream API and span reader: pulled by digest, used by its tag
 PYTHON_RUNTIME=${PYTHON_IMAGE%@*}
-THIRD_PARTY=("$PYTHON_RUNTIME" "$COLLECTOR_IMAGE" "$AGW_IMAGE")
+THIRD_PARTY=("$PYTHON_RUNTIME" "$COLLECTOR_IMAGE" "$AGW_IMAGE" "$OPERATOR_IMAGE" "$OP_NODEJS_IMAGE" "$OP_PYTHON_IMAGE" "$OBI_IMAGE")
 have_image() { $ENGINE image inspect "$1" >/dev/null 2>&1; }
 # reference the cluster pulls: the local tag (k3d import) or the registry copy
 ref() { if [ -n "$REGISTRY" ] && [[ "$1" == localhost/* ]]; then echo "$REGISTRY/${1#localhost/}"; else echo "$1"; fi; }
 on_lab_k3d() { [ "$KUBE_CONTEXT" = "k3d-$CLUSTER" ] && [ -z "$REGISTRY" ]; }
+# K3S_IMPORT=1: the cluster is a k3s on this machine (no k3d); images go straight into its containerd (needs sudo)
+on_local_k3s() { [ "${K3S_IMPORT:-0}" = 1 ] && [ -z "$REGISTRY" ]; }
 # pull <repo:tag@sha256:...>: by digest, then tag it, so that the tag names exactly the pinned content
 pull_pinned() {
   local img=$1 repo=${1%%@*} digest=${1##*@}
@@ -103,8 +105,18 @@ load_images() {
   if on_lab_k3d; then
     log "images: pull third-party, import all into k3d"
     pull_pinned "$PYTHON_IMAGE"
-    for i in "$COLLECTOR_IMAGE" "$AGW_IMAGE"; do $ENGINE pull -q --platform "linux/$ARCH" "$i" >/dev/null; done
+    for i in "$COLLECTOR_IMAGE" "$AGW_IMAGE" "$OPERATOR_IMAGE" "$OP_NODEJS_IMAGE" "$OP_PYTHON_IMAGE" "$OBI_IMAGE"; do $ENGINE pull -q --platform "linux/$ARCH" "$i" >/dev/null; done
     import_k3d "${THIRD_PARTY[@]}" "${LAB_IMAGES[@]}"
+  elif on_local_k3s; then
+    log "images: pull third-party, import all into the local k3s (sudo k3s ctr)"
+    pull_pinned "$PYTHON_IMAGE"
+    for i in "$COLLECTOR_IMAGE" "$AGW_IMAGE" "$OPERATOR_IMAGE" "$OP_NODEJS_IMAGE" "$OP_PYTHON_IMAGE" "$OBI_IMAGE"; do $ENGINE pull -q --platform "linux/$ARCH" "$i" >/dev/null; done
+    local tar="$STATE/images.tar"
+    if [ "$ENGINE" = podman ]; then podman save -m -o "$tar" "${THIRD_PARTY[@]}" "${LAB_IMAGES[@]}"
+    else docker save --platform "linux/$ARCH" -o "$tar" "${THIRD_PARTY[@]}" "${LAB_IMAGES[@]}" 2>/dev/null || docker save -o "$tar" "${THIRD_PARTY[@]}" "${LAB_IMAGES[@]}"; fi
+    sudo k3s ctr -n k8s.io images import "$tar" >/dev/null
+    rm -f "$tar"
+    echo "imported ${#THIRD_PARTY[@]} + ${#LAB_IMAGES[@]} images into k3s"
   elif [ -n "$REGISTRY" ]; then
     log "images: push lab images to $REGISTRY (third-party images are pulled by the cluster)"
     for i in "${LAB_IMAGES[@]}"; do $ENGINE tag "$i" "$(ref "$i")" && $ENGINE push -q "$(ref "$i")" >/dev/null && echo "  $(ref "$i")"; done
@@ -113,7 +125,7 @@ load_images() {
   fi
 }
 
-pull_policy() { if on_lab_k3d; then echo Never; else echo IfNotPresent; fi; }
+pull_policy() { if on_lab_k3d || on_local_k3s; then echo Never; else echo IfNotPresent; fi; }
 
 cmd_install() {
   need kubectl; need helm
@@ -133,6 +145,8 @@ cmd_install() {
     --set-file code.otlp="$ROOT/lab/common/otlp.py" --set-file code.driver="$ROOT/lab/driver/driver.py" \
     --set-file code.downstream="$ROOT/lab/downstream/downstream.py" --set-file code.spanReader="$ROOT/lab/collector/span_reader.py"
   $K -n oa-lab wait --for=condition=Ready pod/driver --timeout=180s >/dev/null
+  install_operator
+  install_obi
   log "collector and downstream answer"
   for _ in $(seq 1 30); do
     if $K -n oa-lab exec driver -- python3 -c "import urllib.request as u;u.urlopen('http://downstream-api.oa-lab:8080/healthz',timeout=5);u.urlopen('http://otel-collector.oa-obs:8081/since/0',timeout=5)" 2>/dev/null; then
@@ -142,8 +156,47 @@ cmd_install() {
   die "collector or downstream API not reachable from the driver"
 }
 
+# OpenTelemetry Operator for the I=op cells: its own release in namespace oa-operator (self-signed webhook certificate, no
+# cert-manager), then the Instrumentation "oa" in oa-lab (lab/k8s/operator/instrumentation.yaml)
+install_operator() {
+  log "OpenTelemetry Operator $OPERATOR_IMAGE (chart $OPERATOR_CHART_VERSION, release $OPERATOR_RELEASE)"
+  $H upgrade --install "$OPERATOR_RELEASE" opentelemetry-operator --repo "$OPERATOR_CHART_REPO" --version "$OPERATOR_CHART_VERSION" \
+    -n oa-operator --create-namespace --wait --timeout 5m \
+    --set manager.image.repository="${OPERATOR_IMAGE%:*}" --set manager.image.tag="${OPERATOR_IMAGE##*:}" \
+    --set manager.collectorImage.repository=otel/opentelemetry-collector-k8s \
+    --set admissionWebhooks.certManager.enabled=false --set admissionWebhooks.autoGenerateCert.enabled=true >/dev/null
+  # the webhook may need a moment after the rollout before it admits resources
+  for _ in $(seq 1 30); do
+    if sed -e "s|\${OP_NODEJS_IMAGE}|$OP_NODEJS_IMAGE|" -e "s|\${OP_PYTHON_IMAGE}|$OP_PYTHON_IMAGE|" \
+        "$ROOT/lab/k8s/operator/instrumentation.yaml" | $K apply -f - >/dev/null 2>&1; then echo "Instrumentation oa ready"; return 0; fi
+    sleep 2
+  done
+  die "Instrumentation oa could not be applied (Operator webhook not ready)"
+}
+
+# OBI for the Y3 cells: a privileged DaemonSet (namespace oa-obi) that instruments only deployments mcp-*-y3 in oa-lab
+# (lab/k8s/obi/values.yaml); the other servers are excluded, so the other cells are unaffected
+install_obi() {
+  log "OpenTelemetry eBPF Instrumentation $OBI_IMAGE (chart $OBI_CHART_VERSION, release $OBI_RELEASE)"
+  $H upgrade --install "$OBI_RELEASE" opentelemetry-ebpf-instrumentation --repo "$OPERATOR_CHART_REPO" --version "$OBI_CHART_VERSION" \
+    -n oa-obi --create-namespace --wait --timeout 5m -f "$ROOT/lab/k8s/obi/values.yaml" \
+    --set image.registry="${OBI_IMAGE%%/*}" --set image.repository="$(r=${OBI_IMAGE#*/}; echo "${r%:*}")" --set image.tag="${OBI_IMAGE##*:}" >/dev/null
+  echo "OBI running on $($K -n oa-obi get ds -o jsonpath='{.items[0].status.numberReady}') node(s)"
+}
+
 cmd_uninstall() {
   need kubectl; need helm
+  if $H status "$OBI_RELEASE" -n oa-obi >/dev/null 2>&1; then
+    log "helm uninstall $OBI_RELEASE (OBI)"
+    $H uninstall "$OBI_RELEASE" -n oa-obi --wait --timeout 5m
+  fi
+  $K delete ns oa-obi --ignore-not-found --wait=true --timeout=120s >/dev/null
+  if $H status "$OPERATOR_RELEASE" -n oa-operator >/dev/null 2>&1; then
+    log "helm uninstall $OPERATOR_RELEASE (OpenTelemetry Operator)"
+    $K -n oa-lab delete instrumentation oa --ignore-not-found >/dev/null 2>&1 || true
+    $H uninstall "$OPERATOR_RELEASE" -n oa-operator --wait --timeout 5m
+  fi
+  $K delete ns oa-operator --ignore-not-found --wait=true --timeout=120s >/dev/null
   if $H status "$RELEASE" -n "$RELEASE_NS" >/dev/null 2>&1; then
     log "helm uninstall $RELEASE (removes its namespaces oa-lab and oa-obs, with every server and gateway the tests started)"
     $H uninstall "$RELEASE" -n "$RELEASE_NS" --wait --timeout 10m
@@ -166,7 +219,7 @@ cmd_uninstall() {
   fi
   # check: none of the chart's namespaces is left
   local left
-  left=$($K get ns oa-lab oa-obs -o name --ignore-not-found) || die "could not verify the removal (API error)"
+  left=$($K get ns oa-lab oa-obs oa-operator oa-obi -o name --ignore-not-found) || die "could not verify the removal (API error)"
   [ -z "$left" ] || die "still present after uninstall: $(tr '\n' ' ' <<<"$left")"
   echo "removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)"
 }
@@ -186,6 +239,16 @@ cmd_test() {
   export OA_IMAGE_TS1 OA_IMAGE_PY1 OA_IMAGE_PY2 OA_IMAGE_AGW OA_PULL_POLICY
   OA_IMAGE_TS1=$(ref "$TS1_IMAGE"); OA_IMAGE_PY1=$(ref "$PY1_IMAGE"); OA_IMAGE_PY2=$(ref "$PY2_IMAGE")
   OA_IMAGE_AGW=$AGW_IMAGE; OA_PULL_POLICY=$(pull_policy)
+  # OBI's context propagation needs kernel lockdown "none" (Secure Boot puts the kernel in lockdown): skip Y3 otherwise
+  local lockdown; lockdown=$(sed -n 's/.*\[\(.*\)\].*/\1/p' /sys/kernel/security/lockdown 2>/dev/null || true)
+  if [ -n "$lockdown" ] && [ "$lockdown" != none ] && [ -z "${OA_SKIP_OBI:-}" ]; then
+    export OA_SKIP_OBI="kernel lockdown '$lockdown' on this host: OBI disables its context propagation"
+  fi
+  # in k3d the nodes are containers: OBI v0.14.0 cannot attach its FIONREAD compensation there and disables propagation
+  if on_lab_k3d && [ -z "${OA_SKIP_OBI:-}" ] && [ "${OA_OBI_IN_K3D:-0}" != 1 ]; then
+    export OA_SKIP_OBI="k3d cluster: OBI disables its context propagation inside k3d nodes; Y3 runs on a native k3s (K3S_IMPORT=1)"
+  fi
+  [ -z "${OA_SKIP_OBI:-}" ] || echo "Y3 (OBI) cells skipped: $OA_SKIP_OBI"
   log "test plan: $(python3 "$ROOT/lab/plan.py" list --runs "$RUNS" | tail -1) (RUNS=$RUNS); evidence: evidence/runs/$stamp"
   # plan.py writes the plan before the first run (complete=false) and records every runner's exit code
   python3 "$ROOT/lab/plan.py" run --runs "$RUNS" --evidence "$ev" --state "$STATE"

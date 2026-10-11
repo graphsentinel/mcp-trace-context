@@ -88,6 +88,9 @@ def evaluate(run_dir):
                     out.append((rec["run"], ci, r, "77"))
                     continue
                 p = s["parent"]
+                while r == "O" and cell["I"] == "obi" and (s["trace"], p) in key and key[(s["trace"], p)]["kind"] == 1 \
+                        and key[(s["trace"], p)]["service"] == svc:  # OBI's INTERNAL spans between server and outbound span
+                    p = key[(s["trace"], p)]["parent"]
                 prole = "ROOT" if p is None else named.get(p, "unexported" if (s["trace"], p) not in key and p not in named else "other")
                 out.append((rec["run"], ci, r, ident(s["trace"], ids), prole))
         n_tp = e["traceparent_count"]
@@ -115,10 +118,10 @@ def expected_label(cell_graph, subject, prole, cell):
 
 def main():
     tsv = {(r["run_id"], int(r["call"]), r["subject"]): r for r in csv.DictReader(open("results/measurements.tsv"), delimiter="\t")
-           if r["config"] in ("c1", "c2", "c3") and r["call"] != ""}
+           if r["config"] in ("c1", "c2", "c3", "c4", "c5") and r["call"] != ""}
     agree = disagree = 0
     diffs = []
-    for d in sorted(glob.glob("evidence/measured/c[123]-Y*")):
+    for d in sorted(glob.glob("evidence/measured/c[1-5]-Y*")):
         if not os.path.exists(os.path.join(d, "expected.json")):
             continue
         exp, _ = load(d)

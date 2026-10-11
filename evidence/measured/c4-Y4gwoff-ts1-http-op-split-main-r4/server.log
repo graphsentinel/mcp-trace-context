@@ -1,0 +1,6 @@
+OA_TAP {"t":1791754298185,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791754298188,"at":"sdk-request","method":"initialize","meta":{},"active":null}
+OA_TAP {"t":1791754298194,"at":"http-inbound","url":"/mcp","headers":{}}
+OA_TAP {"t":1791754298219,"at":"http-inbound","url":"/mcp","headers":{"traceparent":"00-3a184f1694f1aace2e6ea967bdc161c8-4c686c77e8d575c1-01","tracestate":"oa=meta","baggage":"oa.src=meta"}}
+OA_TAP {"t":1791754298226,"at":"sdk-request","method":"tools/call","meta":{"traceparent":"00-3a184f1694f1aace2e6ea967bdc161c8-4c686c77e8d575c1-01","tracestate":"oa=meta","baggage":"oa.src=meta"},"active":null}
+OA_TAP {"t":1791754298232,"at":"http-outbound","path":"/items/c4-Y4gwoff-ts1-http-op-split-main-r4-0-e4962c","active":null,"headers":{"traceparent":"00-0e14d3eb1f6ce089057fe428a4be9d7d-ae26053255878342-01"}}

@@ -1,0 +1,7 @@
+c5 (Y3, OBI) was measured in a fresh multipass VM with a single-node k3s (no k3d), because in k3d nodes
+OBI v0.14.0 disables its context propagation (FIONREAD compensation does not attach). VM:
+6.8.0-142-generic
+[none] integrity confidentiality
+Ubuntu 24.04.5 LTS
+k3s v1.37.1+k3s1; images built in the VM from the working tree of commit 488a63c plus the uncommitted Y3/Operator changes;
+OBI log lines: 26 (FIONREAD compensation verified)

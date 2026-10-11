@@ -54,8 +54,9 @@ layer has to decide which one the next hop sees. Today that decision is being di
 
 The lab measures released SDKs, the SEP-2028 prototype (Y2), the alternative design (Y2b), agentgateway as released
 (Y1) and the cluster option: agentgateway with a policy that copies `_meta` into the trace headers before the MCP
-server (Y4, see [Results](#results)). OpenTelemetry Operator injection and eBPF instrumentation (Y3) are next; for each,
-the question is which carrier it reads, writes or drops.
+server (Y4), and the two ways of switching tracing on without code changes: OpenTelemetry Operator injection (I=op)
+and eBPF instrumentation with OBI (Y3). For each, the question is which carrier it reads, writes or drops
+(see [Results](#results)).
 
 ## What is measured
 
@@ -108,6 +109,8 @@ that sets both carriers on purpose. The `Y2` hooks are our reading of a draft, n
 | Published measurement, stage A (Y0, Y2) | 24 cell-modes × 5 runs + controls (c1: 155 run directories + P0, P5) | Node 22, CPython 3.12, Collector 0.151.0, k3s v1.37.1 | `evidence/measured/c1-*`, rows `config=c1` in `results/measurements.tsv` |
 | Published measurement, stage B (Y1, Y2b, py1, tap neutrality) | 24 cell-modes × 5 runs + gateway probes + tap runs (c2: 148) | same | `evidence/measured/c2-*`, rows `config=c2` |
 | Published measurement, stage C (Y4) | 20 cell-modes × 5 runs + 4 header-only controls (c3: 104), from commit `7afe77c` plus the Y4 runner | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/measured/c3-*`, rows `config=c3` |
+| Published measurement, stage D (Operator injection) | 6 cell-modes × 5 runs (c4: 30) | as stage C, OpenTelemetry Operator v0.160.0 | `evidence/measured/c4-*`, rows `config=c4` |
+| Published measurement, stage E (OBI, Y3) | 6 cell-modes × 5 runs (c5: 30), **in a fresh Ubuntu 24.04 VM with a single-node k3s**, not k3d (see Y3 below) | as stage C, OBI v0.14.0, kernel 6.8.0-142 | `evidence/measured/c5-*`, `c5-environment.txt`, `c5-obi.log` |
 | Reproduction on an updated stack, fresh Ubuntu VMs | Ubuntu 26.04 and 24.04: 306 runs each (RUNS=5), then reinstall + 114 runs; made before Y4 was added (a rerun with Y4 is pending) | Node 24, CPython 3.14, Collector 0.162.0, k3s v1.37.1 (`scripts/versions.env`) | `evidence/e2e-multipass/` |
 
 The published runs were made before this repository existed, with the lab code of the first commit except for the
@@ -187,6 +190,52 @@ without any bridge. 5 runs per cell-mode, every cell-mode identical in 5 of 5 (c
 - Header only (K2, one run per SDK and tracing mode): the policy falls back to the header; the header's context
   reaches the API.
 
+### OpenTelemetry Operator injection (I=op)
+
+The same released servers, uninstrumented in the image; the OpenTelemetry Operator v0.160.0 injects the
+auto-instrumentation through its webhook (`Instrumentation` in `lab/k8s/operator/instrumentation.yaml`, Node.js 0.78.0,
+Python 0.66b0, the same propagators, sampler and exporter as I=auto). 5 runs per cell-mode, identical in 5 of 5 (c4).
+
+| Server | Y0 split (header ≠ `_meta`) | Y4, gateway tracing off, split |
+|---|---|---|
+| Python 2.3 | as I=auto: `_meta`'s trace and tracestate, the **header's baggage** | as I=auto: `_meta`'s trace, tracestate and baggage, server spans kept |
+| TS 1.32 (ESM) | **no inbound span; the outbound request starts a new trace**: the API is in neither the header's nor `_meta`'s trace, without tracestate or baggage | the same: the gateway policy cannot help |
+
+The Operator injects Node.js instrumentation with `NODE_OPTIONS=--require`, which does not instrument the inbound HTTP
+of an ES-module server such as this one (built on the MCP TypeScript SDK); only `fetch` (undici, via diagnostics
+channels) is instrumented, so the tool's outbound span is a root. This is a known limitation
+([open-telemetry/opentelemetry-operator#3414](https://github.com/open-telemetry/opentelemetry-operator/issues/3414),
+"Support `--import` flag for Node.js instrumentation", open). The image's own launcher (I=auto) uses
+`--experimental-loader` plus `--import` and does instrument it.
+
+### eBPF instrumentation: OBI (Y3)
+
+OpenTelemetry eBPF Instrumentation v0.14.0 (`lab/k8s/obi/values.yaml`: only the Y3 servers, `context_propagation:
+headers`) on servers **without** OpenTelemetry. 5 runs per cell-mode, identical in 5 of 5 (c5; the first run per SDK,
+while OBI attaches to the new pod, exported no outbound span and is tolerated).
+
+| Carriers sent | Server spans (OBI) | At the API (D) | `tracestate` / `baggage` at D |
+|---|---|---|---|
+| same | agent's trace, expected parents | agent's trace, parent = OBI's outbound span | **none** / **none** |
+| split (header ≠ `_meta`) | **header's trace** | **header's trace** | **none** / **none** |
+| `_meta` only (K3) | **new trace** (OBI's server span is a root) | the new trace | **none** / **none** |
+
+- OBI connects uninstrumented servers, which the SDKs as released and the Y4 gateway policy did not: the API joins
+  the trace of the incoming **header**.
+- It reads and writes headers only: **`_meta` is ignored** (split → header's trace; `_meta` only → a new trace), and
+  it forwards **`traceparent` only**, no `tracestate` and no `baggage`.
+- OBI puts INTERNAL spans ("in queue", "processing") between its server span and its outbound span; the verdict skips
+  the server's own INTERNAL spans for Y3 (`lab/verdict.py`, `lab/verdict_independent.py`).
+
+**Where it works.** OBI propagates context only if its "FIONREAD compensation" attaches (kernels with commit
+929e30f93125, which Ubuntu also carries in 6.8.0-142 and 7.0). It did on a native single-node k3s
+(`evidence/measured/c5-obi.log`: "FIONREAD compensation verified"). Inside **k3d** nodes, which are containers, it did
+not, on Ubuntu 24.04 (6.8.0-142) and 26.04 (7.0.0-34): OBI logged "context propagation is disabled" and the API
+received no `traceparent`; with Secure Boot kernel lockdown it is disabled as well. So `scripts/lab.sh test` skips the
+Y3 cells on k3d or under kernel lockdown and says why; to run them, use a native k3s (`K3S_IMPORT=1`, see
+[Use an existing cluster](#use-an-existing-cluster)). Related upstream: open-telemetry/opentelemetry-ebpf-instrumentation
+PR #3076 (disable propagation on a failed fixup attachment) and issue #3284 (containerised environment).
+
 ### Tap neutrality
 
 The servers carry a read-only tap (it logs what crosses the boundary; it creates no spans and changes no headers).
@@ -239,7 +288,7 @@ outcome in every run, and exits 1 otherwise. `RUNS=1 scripts/lab.sh test` runs o
 | Layer | Script | Installs | Removed by |
 |---|---|---|---|
 | Platform | `scripts/platform.sh` | Docker (Ubuntu's `docker.io` + `docker-buildx`, only if no Docker is present), python3, git, curl; kubectl, k3d, helm at the pinned versions (sha256-checked, only if missing); a k3d cluster | `cluster-down` (the cluster); the tools stay |
-| Lab | `scripts/lab.sh` | three MCP server images, the Helm release `oa-lab` (namespaces `oa-obs`, `oa-lab`) | `uninstall` |
+| Lab | `scripts/lab.sh` | three MCP server images, the Helm release `oa-lab` (namespaces `oa-obs`, `oa-lab`), the OpenTelemetry Operator (release `oa-operator`, namespace `oa-operator`, self-signed webhook certificate) and OBI (release `oa-obi`, namespace `oa-obi`, a privileged DaemonSet that instruments only the Y3 servers) | `uninstall` |
 
 `platform.sh install` never replaces what is already there; `UPGRADE_TOOLS=1` replaces kubectl, k3d and helm with the
 pinned versions.
@@ -284,6 +333,17 @@ extra, or any verdict differs from the expected one.
 Skip `cluster-up`, set `KUBE_CONTEXT=<context>` and `REGISTRY=<registry/prefix>` the cluster can pull from:
 `scripts/lab.sh build` and `install` push the three server images there.
 
+A single-node k3s on the same machine (no registry): `KUBE_CONTEXT=default K3S_IMPORT=1 scripts/lab.sh install`
+imports every image into k3s's containerd (`sudo k3s ctr`). This is how the Y3 (OBI) cells were measured:
+
+```sh
+scripts/platform.sh install          # tools; no cluster-up
+curl -sfL https://get.k3s.io | sudo INSTALL_K3S_VERSION=v1.37.1+k3s1 INSTALL_K3S_EXEC="--write-kubeconfig-mode 644" sh -
+mkdir -p ~/.kube && cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+scripts/lab.sh build && KUBE_CONTEXT=default K3S_IMPORT=1 scripts/lab.sh install
+KUBE_CONTEXT=default K3S_IMPORT=1 scripts/lab.sh test
+```
+
 ### Change a version
 
 Pins are in `scripts/versions.env` (tools, base images by digest, Collector, agentgateway) and in the server
@@ -323,6 +383,24 @@ ones: a check of consistency over time, not an independent proof that a verdict 
 | MCP Python SDK | 2.3.0 (`py2`), 1.30.0 (`py1`, kept on purpose) |
 | OpenTelemetry JS | `sdk-node` 0.223.0, `auto-instrumentations-node` 0.81.0, `api` 1.9.1 (published runs: 1.9.0) |
 | OpenTelemetry Python | `opentelemetry-sdk` 1.45.1, instrumentation 0.66b1 |
+
+### The two-context test in your cluster
+
+`scripts/probe.sh` runs `lab/probe/probe.py` once, in a throwaway pod, against any MCP server over Streamable HTTP: one
+`tools/call` with different contexts in the HTTP header (H) and in `_meta` (M), then it reports which trace the API
+the tool called joined, whose `tracestate` and `baggage` arrived, and whether they are mixed.
+
+```sh
+# the tool calls an echo endpoint the probe serves itself ({echo} = the probe pod's address)
+scripts/probe.sh -n <ns> -- --url http://<server>.<ns>:8000/mcp --tool <name> --args '{"url": "{echo}/x"}' --echo 9000
+# the API records what it received (this lab's downstream API: /_log/<id>)
+KUBE_CONTEXT=k3d-oa-trace-context scripts/probe.sh -n oa-lab -- --url http://mcp-py2-auto-y0.oa-lab:8000/mcp \
+  --tool fetch_item --args '{"id": "{nonce}"}' --received 'http://downstream-api.oa-lab:8080/_log/{nonce}'
+```
+
+Against the lab's Python 2.3 server (I=auto) it prints `trace M (_meta)`, `tracestate M`, `baggage H` and `MIXED`;
+against the TS 1.32 server, H for all three. Without `--echo` or `--received` it prints both trace ids to look up in
+your trace backend.
 
 ## Troubleshooting
 

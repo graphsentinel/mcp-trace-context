@@ -139,8 +139,11 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
     tracing off, that policy brought both SDKs onto <code>_meta</code>'s trace, tracestate and baggage, with the server's
     own spans kept; with gateway tracing on, the gateway's span came from the header it received before the policy ran,
     and the trace was mixed. Uninstrumented servers stayed disconnected either way: the SDK and the cluster are
-    complementary. Next: OpenTelemetry Operator injection and eBPF instrumentation, each asked which carrier it reads,
-    writes or drops.</p>
+    complementary. Switching tracing on without code: OpenTelemetry Operator injection behaved like the image's own
+    instrumentation for Python, but left the TypeScript (ES module) server's inbound requests uninstrumented, so the
+    tool's request started a new trace. eBPF instrumentation (OBI) connected uninstrumented servers through the header
+    only: it ignored <code>_meta</code> and forwarded no tracestate or baggage, and it propagated nothing inside k3d
+    nodes (containers); it was measured on a native k3s.</p>
 </section>
 
 <section id="method">

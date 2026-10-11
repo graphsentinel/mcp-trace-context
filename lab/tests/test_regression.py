@@ -77,6 +77,8 @@ def test_bridge_ran_after_otel_in_every_instrumented_y2_run():
 KNOWN = {  # the independent implementation differs only here (README: independent verdict check)
     ("c1-Y0-ts1-http-auto-same-main-notap-r1", 0, "A"), ("c1-Y0-ts1-http-auto-same-main-notap-r1", 0, "O"),
     ("c1-Y0-ts1-http-auto-same-main-notap-r1", 0, "D"),
+    # the first OBI run per SDK (OBI attaching to the new pod): no verdict rows, tolerated (lab/make_expected.py)
+    *((f"c5-Y3-{S}-http-obi-same-main-r1", 0, x) for S in ("ts1", "py2") for x in ("A", "O", "D")),
 }  # c2 Y1 K1/K3 A agree since the independent A rule accepts the gateway's tools/call client span as parent (2026-10-12)
 
 
@@ -102,7 +104,7 @@ def test_figures_render_from_evidence():
 def test_plan_covers_every_published_cell():
     import plan
     published = {r["run_id"].rsplit("-r", 1)[0].split("-", 1)[1] for r in tsv_rows() if r["subject"] != "control"}
-    planned = {plan.run_id_prefix(x).split("-", 1)[1] for x in plan.entries(5) if x["kind"] == "cell"}
+    planned = {plan.run_id_prefix(x).split("-", 1)[1] for x in plan.entries(5, with_obi=True) if x["kind"] == "cell"}
     assert published == planned, (published ^ planned)
 
 
@@ -118,11 +120,11 @@ def _published_as_test_run(tmp_path, edit=None):
     """The published runs relabelled as a test run (config 'lab'); edit(rows) may change the verdict rows first."""
     import json, plan, re
     lines = open("results/measurements.tsv").read().splitlines()
-    rows = [[re.sub(r"^c[123]-", "lab-", f[0]), "lab", *f[2:]] for f in (l.split("\t") for l in lines[1:])]
+    rows = [[re.sub(r"^c[1-5]-", "lab-", f[0]), "lab", *f[2:]] for f in (l.split("\t") for l in lines[1:])]
     if edit:
         rows = edit(rows)
     (tmp_path / "m.tsv").write_text("\n".join([lines[0]] + ["\t".join(r) for r in rows]) + "\n")
-    (tmp_path / "plan.json").write_text(json.dumps({"runs": 5, "config": "lab", "complete": True, "entries": plan.entries(5)}))
+    (tmp_path / "plan.json").write_text(json.dumps({"runs": 5, "config": "lab", "complete": True, "entries": plan.entries(5, with_obi=True)}))
     r = subprocess.run([sys.executable, "scripts/summary.py", "--plan", str(tmp_path / "plan.json"), "--expected",
                         "lab/expected-outcomes.tsv", str(tmp_path / "m.tsv")], capture_output=True, text=True, check=False)
     failed = [l.strip() for l in r.stdout.split("CHECKS FAILED:")[-1].splitlines() if l.strip().startswith("- ")]

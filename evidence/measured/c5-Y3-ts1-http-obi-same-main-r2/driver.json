@@ -1,0 +1,399 @@
+{
+ "run": "c5-Y3-ts1-http-obi-same-main-r2",
+ "variant": "main",
+ "mode": "same",
+ "url": "http://mcp-ts1-obi-y3.oa-lab:8000/mcp",
+ "stdio": null,
+ "calls": [
+  {
+   "item": "c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76",
+   "ids": {
+    "Tm": "d6eee72f3c3c0fc0a9187677c0575f64",
+    "R": "a4faf387ffa64131",
+    "C": "c64b7bc6fd0041f0",
+    "Th": null,
+    "Ch": null
+   },
+   "meta": {
+    "traceparent": "00-d6eee72f3c3c0fc0a9187677c0575f64-c64b7bc6fd0041f0-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "hdr": {
+    "traceparent": "00-d6eee72f3c3c0fc0a9187677c0575f64-c64b7bc6fd0041f0-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "variant": "main"
+  }
+ ],
+ "sent": [
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-06-18\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"oa-driver\", \"version\": \"0.1\"}}}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}"
+  },
+  {
+   "headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json, text/event-stream",
+    "MCP-Protocol-Version": "2025-06-18",
+    "traceparent": "00-d6eee72f3c3c0fc0a9187677c0575f64-c64b7bc6fd0041f0-01",
+    "tracestate": "oa=meta",
+    "baggage": "oa.src=meta"
+   },
+   "body": "{\"jsonrpc\": \"2.0\", \"id\": 10, \"method\": \"tools/call\", \"params\": {\"name\": \"fetch_item\", \"arguments\": {\"id\": \"c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76\"}, \"_meta\": {\"traceparent\": \"00-d6eee72f3c3c0fc0a9187677c0575f64-c64b7bc6fd0041f0-01\", \"tracestate\": \"oa=meta\", \"baggage\": \"oa.src=meta\"}}}"
+  }
+ ],
+ "responses": [
+  {
+   "status": 200,
+   "body": "{\"result\":{\"protocolVersion\":\"2025-06-18\",\"capabilities\":{\"tools\":{\"listChanged\":true}},\"serverInfo\":{\"name\":\"oa-ts1\",\"version\":\"0.1.0\"}},\"jsonrpc\":\"2.0\",\"id\":1}",
+   "session": null
+  },
+  {
+   "status": 202,
+   "body": "",
+   "session": null
+  },
+  {
+   "status": 200,
+   "body": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"id\\\": \\\"c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76\\\", \\\"nonce\\\": \\\"06d0fa9820cf1b2e\\\"}\"}]},\"jsonrpc\":\"2.0\",\"id\":10}",
+   "session": null
+  }
+ ],
+ "downstream": {
+  "c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76": [
+   {
+    "item": "c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76",
+    "headers": [
+     [
+      "Traceparent",
+      "00-d6eee72f3c3c0fc0a9187677c0575f64-a20fdc95911983b8-01"
+     ],
+     [
+      "host",
+      "downstream-api.oa-lab:8080"
+     ],
+     [
+      "connection",
+      "keep-alive"
+     ],
+     [
+      "accept",
+      "*/*"
+     ],
+     [
+      "accept-language",
+      "*"
+     ],
+     [
+      "sec-fetch-mode",
+      "cors"
+     ],
+     [
+      "user-agent",
+      "node"
+     ],
+     [
+      "accept-encoding",
+      "gzip, deflate"
+     ]
+    ],
+    "traceparent_count": 1,
+    "d_trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+    "d_span": "f36c71db507be959",
+    "d_parent": "a20fdc95911983b8",
+    "nonce": "06d0fa9820cf1b2e",
+    "export": "ok"
+   }
+  ]
+ },
+ "spans": [
+  {
+   "service": "downstream-api",
+   "scope": "oa-lab",
+   "name": "GET /items/{id}",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "f36c71db507be959",
+   "parent": "a20fdc95911983b8",
+   "kind": 2,
+   "start": "1791756461503088088",
+   "end": "1791756461503150191",
+   "links": [],
+   "attrs": {
+    "oa.item": "c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76"
+   }
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver run",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "a4faf387ffa64131",
+   "parent": null,
+   "kind": 1,
+   "start": "1791756461482540617",
+   "end": "1791756461506963997",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "oa-driver",
+   "scope": "oa-lab",
+   "name": "driver tools/call",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "c64b7bc6fd0041f0",
+   "parent": "a4faf387ffa64131",
+   "kind": 3,
+   "start": "1791756461482540617",
+   "end": "1791756461506973314",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "in queue",
+   "trace": "23fc5f00ac90a93364d878d2756b1e80",
+   "span": "3630ab23df9ed027",
+   "parent": "596ca27d38aaac07",
+   "kind": 1,
+   "start": "1791756461483473078",
+   "end": "1791756461483907701",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "processing",
+   "trace": "23fc5f00ac90a93364d878d2756b1e80",
+   "span": "54b7d14062081061",
+   "parent": "596ca27d38aaac07",
+   "kind": 1,
+   "start": "1791756461483907701",
+   "end": "1791756461487140256",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "GET /*",
+   "trace": "23fc5f00ac90a93364d878d2756b1e80",
+   "span": "596ca27d38aaac07",
+   "parent": null,
+   "kind": 2,
+   "start": "1791756461483473078",
+   "end": "1791756461487140256",
+   "links": [],
+   "attrs": {
+    "server.port": "8000",
+    "client.address": "driver",
+    "server.address": "mcp-ts1",
+    "http.response.status_code": "406",
+    "http.request.method": "GET",
+    "url.path": "/mcp",
+    "url.scheme": "http",
+    "http.route": "/*",
+    "network.peer.address": "10.42.0.10",
+    "network.peer.port": "36494",
+    "network.protocol.version": "1.1"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "in queue",
+   "trace": "d5cc3f80571253e150b57fc374c7763f",
+   "span": "61b02ed60df5b50c",
+   "parent": "072b82b6d4f25925",
+   "kind": 1,
+   "start": "1791756461488503216",
+   "end": "1791756461488747952",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "processing",
+   "trace": "d5cc3f80571253e150b57fc374c7763f",
+   "span": "949edf27416fdbd1",
+   "parent": "072b82b6d4f25925",
+   "kind": 1,
+   "start": "1791756461488747952",
+   "end": "1791756461492276527",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "POST /*",
+   "trace": "d5cc3f80571253e150b57fc374c7763f",
+   "span": "072b82b6d4f25925",
+   "parent": null,
+   "kind": 2,
+   "start": "1791756461488503216",
+   "end": "1791756461492276527",
+   "links": [],
+   "attrs": {
+    "server.port": "8000",
+    "client.address": "driver",
+    "server.address": "mcp-ts1",
+    "http.response.status_code": "200",
+    "http.request.method": "POST",
+    "url.path": "/mcp",
+    "url.scheme": "http",
+    "http.route": "/*",
+    "network.peer.address": "10.42.0.10",
+    "network.peer.port": "36510",
+    "network.protocol.version": "1.1"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "in queue",
+   "trace": "87d465e7370a18808b9626300ae04858",
+   "span": "34aec40a297152a4",
+   "parent": "7fb2dadd75f0aded",
+   "kind": 1,
+   "start": "1791756461493504231",
+   "end": "1791756461493837937",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "processing",
+   "trace": "87d465e7370a18808b9626300ae04858",
+   "span": "bb9d64b0ddfce905",
+   "parent": "7fb2dadd75f0aded",
+   "kind": 1,
+   "start": "1791756461493837937",
+   "end": "1791756461496430558",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "POST /*",
+   "trace": "87d465e7370a18808b9626300ae04858",
+   "span": "7fb2dadd75f0aded",
+   "parent": null,
+   "kind": 2,
+   "start": "1791756461493504231",
+   "end": "1791756461496430558",
+   "links": [],
+   "attrs": {
+    "server.port": "8000",
+    "client.address": "driver",
+    "server.address": "mcp-ts1",
+    "http.response.status_code": "202",
+    "http.request.method": "POST",
+    "url.path": "/mcp",
+    "url.scheme": "http",
+    "http.route": "/*",
+    "network.peer.address": "10.42.0.10",
+    "network.peer.port": "36524",
+    "network.protocol.version": "1.1"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "in queue",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "b7e496879a952442",
+   "parent": "7f0e77336a578e8e",
+   "kind": 1,
+   "start": "1791756461498626635",
+   "end": "1791756461498817482",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "processing",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "66c4f392dca7e0f5",
+   "parent": "7f0e77336a578e8e",
+   "kind": 1,
+   "start": "1791756461498817482",
+   "end": "1791756461506440335",
+   "links": [],
+   "attrs": {}
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "POST /*",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "7f0e77336a578e8e",
+   "parent": "c64b7bc6fd0041f0",
+   "kind": 2,
+   "start": "1791756461498626635",
+   "end": "1791756461506440335",
+   "links": [],
+   "attrs": {
+    "server.port": "8000",
+    "client.address": "driver",
+    "server.address": "mcp-ts1",
+    "http.response.status_code": "200",
+    "http.request.method": "POST",
+    "url.path": "/mcp",
+    "url.scheme": "http",
+    "http.route": "/*",
+    "network.peer.address": "10.42.0.10",
+    "network.peer.port": "36536",
+    "network.protocol.version": "1.1"
+   }
+  },
+  {
+   "service": "mcp-ts1",
+   "scope": null,
+   "name": "GET /items/*",
+   "trace": "d6eee72f3c3c0fc0a9187677c0575f64",
+   "span": "a20fdc95911983b8",
+   "parent": "66c4f392dca7e0f5",
+   "kind": 3,
+   "start": "1791756461502252029",
+   "end": "1791756461505096483",
+   "links": [],
+   "attrs": {
+    "server.port": "8080",
+    "server.address": "downstream-api.oa-lab",
+    "url.full": "http://downstream-api.oa-lab/items/c5-Y3-ts1-http-obi-same-main-r2-0-e6cf76",
+    "http.request.method": "GET",
+    "http.response.status_code": "200",
+    "url.scheme": "http",
+    "network.peer.address": "10.43.196.188",
+    "network.peer.port": "8080",
+    "network.protocol.version": "1.1"
+   }
+  }
+ ],
+ "complete": {
+  "downstream_and_D": true,
+  "server_O": true,
+  "gateway_G": true
+ },
+ "t_end_ms": 1791756469643
+}

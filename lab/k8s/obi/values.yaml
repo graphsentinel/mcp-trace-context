@@ -1,0 +1,41 @@
+# OpenTelemetry eBPF Instrumentation (OBI) for the Y3 cells (helm chart opentelemetry-ebpf-instrumentation, version in
+# scripts/versions.env). OBI instruments ONLY the Y3 servers (deployments mcp-*-y3 in oa-lab, uninstrumented: I=obi) and
+# propagates trace context in HTTP headers; every other server in the lab is excluded, so other cells are unaffected.
+contextPropagation:
+  enabled: true
+config:
+  data:
+    file_format: "1.0"
+    log_level: info
+    extensions:
+      obi:
+        version: "2.0"
+        capture:
+          policy: {default_action: exclude, match_order: first_match_wins}
+          rules:
+          - action: include
+            name: oa-y3-servers
+            match:
+              kubernetes:
+                namespace_glob: [oa-lab]
+                metadata_glob:
+                  k8s_deployment_name: ["mcp-*-y3"]
+          engine:
+            propagation:
+              context_propagation: headers
+        enrich:
+          enrichers:
+            kubernetes: {mode: enabled}
+    tracer_provider:
+      processors:
+      - batch:
+          exporter:
+            otlp_http:
+              endpoint: http://otel-collector.oa-obs:4318
+              encoding: protobuf
+          schedule_delay: 200
+    meter_provider:  # no OTLP metrics push (the chart's default pushes to the node's IP)
+      readers:
+      - pull:
+          exporter:
+            prometheus/development: {port: 9090}

@@ -20,6 +20,8 @@ Groups:
   y2b       design experiment: activate _meta before the MCP handler   6 cell-modes x RUNS
   y4        agentgateway + policy copying _meta into headers (route), tracing on / off   16 cell-modes x RUNS
             + K3 (_meta only) x RUNS + K2 (header only) once
+  operator  OpenTelemetry Operator injection (I=op): Y0 same/split, Y4 tracing off split   6 cell-modes x RUNS
+  obi       Y3: OBI (eBPF) instruments uninstrumented servers, headers propagation: same/split + K3   6 x RUNS
   tap       tap neutrality: hook module loaded but silent (L0), or absent (0)   2 runs each, K4 once
 """
 import argparse, json, os, subprocess, sys, time
@@ -33,7 +35,15 @@ def cell(group, Y, S, T, I, M="same", variant="main", tap="1", gw=None, runs=1):
             "gw": gw, "runs": runs}
 
 
-def entries(runs):
+def obi_skip_reason():
+    """Y3 (OBI) needs kernel lockdown 'none' for its context propagation; OA_SKIP_OBI set by scripts/lab.sh otherwise."""
+    return os.environ.get("OA_SKIP_OBI", "")
+
+
+def entries(runs, with_obi=None):
+    """with_obi=None: follow OA_SKIP_OBI; True: always (expected outcomes, tests)."""
+    if with_obi is None:
+        with_obi = not obi_skip_reason()
     e = [{"group": "controls", "kind": "P0", "runs": 1}]
     # stage A: Y0 and Y2, TS SDK 1.32 (ts1) and Python SDK 2.3 (py2); stdio carries _meta only (no header): same mode
     for Y in ("Y0", "Y2"):
@@ -86,6 +96,16 @@ def entries(runs):
                     e.append(cell("y4", "Y4", S, "http", I, M, gw=gw, runs=runs))
             e.append(cell("y4", "Y4", S, "http", "auto", "split", "K3", gw=gw, runs=runs))  # _meta only
             e.append(cell("y4", "Y4", S, "http", "auto", "split", "K2", gw=gw))             # header only
+    # Operator: the OpenTelemetry Operator injects the instrumentation (I=op) instead of the image's launcher (I=auto)
+    for S in ("ts1", "py2"):
+        for M in ("same", "split"):
+            e.append(cell("operator", "Y0", S, "http", "op", M, runs=runs))
+        e.append(cell("operator", "Y4", S, "http", "op", "split", gw="off", runs=runs))
+    # Y3: OpenTelemetry eBPF Instrumentation (OBI) on uninstrumented servers, context propagation in headers
+    for S in ("ts1", "py2") if with_obi else ():
+        for M in ("same", "split"):
+            e.append(cell("obi", "Y3", S, "http", "obi", M, runs=runs))
+        e.append(cell("obi", "Y3", S, "http", "obi", "split", "K3", runs=runs))  # _meta only
     # tap neutrality
     for S in ("ts1", "py2"):
         e.append(cell("tap", "Y0", S, "http", "auto", "split", tap="L0", runs=2))
@@ -122,6 +142,7 @@ def cmd_run(a):
     es = entries(a.runs)
     plan_file = os.path.join(a.state, "test-plan.json")
     plan = {"runs": a.runs, "config": CONFIG, "evidence": os.path.abspath(a.evidence), "complete": False,
+            "skipped": {"obi": obi_skip_reason()} if obi_skip_reason() else {},
             "started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "entries": es}
     json.dump(plan, open(plan_file, "w"), indent=1)  # written before anything runs
     failures = open(os.path.join(a.state, "runner-failures"), "w")

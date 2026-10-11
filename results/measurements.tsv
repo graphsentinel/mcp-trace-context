@@ -1173,3 +1173,194 @@ c3-Y4gwon-ts1-http-none-split-main-r4	c3	Y4-gw:on	ts1	http	none	split	main	0	G	H
 c3-Y4gwon-ts1-http-none-split-main-r4	c3	Y4-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
 c3-Y4gwon-ts1-http-none-split-main-r5	c3	Y4-gw:on	ts1	http	none	split	main	0	G	HEADER	HEADER-SPAN(Ch)	n/a	COMPLETE				SENT (header or _meta)	d5cf53d4f2b22d46		
 c3-Y4gwon-ts1-http-none-split-main-r5	c3	Y4-gw:on	ts1	http	none	split	main	0	D	ABSENT	n/a	n/a	COMPLETE	ABSENT	ABSENT	downstream	G=None			
+c4-Y0-py2-http-op-same-main-r1	c4	Y0	py2	http	op	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=61adb2172d191a46	61adb2172d191a46		
+c4-Y0-py2-http-op-same-main-r1	c4	Y0	py2	http	op	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=61adb2172d191a46	61adb2172d191a46		
+c4-Y0-py2-http-op-same-main-r1	c4	Y0	py2	http	op	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=998c88f430c24f4d	998c88f430c24f4d		
+c4-Y0-py2-http-op-same-main-r1	c4	Y0	py2	http	op	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=bb5d2f2d4bb3ea86	bb5d2f2d4bb3ea86		
+c4-Y0-py2-http-op-same-main-r2	c4	Y0	py2	http	op	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=677606c4f86d3643	677606c4f86d3643		
+c4-Y0-py2-http-op-same-main-r2	c4	Y0	py2	http	op	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=677606c4f86d3643	677606c4f86d3643		
+c4-Y0-py2-http-op-same-main-r2	c4	Y0	py2	http	op	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=ec67785aa96f593a	ec67785aa96f593a		
+c4-Y0-py2-http-op-same-main-r2	c4	Y0	py2	http	op	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=799de0136c8ebd29	799de0136c8ebd29		
+c4-Y0-py2-http-op-same-main-r3	c4	Y0	py2	http	op	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=9583fcfbba642aca	9583fcfbba642aca		
+c4-Y0-py2-http-op-same-main-r3	c4	Y0	py2	http	op	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=9583fcfbba642aca	9583fcfbba642aca		
+c4-Y0-py2-http-op-same-main-r3	c4	Y0	py2	http	op	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=dcef1a01c3ba4041	dcef1a01c3ba4041		
+c4-Y0-py2-http-op-same-main-r3	c4	Y0	py2	http	op	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=ef6df9aae6646e51	ef6df9aae6646e51		
+c4-Y0-py2-http-op-same-main-r4	c4	Y0	py2	http	op	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=b85708d81a7daf39	b85708d81a7daf39		
+c4-Y0-py2-http-op-same-main-r4	c4	Y0	py2	http	op	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=b85708d81a7daf39	b85708d81a7daf39		
+c4-Y0-py2-http-op-same-main-r4	c4	Y0	py2	http	op	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=237b12687fb26d39	237b12687fb26d39		
+c4-Y0-py2-http-op-same-main-r4	c4	Y0	py2	http	op	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=a2a69e11c7c2f83f	a2a69e11c7c2f83f		
+c4-Y0-py2-http-op-same-main-r5	c4	Y0	py2	http	op	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=b5de32389d6ba2e4	b5de32389d6ba2e4		
+c4-Y0-py2-http-op-same-main-r5	c4	Y0	py2	http	op	same	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=b5de32389d6ba2e4	b5de32389d6ba2e4		
+c4-Y0-py2-http-op-same-main-r5	c4	Y0	py2	http	op	same	main	0	O	META	EXPECTED	n/a	COMPLETE				S=47f548c6c2511fca	47f548c6c2511fca		
+c4-Y0-py2-http-op-same-main-r5	c4	Y0	py2	http	op	same	main	0	D	META	EXPECTED	n/a	COMPLETE	META=HEADER-VALUE	META=HEADER-VALUE	none	O=5c4fc61600203298	5c4fc61600203298		
+c4-Y0-py2-http-op-split-main-r1	c4	Y0	py2	http	op	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=068a25df596af731	068a25df596af731		
+c4-Y0-py2-http-op-split-main-r1	c4	Y0	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=1c103f4140213a93	1c103f4140213a93		
+c4-Y0-py2-http-op-split-main-r1	c4	Y0	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=3b1334650edead4d	3b1334650edead4d		
+c4-Y0-py2-http-op-split-main-r1	c4	Y0	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=b64030c23481cf1d	b64030c23481cf1d		
+c4-Y0-py2-http-op-split-main-r2	c4	Y0	py2	http	op	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e70e31fc1fb596a7	e70e31fc1fb596a7		
+c4-Y0-py2-http-op-split-main-r2	c4	Y0	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=c58b6495b0c44a03	c58b6495b0c44a03		
+c4-Y0-py2-http-op-split-main-r2	c4	Y0	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=697bfd19692b5d33	697bfd19692b5d33		
+c4-Y0-py2-http-op-split-main-r2	c4	Y0	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=65adf196fb4d9975	65adf196fb4d9975		
+c4-Y0-py2-http-op-split-main-r3	c4	Y0	py2	http	op	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=4551bc16a574bc34	4551bc16a574bc34		
+c4-Y0-py2-http-op-split-main-r3	c4	Y0	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=2bbea8f2939d0623	2bbea8f2939d0623		
+c4-Y0-py2-http-op-split-main-r3	c4	Y0	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=4ae674d5c5b172d7	4ae674d5c5b172d7		
+c4-Y0-py2-http-op-split-main-r3	c4	Y0	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=9fb072edd13322a7	9fb072edd13322a7		
+c4-Y0-py2-http-op-split-main-r4	c4	Y0	py2	http	op	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=f7722f81c2f33329	f7722f81c2f33329		
+c4-Y0-py2-http-op-split-main-r4	c4	Y0	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=cb18b01eef045fe4	cb18b01eef045fe4		
+c4-Y0-py2-http-op-split-main-r4	c4	Y0	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=1169cc1ba72cd524	1169cc1ba72cd524		
+c4-Y0-py2-http-op-split-main-r4	c4	Y0	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=3d0dbf45cbfac5fb	3d0dbf45cbfac5fb		
+c4-Y0-py2-http-op-split-main-r5	c4	Y0	py2	http	op	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=f955fee50cebe713	f955fee50cebe713		
+c4-Y0-py2-http-op-split-main-r5	c4	Y0	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=84c6a3b92ddbadf9	84c6a3b92ddbadf9		
+c4-Y0-py2-http-op-split-main-r5	c4	Y0	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=bfc258f4f6010a4c	bfc258f4f6010a4c		
+c4-Y0-py2-http-op-split-main-r5	c4	Y0	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	HEADER-VALUE	server:A	O=83c119b67a0a2287	83c119b67a0a2287		
+c4-Y0-ts1-http-op-same-main-r1	c4	Y0	ts1	http	op	same	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-same-main-r1	c4	Y0	ts1	http	op	same	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-same-main-r1	c4	Y0	ts1	http	op	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=f0b5177fd32bd454	f0b5177fd32bd454		
+c4-Y0-ts1-http-op-same-main-r2	c4	Y0	ts1	http	op	same	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-same-main-r2	c4	Y0	ts1	http	op	same	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-same-main-r2	c4	Y0	ts1	http	op	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=efa48875161112fd	efa48875161112fd		
+c4-Y0-ts1-http-op-same-main-r3	c4	Y0	ts1	http	op	same	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-same-main-r3	c4	Y0	ts1	http	op	same	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-same-main-r3	c4	Y0	ts1	http	op	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=532464a3686f3c7f	532464a3686f3c7f		
+c4-Y0-ts1-http-op-same-main-r4	c4	Y0	ts1	http	op	same	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-same-main-r4	c4	Y0	ts1	http	op	same	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-same-main-r4	c4	Y0	ts1	http	op	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=c42cb1ef709ac17c	c42cb1ef709ac17c		
+c4-Y0-ts1-http-op-same-main-r5	c4	Y0	ts1	http	op	same	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-same-main-r5	c4	Y0	ts1	http	op	same	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-same-main-r5	c4	Y0	ts1	http	op	same	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=28146c13bf68404a	28146c13bf68404a		
+c4-Y0-ts1-http-op-split-main-r1	c4	Y0	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-split-main-r1	c4	Y0	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-split-main-r1	c4	Y0	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=2c680cb9877457a3	2c680cb9877457a3		
+c4-Y0-ts1-http-op-split-main-r2	c4	Y0	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-split-main-r2	c4	Y0	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-split-main-r2	c4	Y0	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=fe3c63df3288c746	fe3c63df3288c746		
+c4-Y0-ts1-http-op-split-main-r3	c4	Y0	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-split-main-r3	c4	Y0	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-split-main-r3	c4	Y0	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=670d74cf8ca273cd	670d74cf8ca273cd		
+c4-Y0-ts1-http-op-split-main-r4	c4	Y0	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-split-main-r4	c4	Y0	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-split-main-r4	c4	Y0	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=9bccdf1fa6fc7f41	9bccdf1fa6fc7f41		
+c4-Y0-ts1-http-op-split-main-r5	c4	Y0	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y0-ts1-http-op-split-main-r5	c4	Y0	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y0-ts1-http-op-split-main-r5	c4	Y0	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=21d183daa86abacb	21d183daa86abacb		
+c4-Y4gwoff-py2-http-op-split-main-r1	c4	Y4-gw:off	py2	http	op	split	main	0	A	META	EXPECTED	n/a	COMPLETE				META=10d026167e618944	10d026167e618944		
+c4-Y4gwoff-py2-http-op-split-main-r1	c4	Y4-gw:off	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=10d026167e618944	10d026167e618944		
+c4-Y4gwoff-py2-http-op-split-main-r1	c4	Y4-gw:off	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=c182baa7c0ad21ee	c182baa7c0ad21ee		
+c4-Y4gwoff-py2-http-op-split-main-r1	c4	Y4-gw:off	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=98636034f82027c5	98636034f82027c5		
+c4-Y4gwoff-py2-http-op-split-main-r2	c4	Y4-gw:off	py2	http	op	split	main	0	A	META	EXPECTED	n/a	COMPLETE				META=77c7b13a9fe4f783	77c7b13a9fe4f783		
+c4-Y4gwoff-py2-http-op-split-main-r2	c4	Y4-gw:off	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=77c7b13a9fe4f783	77c7b13a9fe4f783		
+c4-Y4gwoff-py2-http-op-split-main-r2	c4	Y4-gw:off	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=582e0ba1209a47d3	582e0ba1209a47d3		
+c4-Y4gwoff-py2-http-op-split-main-r2	c4	Y4-gw:off	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=9ab785081c662bd2	9ab785081c662bd2		
+c4-Y4gwoff-py2-http-op-split-main-r3	c4	Y4-gw:off	py2	http	op	split	main	0	A	META	EXPECTED	n/a	COMPLETE				META=da74998baa82f2d2	da74998baa82f2d2		
+c4-Y4gwoff-py2-http-op-split-main-r3	c4	Y4-gw:off	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=da74998baa82f2d2	da74998baa82f2d2		
+c4-Y4gwoff-py2-http-op-split-main-r3	c4	Y4-gw:off	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=f0a8ba37d183c9a7	f0a8ba37d183c9a7		
+c4-Y4gwoff-py2-http-op-split-main-r3	c4	Y4-gw:off	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=6457cc9e97ca5033	6457cc9e97ca5033		
+c4-Y4gwoff-py2-http-op-split-main-r4	c4	Y4-gw:off	py2	http	op	split	main	0	A	META	EXPECTED	n/a	COMPLETE				META=11353d19febc975d	11353d19febc975d		
+c4-Y4gwoff-py2-http-op-split-main-r4	c4	Y4-gw:off	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=11353d19febc975d	11353d19febc975d		
+c4-Y4gwoff-py2-http-op-split-main-r4	c4	Y4-gw:off	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=1ea5757d7aa64d90	1ea5757d7aa64d90		
+c4-Y4gwoff-py2-http-op-split-main-r4	c4	Y4-gw:off	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=e8f6e028f5f74c8b	e8f6e028f5f74c8b		
+c4-Y4gwoff-py2-http-op-split-main-r5	c4	Y4-gw:off	py2	http	op	split	main	0	A	META	EXPECTED	n/a	COMPLETE				META=b9c4afc89b4cdf1d	b9c4afc89b4cdf1d		
+c4-Y4gwoff-py2-http-op-split-main-r5	c4	Y4-gw:off	py2	http	op	split	main	0	S	META	EXPECTED	ABSENT	COMPLETE				META=b9c4afc89b4cdf1d	b9c4afc89b4cdf1d		
+c4-Y4gwoff-py2-http-op-split-main-r5	c4	Y4-gw:off	py2	http	op	split	main	0	O	META	EXPECTED	n/a	COMPLETE				S=169935f21ded28fc	169935f21ded28fc		
+c4-Y4gwoff-py2-http-op-split-main-r5	c4	Y4-gw:off	py2	http	op	split	main	0	D	META	EXPECTED	n/a	COMPLETE	META-VALUE	META-VALUE	none	O=af4f1dcad65563fb	af4f1dcad65563fb		
+c4-Y4gwoff-ts1-http-op-split-main-r1	c4	Y4-gw:off	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y4gwoff-ts1-http-op-split-main-r1	c4	Y4-gw:off	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y4gwoff-ts1-http-op-split-main-r1	c4	Y4-gw:off	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=8b3d41d88908b76e	8b3d41d88908b76e		
+c4-Y4gwoff-ts1-http-op-split-main-r2	c4	Y4-gw:off	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y4gwoff-ts1-http-op-split-main-r2	c4	Y4-gw:off	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y4gwoff-ts1-http-op-split-main-r2	c4	Y4-gw:off	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=b04bb23b93f2bc5c	b04bb23b93f2bc5c		
+c4-Y4gwoff-ts1-http-op-split-main-r3	c4	Y4-gw:off	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y4gwoff-ts1-http-op-split-main-r3	c4	Y4-gw:off	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y4gwoff-ts1-http-op-split-main-r3	c4	Y4-gw:off	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=46e5024cb770b7e6	46e5024cb770b7e6		
+c4-Y4gwoff-ts1-http-op-split-main-r4	c4	Y4-gw:off	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y4gwoff-ts1-http-op-split-main-r4	c4	Y4-gw:off	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y4gwoff-ts1-http-op-split-main-r4	c4	Y4-gw:off	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=ae26053255878342	ae26053255878342		
+c4-Y4gwoff-ts1-http-op-split-main-r5	c4	Y4-gw:off	ts1	http	op	split	main	0	A				77							expected span not found
+c4-Y4gwoff-ts1-http-op-split-main-r5	c4	Y4-gw:off	ts1	http	op	split	main	0	O	NEW	ROOT	n/a	COMPLETE				A=None			
+c4-Y4gwoff-ts1-http-op-split-main-r5	c4	Y4-gw:off	ts1	http	op	split	main	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:O	O=b70ad62d7598dacc	b70ad62d7598dacc		
+c5-Y3-py2-http-obi-same-main-r1	c5	Y3	py2	http	obi	same	main	0	run				77							control failed: nonce=True complete={'downstream_and_D': True, 'server_O': False, 'gateway_G': True}
+c5-Y3-py2-http-obi-same-main-r2	c5	Y3	py2	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=a07d3cdb0739b958	a07d3cdb0739b958		
+c5-Y3-py2-http-obi-same-main-r2	c5	Y3	py2	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=39859dcde83a8dbe	39859dcde83a8dbe		
+c5-Y3-py2-http-obi-same-main-r2	c5	Y3	py2	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=f387964f4aa9464b	f387964f4aa9464b		
+c5-Y3-py2-http-obi-same-main-r3	c5	Y3	py2	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=7e6cf4767e50fa91	7e6cf4767e50fa91		
+c5-Y3-py2-http-obi-same-main-r3	c5	Y3	py2	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=34935cd1c4aa4b00	34935cd1c4aa4b00		
+c5-Y3-py2-http-obi-same-main-r3	c5	Y3	py2	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=1231c36f1f2e024b	1231c36f1f2e024b		
+c5-Y3-py2-http-obi-same-main-r4	c5	Y3	py2	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=a9b5d0e67643effe	a9b5d0e67643effe		
+c5-Y3-py2-http-obi-same-main-r4	c5	Y3	py2	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=e2870289ed9bf85c	e2870289ed9bf85c		
+c5-Y3-py2-http-obi-same-main-r4	c5	Y3	py2	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=a9ed3aa79809ce11	a9ed3aa79809ce11		
+c5-Y3-py2-http-obi-same-main-r5	c5	Y3	py2	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=336750adeb8312b4	336750adeb8312b4		
+c5-Y3-py2-http-obi-same-main-r5	c5	Y3	py2	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=d1af79b04b9a2b99	d1af79b04b9a2b99		
+c5-Y3-py2-http-obi-same-main-r5	c5	Y3	py2	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=2f5672e2cc20516d	2f5672e2cc20516d		
+c5-Y3-py2-http-obi-split-K3-r1	c5	Y3	py2	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=8c1b383bb44ac267			
+c5-Y3-py2-http-obi-split-K3-r1	c5	Y3	py2	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=e0fa98e89fa7557b	e0fa98e89fa7557b		
+c5-Y3-py2-http-obi-split-K3-r1	c5	Y3	py2	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=c84582cb5ef41c20	c84582cb5ef41c20		
+c5-Y3-py2-http-obi-split-K3-r2	c5	Y3	py2	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=6a86d4ab2e38bf87			
+c5-Y3-py2-http-obi-split-K3-r2	c5	Y3	py2	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=a0f193514042d6c5	a0f193514042d6c5		
+c5-Y3-py2-http-obi-split-K3-r2	c5	Y3	py2	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=65a49830ac9664ff	65a49830ac9664ff		
+c5-Y3-py2-http-obi-split-K3-r3	c5	Y3	py2	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=5cd0cb147e2a1937			
+c5-Y3-py2-http-obi-split-K3-r3	c5	Y3	py2	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=31aa2a59fd0251d0	31aa2a59fd0251d0		
+c5-Y3-py2-http-obi-split-K3-r3	c5	Y3	py2	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=10a4e9ca4c55b461	10a4e9ca4c55b461		
+c5-Y3-py2-http-obi-split-K3-r4	c5	Y3	py2	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=80a71d88b9efcd40			
+c5-Y3-py2-http-obi-split-K3-r4	c5	Y3	py2	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=adaf9ed62a3a5d44	adaf9ed62a3a5d44		
+c5-Y3-py2-http-obi-split-K3-r4	c5	Y3	py2	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=f659e27206d69a4e	f659e27206d69a4e		
+c5-Y3-py2-http-obi-split-K3-r5	c5	Y3	py2	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=a1c62534268dfbf7			
+c5-Y3-py2-http-obi-split-K3-r5	c5	Y3	py2	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=9f8e6128aab077e1	9f8e6128aab077e1		
+c5-Y3-py2-http-obi-split-K3-r5	c5	Y3	py2	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=c37eb840f0c9add1	c37eb840f0c9add1		
+c5-Y3-py2-http-obi-split-main-r1	c5	Y3	py2	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=e326ff20ed5db6ac	e326ff20ed5db6ac		
+c5-Y3-py2-http-obi-split-main-r1	c5	Y3	py2	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=9504419886fb5046	9504419886fb5046		
+c5-Y3-py2-http-obi-split-main-r1	c5	Y3	py2	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=403dc518a72515a6	403dc518a72515a6		
+c5-Y3-py2-http-obi-split-main-r2	c5	Y3	py2	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=0776666de37ef8ff	0776666de37ef8ff		
+c5-Y3-py2-http-obi-split-main-r2	c5	Y3	py2	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=053ad8bc41a22d6f	053ad8bc41a22d6f		
+c5-Y3-py2-http-obi-split-main-r2	c5	Y3	py2	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=53da50abbc950964	53da50abbc950964		
+c5-Y3-py2-http-obi-split-main-r3	c5	Y3	py2	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=835e0533dbbfcd80	835e0533dbbfcd80		
+c5-Y3-py2-http-obi-split-main-r3	c5	Y3	py2	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=3da17701938519f7	3da17701938519f7		
+c5-Y3-py2-http-obi-split-main-r3	c5	Y3	py2	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=03c490f9dc718615	03c490f9dc718615		
+c5-Y3-py2-http-obi-split-main-r4	c5	Y3	py2	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=9bcbf697bf405712	9bcbf697bf405712		
+c5-Y3-py2-http-obi-split-main-r4	c5	Y3	py2	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=e3ab7f69e588bdab	e3ab7f69e588bdab		
+c5-Y3-py2-http-obi-split-main-r4	c5	Y3	py2	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=929865157c6cc5e9	929865157c6cc5e9		
+c5-Y3-py2-http-obi-split-main-r5	c5	Y3	py2	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=7992933b1a42261a	7992933b1a42261a		
+c5-Y3-py2-http-obi-split-main-r5	c5	Y3	py2	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=ac94ae7f8d1bf96b	ac94ae7f8d1bf96b		
+c5-Y3-py2-http-obi-split-main-r5	c5	Y3	py2	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=8d865ad23c4a5b04	8d865ad23c4a5b04		
+c5-Y3-ts1-http-obi-same-main-r1	c5	Y3	ts1	http	obi	same	main	0	run				77							control failed: nonce=True complete={'downstream_and_D': True, 'server_O': False, 'gateway_G': True}
+c5-Y3-ts1-http-obi-same-main-r2	c5	Y3	ts1	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=c64b7bc6fd0041f0	c64b7bc6fd0041f0		
+c5-Y3-ts1-http-obi-same-main-r2	c5	Y3	ts1	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=7f0e77336a578e8e	7f0e77336a578e8e		
+c5-Y3-ts1-http-obi-same-main-r2	c5	Y3	ts1	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=a20fdc95911983b8	a20fdc95911983b8		
+c5-Y3-ts1-http-obi-same-main-r3	c5	Y3	ts1	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=7da761a7078c2daa	7da761a7078c2daa		
+c5-Y3-ts1-http-obi-same-main-r3	c5	Y3	ts1	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=2062084d2f66c815	2062084d2f66c815		
+c5-Y3-ts1-http-obi-same-main-r3	c5	Y3	ts1	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=b77b29ee1e5d8e52	b77b29ee1e5d8e52		
+c5-Y3-ts1-http-obi-same-main-r4	c5	Y3	ts1	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=acc7c65eb23b3011	acc7c65eb23b3011		
+c5-Y3-ts1-http-obi-same-main-r4	c5	Y3	ts1	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=505303d808cbe06b	505303d808cbe06b		
+c5-Y3-ts1-http-obi-same-main-r4	c5	Y3	ts1	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=41abf2883c51bbcc	41abf2883c51bbcc		
+c5-Y3-ts1-http-obi-same-main-r5	c5	Y3	ts1	http	obi	same	main	0	A	META	EXPECTED	n/a	COMPLETE				HDR=8ebaa83d98f0bc67	8ebaa83d98f0bc67		
+c5-Y3-ts1-http-obi-same-main-r5	c5	Y3	ts1	http	obi	same	main	0	O	META	EXPECTED	n/a	COMPLETE				A=4919876b1dcd1b9b	4919876b1dcd1b9b		
+c5-Y3-ts1-http-obi-same-main-r5	c5	Y3	ts1	http	obi	same	main	0	D	META	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	none	O=2384d6069952b803	2384d6069952b803		
+c5-Y3-ts1-http-obi-split-K3-r1	c5	Y3	ts1	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=def06d81210bbe1e			
+c5-Y3-ts1-http-obi-split-K3-r1	c5	Y3	ts1	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=f9055ad8f9a7c45d	f9055ad8f9a7c45d		
+c5-Y3-ts1-http-obi-split-K3-r1	c5	Y3	ts1	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=2ccfb39de5b7dcd4	2ccfb39de5b7dcd4		
+c5-Y3-ts1-http-obi-split-K3-r2	c5	Y3	ts1	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=0007a7b3c4941971			
+c5-Y3-ts1-http-obi-split-K3-r2	c5	Y3	ts1	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=b0219e57e732ebcf	b0219e57e732ebcf		
+c5-Y3-ts1-http-obi-split-K3-r2	c5	Y3	ts1	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=cfe1f27fda5960af	cfe1f27fda5960af		
+c5-Y3-ts1-http-obi-split-K3-r3	c5	Y3	ts1	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=49ff41149c06fa48			
+c5-Y3-ts1-http-obi-split-K3-r3	c5	Y3	ts1	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=c27bdfa9cdd0cd12	c27bdfa9cdd0cd12		
+c5-Y3-ts1-http-obi-split-K3-r3	c5	Y3	ts1	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=692df1a2e2c9a0bd	692df1a2e2c9a0bd		
+c5-Y3-ts1-http-obi-split-K3-r4	c5	Y3	ts1	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=de7641789f4be487			
+c5-Y3-ts1-http-obi-split-K3-r4	c5	Y3	ts1	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=9eea93942dff4efd	9eea93942dff4efd		
+c5-Y3-ts1-http-obi-split-K3-r4	c5	Y3	ts1	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=cf71237819d30587	cf71237819d30587		
+c5-Y3-ts1-http-obi-split-K3-r5	c5	Y3	ts1	http	obi	split	K3	0	A	NEW	ROOT	n/a	COMPLETE				HDR=e9469139a008ba79			
+c5-Y3-ts1-http-obi-split-K3-r5	c5	Y3	ts1	http	obi	split	K3	0	O	NEW	EXPECTED	n/a	COMPLETE				A=e45e90456c6a2b21	e45e90456c6a2b21		
+c5-Y3-ts1-http-obi-split-K3-r5	c5	Y3	ts1	http	obi	split	K3	0	D	NEW	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=1b98ac1cb2110988	1b98ac1cb2110988		
+c5-Y3-ts1-http-obi-split-main-r1	c5	Y3	ts1	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=d33e113879644116	d33e113879644116		
+c5-Y3-ts1-http-obi-split-main-r1	c5	Y3	ts1	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=eb073d9e27d021e4	eb073d9e27d021e4		
+c5-Y3-ts1-http-obi-split-main-r1	c5	Y3	ts1	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=47e21322ea1c2b00	47e21322ea1c2b00		
+c5-Y3-ts1-http-obi-split-main-r2	c5	Y3	ts1	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=6d54844a5862d37e	6d54844a5862d37e		
+c5-Y3-ts1-http-obi-split-main-r2	c5	Y3	ts1	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=aeca4a53c4ffd100	aeca4a53c4ffd100		
+c5-Y3-ts1-http-obi-split-main-r2	c5	Y3	ts1	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=9391af293bb4e55b	9391af293bb4e55b		
+c5-Y3-ts1-http-obi-split-main-r3	c5	Y3	ts1	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=d8aad28887ea39a2	d8aad28887ea39a2		
+c5-Y3-ts1-http-obi-split-main-r3	c5	Y3	ts1	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=df1bf3efb055bd99	df1bf3efb055bd99		
+c5-Y3-ts1-http-obi-split-main-r3	c5	Y3	ts1	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=8536da204dbc9d00	8536da204dbc9d00		
+c5-Y3-ts1-http-obi-split-main-r4	c5	Y3	ts1	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=40ee2e1f589788e7	40ee2e1f589788e7		
+c5-Y3-ts1-http-obi-split-main-r4	c5	Y3	ts1	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=dd860d601a4b1017	dd860d601a4b1017		
+c5-Y3-ts1-http-obi-split-main-r4	c5	Y3	ts1	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=ddcd275b077431f3	ddcd275b077431f3		
+c5-Y3-ts1-http-obi-split-main-r5	c5	Y3	ts1	http	obi	split	main	0	A	HEADER	EXPECTED	n/a	COMPLETE				HDR=30853893299cdd37	30853893299cdd37		
+c5-Y3-ts1-http-obi-split-main-r5	c5	Y3	ts1	http	obi	split	main	0	O	HEADER	EXPECTED	n/a	COMPLETE				A=873b4273ebfd00ac	873b4273ebfd00ac		
+c5-Y3-ts1-http-obi-split-main-r5	c5	Y3	ts1	http	obi	split	main	0	D	HEADER	EXPECTED	n/a	COMPLETE	ABSENT	ABSENT	server:A	O=6ec7975d24a32680	6ec7975d24a32680		

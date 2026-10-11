@@ -1,0 +1,22 @@
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+OA_TAP {"t": 1791756591248, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.10:50188 - "GET /mcp HTTP/1.1" 406 Not Acceptable
+Terminating session: None
+OA_TAP {"t": 1791756591255, "at": "http-inbound", "path": "/mcp", "headers": {}}
+OA_TAP {"t": 1791756591257, "at": "sdk-request", "method": "initialize", "meta": {}, "active": null}
+INFO:     10.42.0.10:50204 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None
+OA_TAP {"t": 1791756591263, "at": "http-inbound", "path": "/mcp", "headers": {}}
+INFO:     10.42.0.10:50208 - "POST /mcp HTTP/1.1" 202 Accepted
+Terminating session: None
+OA_TAP {"t": 1791756591266, "at": "sdk-request", "method": "notifications/initialized", "meta": {}, "active": null}
+OA_TAP {"t": 1791756591268, "at": "http-inbound", "path": "/mcp", "headers": {"traceparent": "00-6b892ed5f22333c50fab37d8b851b0af-0c2f0b7354890e78-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}}
+OA_TAP {"t": 1791756591270, "at": "sdk-request", "method": "tools/call", "meta": {"traceparent": "00-6b892ed5f22333c50fab37d8b851b0af-0c2f0b7354890e78-01", "tracestate": "oa=meta", "baggage": "oa.src=meta"}, "active": {"trace": "6b892ed5f22333c50fab37d8b851b0af", "span": "0c2f0b7354890e78"}}
+OA_TAP {"t": 1791756591292, "at": "http-outbound", "path": "/items/c5-Y3-py2-http-obi-same-main-r1-0-f713b7", "active": {"trace": "6b892ed5f22333c50fab37d8b851b0af", "span": "0c2f0b7354890e78"}, "headers": {}}
+HTTP Request: GET http://downstream-api.oa-lab:8080/items/c5-Y3-py2-http-obi-same-main-r1-0-f713b7 "HTTP/1.1 200 OK"
+INFO:     10.42.0.10:50212 - "POST /mcp HTTP/1.1" 200 OK
+Terminating session: None

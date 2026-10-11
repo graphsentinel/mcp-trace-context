@@ -54,6 +54,8 @@ def env_for(S, I, Y, T, tap="1"):
          "OTEL_SERVICE_NAME": f"mcp-{S}", "DOWNSTREAM": "http://downstream-api.oa-lab:8080"}
     if I == "auto":
         e.update(OTEL_ENV)
+    # I == "op": the OpenTelemetry Operator injects the instrumentation and its OTEL_* settings (Instrumentation "oa")
+    # I == "obi": uninstrumented; OBI (DaemonSet, lab/k8s/obi/values.yaml) instruments deployments mcp-*-y3 from outside
     return e
 
 
@@ -61,12 +63,18 @@ def name_for(S, I, Y, tap="1"):
     return f"mcp-{S}-{I}-{Y.lower()}" + {"1": "", "0": "-notap", "L0": "-tapoff"}[tap]
 
 
+# I == "op": annotation the Operator's webhook acts on; the Instrumentation "oa" in oa-lab (lab/k8s/operator/) holds the
+# exporter, propagators and sampler (the same values as OTEL_ENV)
+OP_INJECT = {("op", "ts"): {"instrumentation.opentelemetry.io/inject-nodejs": "oa"},
+             ("op", "py"): {"instrumentation.opentelemetry.io/inject-python": "oa"}}
+
+
 def ensure_http_server(S, I, Y, tap="1"):
     name = name_for(S, I, Y, tap)
     env = [{"name": a, "value": b} for a, b in env_for(S, I, Y, "http", tap).items()]
     m = {"apiVersion": "apps/v1", "kind": "Deployment", "metadata": {"name": name, "namespace": NS},
          "spec": {"replicas": 1, "selector": {"matchLabels": {"app": name}},
-                  "template": {"metadata": {"labels": {"app": name}},
+                  "template": {"metadata": {"labels": {"app": name}, "annotations": OP_INJECT.get((I, S[:2]), {})},
                                "spec": {"containers": [{"name": "server", "image": IMG[S], "imagePullPolicy": PULL,
                                                         "command": ["sh", "-c", "exec " + launch(S, I, tap)], "env": env,
                                                         "ports": [{"containerPort": 8000}],
@@ -162,7 +170,7 @@ def main():
         with open(os.path.join(ev, "expected.json"), "w") as f:  # pre-registered, before the run
             json.dump({"cell": cell, "graph": expected.graph(cell)}, f, indent=1)
         since = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-        wait_o = ["--wait-o", "--server-service", svc] if a.I == "auto" else []
+        wait_o = ["--wait-o", "--server-service", svc] if a.I in ("auto", "op", "obi") else []
         if a.Y in GW and a.gw == "on":
             wait_o.append("--wait-gw")
         if a.T == "http":
