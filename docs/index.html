@@ -85,9 +85,10 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
 <header>
   <div class="wrap">
     <p class="kicker">MCP · OpenTelemetry · Kubernetes lab</p>
-    <h1>One tool call, two contexts</h1>
-    <p class="lede">An agent calls an MCP tool; the tool calls an API. Does that request join the agent's trace? This lab
-      measures it hop by hop on a local Kubernetes cluster: TypeScript and Python MCP SDKs, stdio and Streamable HTTP,
+    <h1>Who owns an agent's trace on Kubernetes?</h1>
+    <p class="lede">An agent calls an MCP tool; the tool calls an API. Its trace context can travel in HTTP headers and in
+      the MCP request body, and they can differ. Which layer should reconcile them: the SDK in the pod, or the cluster?
+      This lab measures each hop on a local Kubernetes cluster: TypeScript and Python MCP SDKs, stdio and Streamable HTTP,
       with and without OpenTelemetry, directly and through agentgateway, and a prototype of the draft SEP-2028.</p>
     <div class="buttons">
       <a class="btn primary" href="https://github.com/graphsentinel/mcp-trace-context">Repository</a>
@@ -116,6 +117,26 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
   <blockquote><p>MCP Server SDKs MUST automatically forward headers from <code>_meta</code> to outbound HTTP requests
     based on group policies. <span class="muted">— SEP-2028 (draft) at ec3bf178346b, §2.1</span></p></blockquote>
   <p>So the question is: when the two disagree, which component reads which, and what reaches the next API?</p>
+</section>
+
+<section id="kubernetes">
+  <h2>Why Kubernetes</h2>
+  <p>On a cluster the call crosses separately deployed pieces: the agent's pod, an AI gateway, the MCP server's pod and
+    the APIs its tools call. In this lab each is its own pod, installed by one Helm chart. Cloud native tracing on that
+    path, such as HTTP auto-instrumentation, gateways and eBPF instrumentation, propagates context in headers; MCP added
+    a second carrier in the body. Three places are deciding who reconciles them:</p>
+  <ul>
+    <li><strong>The SDK</strong>: draft SEP-2028 would make MCP server SDKs forward <code>_meta</code>.</li>
+    <li><strong>OpenTelemetry</strong>: the MCP conventions (Development) say which context parents the server span.</li>
+    <li><strong>The cluster</strong>: the Kubernetes WG AI Gateway's
+      <a href="https://github.com/kubernetes-sigs/wg-ai-gateway/blob/main/proposals/7-payload-processing.md">payload-processing</a>
+      and <a href="https://github.com/kubernetes-sigs/wg-ai-gateway/blob/main/proposals/62-multi-stage-routing.md">multi-stage</a>
+      proposals add a declarative way to set headers from body fields; as of 11 October 2026 neither mentions trace
+      context.</li>
+  </ul>
+  <p>The results below cover released SDKs, a SEP-2028 prototype, an alternative design and agentgateway as released.
+    Next: a gateway policy that copies <code>_meta</code> into headers, OpenTelemetry Operator injection and eBPF
+    instrumentation, each asked which carrier it reads, writes or drops.</p>
 </section>
 
 <section id="method">

@@ -1,4 +1,4 @@
-# One tool call, two contexts — W3C Trace Context across the MCP boundary
+# Who owns an agent's trace on Kubernetes? W3C Trace Context across the MCP boundary
 
 A Kubernetes lab that measures whether an MCP tool's outbound HTTP request joins the calling agent's trace, hop by
 hop: TypeScript and Python MCP SDKs, stdio and Streamable HTTP, with and without OpenTelemetry auto-instrumentation,
@@ -8,6 +8,7 @@ Everything runs on a local k3d cluster and can be reproduced from zero with a fe
 Project page: https://graphsentinel.github.io/mcp-trace-context/
 
 - [The problem](#the-problem)
+- [Why Kubernetes](#why-kubernetes)
 - [What is measured](#what-is-measured)
 - [Results](#results)
 - [Quickstart](#quickstart)
@@ -32,6 +33,29 @@ So within one tool call there can be **two contexts**: the one in `_meta` and th
 when the agent's own client instrumentation writes both; they differ when something between agent and server (a
 proxy, a gateway, a second instrumentation) rewrites one of them. Which one wins, and whether the server's own spans
 stay in the chain, decides what an operator sees in the trace backend.
+
+## Why Kubernetes
+
+On a cluster, an agent's tool call crosses several separately deployed and separately configured pieces: the agent's
+pod, an AI gateway, the MCP server's pod and the APIs its tools call. In this lab each is its own pod (driver →
+agentgateway → MCP server → downstream API, with an OpenTelemetry Collector), installed by one Helm chart.
+
+The cloud native ways of tracing that path, such as HTTP auto-instrumentation, gateways and eBPF instrumentation,
+propagate context in HTTP headers. MCP added a second carrier in the request body (`_meta`). When the two differ, some
+layer has to decide which one the next hop sees. Today that decision is being discussed in three places:
+
+- **the MCP server SDK**: draft SEP-2028 would make SDKs forward `_meta` to outbound requests;
+- **OpenTelemetry**: the MCP semantic conventions (Development) say which context parents the server span;
+- **the cluster**: the Kubernetes WG AI Gateway's
+  [payload-processing](https://github.com/kubernetes-sigs/wg-ai-gateway/blob/main/proposals/7-payload-processing.md)
+  and [multi-stage](https://github.com/kubernetes-sigs/wg-ai-gateway/blob/main/proposals/62-multi-stage-routing.md)
+  proposals (both Proposed) add a declarative way to set headers from body fields. As of 11 October 2026 neither
+  mentions trace context.
+
+The lab measures the first two today: released SDKs, the SEP-2028 prototype (Y2), the alternative design (Y2b) and
+agentgateway as released (Y1). The cluster option, a gateway policy that copies `_meta` into headers before the MCP
+server (Y4), is being added next, together with OpenTelemetry Operator injection and eBPF instrumentation (Y3); for
+each, the question is which carrier it reads, writes or drops.
 
 ## What is measured
 
