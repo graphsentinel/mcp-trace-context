@@ -13,7 +13,7 @@ if git rev-parse --verify -q gh-pages >/dev/null; then
 else
   git worktree add -q --detach "$W" && git -C "$W" checkout -q --orphan gh-pages
 fi
-git -C "$W" rm -rq --ignore-unmatch . ; find "$W" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+git -C "$W" rm -rqf --ignore-unmatch . >/dev/null; find "$W" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
 git archive main docs | tar -x -C "$W" --strip-components=1
 mkdir -p "$W/observability-day"
 git archive observability-day docs | tar -x -C "$W/observability-day" --strip-components=1
