@@ -221,7 +221,8 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
 </section>
 
 <section id="demo">
-  <h2>Demo: the cluster reconciles</h2>
+  <h2>Demos</h2>
+  <h3>A gateway policy reconciles, or mixes, the context</h3>
   <p>One recording from the talk (single-node k3s, Python SDK 2.3 server behind agentgateway 1.6.0, the agent's
     <code>_meta</code> and the HTTP header set to different traces). Three calls: the gateway as released, the gateway
     with a policy that copies <code>_meta</code> into the trace headers and gateway tracing off, and the same policy
@@ -232,6 +233,16 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
   </video>
   <p class="muted">Every call is one normal lab run (<code>lab/run_cell.py</code>); the published outcomes of these
     configurations are in <code>results/measurements.tsv</code> (c2 Y1, c3 Y4), identical in 5 of 5 runs.</p>
+  <h3>Tracing on without code: Operator and OBI</h3>
+  <p>The same split call, three times: the TypeScript SDK 1.32 server with OpenTelemetry Operator injection (the API
+    receives a trace the agent never sent, without tracestate or baggage), the Python SDK 2.3 server with Operator
+    injection (like the image's own auto-instrumentation: <code>_meta</code>'s trace and tracestate, the header's
+    baggage), and the TypeScript server without OpenTelemetry under OBI (the header's trace, without tracestate or
+    baggage).</p>
+  <video controls preload="metadata" playsinline poster="demo/act5-poster.jpg" style="width:100%;height:auto;border:1px solid var(--line);border-radius:8px">
+    <source src="demo/act5.mp4" type="video/mp4">
+  </video>
+  <p class="muted">Published outcomes: c4 (Operator) and c5 (OBI, native k3s), identical in 5 of 5 runs.</p>
 </section>
 
 <section id="test">
