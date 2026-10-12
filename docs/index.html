@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MCP Trace Context</title>
+<title>Who Carries an Agent's Trace</title>
 <meta name="description" content="One MCP tool call, two trace contexts: a Kubernetes lab measuring whether an MCP tool's outbound request joins the calling agent's trace.">
 <style>
 :root {
@@ -84,14 +84,15 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
 
 <header>
   <div class="wrap">
-    <p class="kicker">MCP · OpenTelemetry · Kubernetes lab</p>
-    <h1>Who owns an agent's trace on Kubernetes?</h1>
+    <p class="kicker">MCP · OpenTelemetry · Kubernetes lab · branch observability-day</p>
+    <p class="muted" style="margin:0 0 12px">This page belongs to the <a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day">observability-day</a> branch (zero-code instrumentation, the gateway policy, the probe). The <a href="../">main page</a> covers the SDK measurements.</p>
+    <h1>Who carries an agent's trace?</h1>
     <p class="lede">An agent calls an MCP tool; the tool calls an API. Its trace context can travel in HTTP headers and in
       the MCP request body, and they can differ. Which layer should reconcile them: the SDK in the pod, or the cluster?
       This lab measures each hop on a local Kubernetes cluster: TypeScript and Python MCP SDKs, stdio and Streamable HTTP,
       with and without OpenTelemetry, directly and through agentgateway, and a prototype of the draft SEP-2028.</p>
     <div class="buttons">
-      <a class="btn primary" href="https://github.com/graphsentinel/mcp-trace-context">Repository</a>
+      <a class="btn primary" href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day">Repository (this branch)</a>
       <a class="btn" href="#run">Run it yourself</a>
       <a class="btn" href="#results">Results</a>
       <a class="btn" href="#demo">Demo</a>
@@ -249,26 +250,26 @@ footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40
   <h2>Run it yourself</h2>
   <p>On Ubuntu 24.04 or 26.04 (8 CPUs and 16 GB recommended). Tools that are already installed are left as they are;
     Docker and Python come from Ubuntu's own packages.</p>
-<pre><code>git clone https://github.com/graphsentinel/mcp-trace-context.git &amp;&amp; cd mcp-trace-context
+<pre><code>git clone -b observability-day https://github.com/graphsentinel/mcp-trace-context.git &amp;&amp; cd mcp-trace-context
 scripts/platform.sh install      # Docker, python3; kubectl, k3d, helm only if missing
 scripts/platform.sh cluster-up   # k3d cluster: 1 server, 1 agent
 scripts/lab.sh all               # build, helm install, run the whole plan, check every outcome</code></pre>
   <p>In fresh 8-CPU VMs this took 27–30 minutes and ended with <code>ALL CHECKS PASSED</code>: every planned
     configuration and control gave the published outcome in every run (306 runs, Ubuntu 26.04 and 24.04). The lab can be
     removed and reinstalled without touching the cluster, and installed on an existing cluster. Details are in the
-    <a href="https://github.com/graphsentinel/mcp-trace-context#how-to">README's how-to</a>.</p>
+    <a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day#how-to">README's how-to</a>.</p>
 </section>
 
 <section id="evidence">
   <h2>Evidence</h2>
   <ul class="evidence">
-    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/main/evidence/measured">Published runs</a>:
+    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day/evidence/measured">Published runs</a>:
       305 run directories with the bytes sent, every exported span and the headers the API received;
-      <a href="https://github.com/graphsentinel/mcp-trace-context/blob/main/results/measurements.tsv">verdicts</a>
+      <a href="https://github.com/graphsentinel/mcp-trace-context/blob/observability-day/results/measurements.tsv">verdicts</a>
       regenerated from them by the lab's code.</li>
-    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/main/evidence/e2e-multipass">Reproduction runs</a>:
+    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day/evidence/e2e-multipass">Reproduction runs</a>:
       the whole plan from zero in fresh Ubuntu 26.04 and 24.04 VMs, then reinstall and uninstall.</li>
-    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/main/lab">Source</a>:
+    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day/lab">Source</a>:
       driver, MCP servers, the prototype hooks, verdict code and Helm chart.</li>
   </ul>
 </section>
