@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who Carries an Agent's Trace</title>
+<meta name="description" content="One MCP tool call, two trace contexts: a Kubernetes lab measuring whether an MCP tool's outbound request joins the calling agent's trace.">
+<style>
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --text: #1d2125; --muted: #5b636b; --line: #e3e0d9;
+  --accent: #0b5f8a; --accent-soft: #e3eff6; --meta: #0369a1; --meta-soft: #e0f0fa; --hdr: #b4480f; --hdr-soft: #fbeadf;
+  --bad: #a33b2a; --bad-soft: #f8e6e2; --good: #1d6b3a; --good-soft: #e3f2e8; --code-bg: #f1efe9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171a; --surface: #1b1f23; --text: #e6e3dd; --muted: #a2a9b0; --line: #2d3238;
+    --accent: #6cc0ec; --accent-soft: #16303d; --meta: #6cc0ec; --meta-soft: #16303d; --hdr: #f2a06a; --hdr-soft: #3a2619;
+    --bad: #f08a76; --bad-soft: #3a211c; --good: #7fd39b; --good-soft: #1a3324; --code-bg: #22272c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171a; --surface: #1b1f23; --text: #e6e3dd; --muted: #a2a9b0; --line: #2d3238;
+  --accent: #6cc0ec; --accent-soft: #16303d; --meta: #6cc0ec; --meta-soft: #16303d; --hdr: #f2a06a; --hdr-soft: #3a2619;
+  --bad: #f08a76; --bad-soft: #3a211c; --good: #7fd39b; --good-soft: #1a3324; --code-bg: #22272c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--accent); }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+pre { background: var(--code-bg); padding: 14px 16px; border-radius: 8px; overflow-x: auto; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+header { border-bottom: 1px solid var(--line); background: var(--surface); }
+header .wrap { padding-top: 56px; padding-bottom: 44px; }
+.kicker { color: var(--accent); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.8rem; margin: 0 0 10px; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.01em; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 46em; margin: 0 0 26px; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-block; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: var(--bg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+section { padding: 48px 0 8px; }
+h2 { font-size: 1.5rem; margin: 0 0 14px; letter-spacing: -0.005em; }
+h3 { font-size: 1.05rem; margin: 22px 0 6px; }
+p { margin: 0 0 14px; }
+.muted { color: var(--muted); }
+.carriers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 18px 0; }
+.carrier { border-radius: 10px; padding: 14px 18px; border: 1px solid var(--line); }
+.carrier.meta { background: var(--meta-soft); border-color: var(--meta); }
+.carrier.hdr { background: var(--hdr-soft); border-color: var(--hdr); }
+.carrier .name { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; }
+.carrier.meta .name { color: var(--meta); }
+.carrier.hdr .name { color: var(--hdr); }
+.carrier p { margin: 6px 0 0; font-size: 0.95rem; }
+blockquote { margin: 14px 0; padding: 10px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; }
+blockquote p { margin: 0; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0; }
+.flow span { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 0.95rem; }
+.flow .arrow { border: none; background: none; padding: 0 2px; color: var(--muted); }
+.table-scroll { overflow-x: auto; margin: 16px 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 0.95rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+tbody tr:last-child td { border-bottom: none; }
+td.meta { color: var(--meta); font-weight: 600; }
+td.hdr { color: var(--hdr); font-weight: 600; }
+td.bad { color: var(--bad); background: var(--bad-soft); font-weight: 600; }
+td.good { color: var(--good); background: var(--good-soft); font-weight: 600; }
+td.sdk { font-weight: 600; white-space: nowrap; }
+figure { margin: 18px 0; }
+figure img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 6px; }
+.figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+ol.findings { padding-left: 1.3em; }
+ol.findings li { margin: 0 0 12px; }
+.note { font-size: 0.92rem; color: var(--muted); }
+.evidence li { margin: 0 0 8px; }
+footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">MCP · OpenTelemetry · Kubernetes lab · branch observability-day</p>
+    <p class="muted" style="margin:0 0 12px">This page belongs to the <a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day">observability-day</a> branch (zero-code instrumentation, the gateway policy, the probe). The <a href="../">main page</a> covers the SDK measurements.</p>
+    <h1>Who carries an agent's trace?</h1>
+    <p class="lede">An agent calls an MCP tool; the tool calls an API. Its trace context can travel in HTTP headers and in
+      the MCP request body, and they can differ. Which layer should reconcile them: the SDK in the pod, or the cluster?
+      This lab measures each hop on a local Kubernetes cluster: TypeScript and Python MCP SDKs, stdio and Streamable HTTP,
+      with and without OpenTelemetry, directly and through agentgateway, and a prototype of the draft SEP-2028.</p>
+    <div class="buttons">
+      <a class="btn primary" href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day">Repository (this branch)</a>
+      <a class="btn" href="#run">Run it yourself</a>
+      <a class="btn" href="#results">Results</a>
+      <a class="btn" href="#demo">Demo</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="problem">
+  <h2>The problem</h2>
+  <p>MCP gives a tool call's trace context two places to travel:</p>
+  <div class="carriers">
+    <div class="carrier meta"><div class="name">_meta</div>
+      <p>In the JSON-RPC request. SEP-414 reserves <code>traceparent</code>, <code>tracestate</code> and
+        <code>baggage</code> there; OpenTelemetry's MCP conventions take the server span's parent from it. The only
+        carrier over stdio.</p></div>
+    <div class="carrier hdr"><div class="name">HTTP headers</div>
+      <p>On Streamable HTTP, read and written by OpenTelemetry's HTTP instrumentation on its own.</p></div>
+  </div>
+  <p>Usually both carry the same context. They can differ when something between client and server rewrites one of
+    them, and the specification does not require a server to forward either to the APIs its tools call. The draft
+    SEP-2028 proposes that SDKs forward <code>_meta</code> by default:</p>
+  <blockquote><p>MCP Server SDKs MUST automatically forward headers from <code>_meta</code> to outbound HTTP requests
+    based on group policies. <span class="muted">— SEP-2028 (draft) at ec3bf178346b, §2.1</span></p></blockquote>
+  <p>So the question is: when the two disagree, which component reads which, and what reaches the next API?</p>
+</section>
+
+<section id="kubernetes">
+  <h2>Why Kubernetes</h2>
+  <p>On a cluster the call crosses separately deployed pieces: the agent's pod, an AI gateway, the MCP server's pod and
+    the APIs its tools call. In this lab each is its own pod, installed by one Helm chart. Cloud native tracing on that
+    path, such as HTTP auto-instrumentation, gateways and eBPF instrumentation, propagates context in headers; MCP added
+    a second carrier in the body. Three places are deciding who reconciles them:</p>
+  <ul>
+    <li><strong>The SDK</strong>: draft SEP-2028 would make MCP server SDKs forward <code>_meta</code>.</li>
+    <li><strong>OpenTelemetry</strong>: the MCP conventions (Development) say which context parents the server span.</li>
+    <li><strong>The cluster</strong>: the Kubernetes WG AI Gateway's
+      <a href="https://github.com/kubernetes-sigs/wg-ai-gateway/blob/main/proposals/7-payload-processing.md">payload-processing</a>
+      and <a href="https://github.com/kubernetes-sigs/wg-ai-gateway/blob/main/proposals/62-multi-stage-routing.md">multi-stage</a>
+      proposals add a declarative way to set headers from body fields; as of 11 October 2026 neither mentions trace
+      context.</li>
+  </ul>
+  <p>The results cover released SDKs, a SEP-2028 prototype, an alternative design, agentgateway as released, and the
+    cluster option: agentgateway with a policy that copies <code>_meta</code> into the trace headers. With gateway
+    tracing off, that policy brought both SDKs onto <code>_meta</code>'s trace, tracestate and baggage, with the server's
+    own spans kept; with gateway tracing on, the gateway's span came from the header it received before the policy ran,
+    and the trace was mixed. Uninstrumented servers stayed disconnected either way: the SDK and the cluster are
+    complementary. Switching tracing on without code: OpenTelemetry Operator injection behaved like the image's own
+    instrumentation for Python, but left the TypeScript (ES module) server's inbound requests uninstrumented, so the
+    tool's request started a new trace. eBPF instrumentation (OBI) connected uninstrumented servers through the header
+    only: it ignored <code>_meta</code> and forwarded no tracestate or baggage, and it propagated nothing inside k3d
+    nodes (containers); it was measured on a native k3s.</p>
+</section>
+
+<section id="method">
+  <h2>What is measured</h2>
+  <div class="flow">
+    <span>driver <small class="muted">(sets both carriers)</small></span><span class="arrow">→</span>
+    <span>agentgateway <small class="muted">(optional)</small></span><span class="arrow">→</span>
+    <span>MCP server <small class="muted">(one tool)</small></span><span class="arrow">→</span>
+    <span>downstream API <small class="muted">(records headers)</small></span>
+  </div>
+  <p>Every span goes to an OpenTelemetry Collector whose file exporter is the evidence. For each call, the lab records
+    which trace the server's inbound span, its MCP span, the tool's outbound span and the API's request ended up in,
+    and which span is each one's parent, compared with a reference written before the run.</p>
+  <p class="note">MCP TypeScript SDK 1.32.1, MCP Python SDK 2.3.0 and 1.30.0; stdio and Streamable HTTP; OpenTelemetry
+    auto-instrumentation off or on; header and <code>_meta</code> equal or deliberately different; agentgateway v1.6.0
+    as released. 5 runs per configuration.</p>
+</section>
+
+<section id="results">
+  <h2>Results</h2>
+  <h3>When the header and <code>_meta</code> disagree (HTTP, OpenTelemetry on)</h3>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Server</th><th>API's trace</th><th>tracestate</th><th>baggage</th></tr></thead>
+    <tbody>
+      <tr><td class="sdk">TypeScript SDK 1.32</td><td class="hdr">header's</td><td class="hdr">header's</td><td class="hdr">header's</td></tr>
+      <tr><td class="sdk">Python SDK 1.30</td><td class="hdr">header's</td><td class="hdr">header's</td><td class="hdr">header's</td></tr>
+      <tr><td class="sdk">Python SDK 2.3</td><td class="meta">_meta's</td><td class="meta">_meta's</td><td class="hdr">header's</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="figs">
+    <figure><img src="figures/01-ts-http-split.svg" alt="Span tree: TypeScript SDK 1.32, every span after the client follows the header trace">
+      <figcaption>TypeScript SDK 1.32: the server's spans and the API follow the header.</figcaption></figure>
+    <figure><img src="figures/02-py2-http-split.svg" alt="Span tree: Python SDK 2.3, transport span follows the header, MCP and outbound spans follow _meta">
+      <figcaption>Python SDK 2.3: transport span → header; MCP span and outbound → <code>_meta</code>.</figcaption></figure>
+  </div>
+  <h3>The draft's rule, prototyped</h3>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th></th><th>Uninstrumented server</th><th>Instrumented server (6 configurations)</th></tr></thead>
+    <tbody>
+      <tr><td class="sdk">Replace outbound headers with <code>_meta</code> (our prototype of SEP-2028)</td>
+        <td class="good">API joins the agent's trace</td>
+        <td class="bad">agent's trace, but the API's parent is the agent's span: the server's spans are bypassed</td></tr>
+      <tr><td class="sdk">Make <code>_meta</code> the handler's context (design experiment)</td>
+        <td class="muted">not measured</td>
+        <td class="good">the server's outbound span stays the parent; tracestate and baggage from <code>_meta</code></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="figs">
+    <figure><img src="figures/05b-y2-py2-http-split.svg" alt="Span tree: prototype replaces headers; the API's parent is the client span">
+      <figcaption>Replace: the API's parent is the agent's span.</figcaption></figure>
+    <figure><img src="figures/06-y2b-py2-http-split.svg" alt="Span tree: activation; the API's parent is the server's outbound span">
+      <figcaption>Activate: the API's parent is the server's outbound span.</figcaption></figure>
+  </div>
+  <ol class="findings">
+    <li><strong>Without OpenTelemetry in the server</strong> (and without a bridge), none of the three tested SDK
+      versions forwarded <code>traceparent</code>, over stdio or HTTP.</li>
+    <li><strong>Python SDK 2.3 forwards a mixed context</strong> when the carriers differ: <code>_meta</code>'s trace with
+      the header's baggage. The span takes its parent from <code>_meta</code>, but the current context, whose baggage
+      is the header's, stays active. Its MCP span also has no link to the HTTP context the conventions recommend.</li>
+    <li><strong>agentgateway 1.6.0</strong>, as released, in the configuration tested, aligned both carriers to the
+      header's trace. With tracing off it still rewrote the parent span id, so the server's spans pointed to a parent
+      absent from the collected spans. With <code>_meta</code> only and tracing on, it started a new trace.</li>
+    <li><strong>Where a context is activated mattered more than where it was written</strong>: replacing headers below
+      the instrumentation bypassed the server's spans; activating <code>_meta</code> for the handler kept them.</li>
+  </ol>
+  <p class="note">Scope: this lab, the tested versions, plaintext HTTP/1.1, a driver that sets both carriers on purpose,
+    our reading of a draft. Four published gateway control runs did not test what their label said; they are listed in
+    the repository and were re-measured.</p>
+</section>
+
+<section id="demo">
+  <h2>Demo: the cluster reconciles</h2>
+  <p>One recording from the talk (single-node k3s, Python SDK 2.3 server behind agentgateway 1.6.0, the agent's
+    <code>_meta</code> and the HTTP header set to different traces). Three calls: the gateway as released, the gateway
+    with a policy that copies <code>_meta</code> into the trace headers and gateway tracing off, and the same policy
+    with gateway tracing on. Left: what the driver sent and what the API received; right: the server's read-only tap
+    and the span tree derived from the exported spans.</p>
+  <video controls preload="metadata" playsinline poster="demo/act4-poster.jpg" style="width:100%;height:auto;border:1px solid var(--line);border-radius:8px">
+    <source src="demo/act4.mp4" type="video/mp4">
+  </video>
+  <p class="muted">Every call is one normal lab run (<code>lab/run_cell.py</code>); the published outcomes of these
+    configurations are in <code>results/measurements.tsv</code> (c2 Y1, c3 Y4), identical in 5 of 5 runs.</p>
+</section>
+
+<section id="test">
+  <h2>The two-context test</h2>
+  <p>Send different contexts in <code>_meta</code> and in the HTTP header, with distinct <code>tracestate</code> and
+    <code>baggage</code>, then read the headers your downstream API received:</p>
+  <ol>
+    <li>Which trace arrived?</li>
+    <li>Which span is its parent?</li>
+    <li>Whose baggage came along?</li>
+    <li>Is any parent absent from your collected spans?</li>
+  </ol>
+</section>
+
+<section id="run">
+  <h2>Run it yourself</h2>
+  <p>On Ubuntu 24.04 or 26.04 (8 CPUs and 16 GB recommended). Tools that are already installed are left as they are;
+    Docker and Python come from Ubuntu's own packages.</p>
+<pre><code>git clone -b observability-day https://github.com/graphsentinel/mcp-trace-context.git &amp;&amp; cd mcp-trace-context
+scripts/platform.sh install      # Docker, python3; kubectl, k3d, helm only if missing
+scripts/platform.sh cluster-up   # k3d cluster: 1 server, 1 agent
+scripts/lab.sh all               # build, helm install, run the whole plan, check every outcome</code></pre>
+  <p>In fresh 8-CPU VMs this took 27–30 minutes and ended with <code>ALL CHECKS PASSED</code>: every planned
+    configuration and control gave the published outcome in every run (306 runs, Ubuntu 26.04 and 24.04). The lab can be
+    removed and reinstalled without touching the cluster, and installed on an existing cluster. Details are in the
+    <a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day#how-to">README's how-to</a>.</p>
+</section>
+
+<section id="evidence">
+  <h2>Evidence</h2>
+  <ul class="evidence">
+    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day/evidence/measured">Published runs</a>:
+      305 run directories with the bytes sent, every exported span and the headers the API received;
+      <a href="https://github.com/graphsentinel/mcp-trace-context/blob/observability-day/results/measurements.tsv">verdicts</a>
+      regenerated from them by the lab's code.</li>
+    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day/evidence/e2e-multipass">Reproduction runs</a>:
+      the whole plan from zero in fresh Ubuntu 26.04 and 24.04 VMs, then reinstall and uninstall.</li>
+    <li><a href="https://github.com/graphsentinel/mcp-trace-context/tree/observability-day/lab">Source</a>:
+      driver, MCP servers, the prototype hooks, verdict code and Helm chart.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Apache License 2.0 · <a href="https://github.com/graphsentinel/mcp-trace-context">github.com/graphsentinel/mcp-trace-context</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
