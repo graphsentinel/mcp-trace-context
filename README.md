@@ -5,7 +5,7 @@ hop: TypeScript and Python MCP SDKs, stdio and Streamable HTTP, with and without
 directly and through agentgateway, plus a prototype of the draft SEP-2028 and one alternative design.
 Everything runs on a local k3d cluster and can be reproduced from zero with a few commands ([Quickstart](#quickstart)).
 
-Project page: https://graphsentinel.github.io/mcp-trace-context/
+Project page: https://graphsentinel.github.io/mcp-trace-context/observability-day/
 
 - [The problem](#the-problem)
 - [Why Kubernetes](#why-kubernetes)
@@ -269,7 +269,7 @@ reaches the server without the module.
 On Ubuntu 24.04 or 26.04 (amd64 or arm64), 8 CPUs and 16 GB recommended:
 
 ```sh
-git clone https://github.com/graphsentinel/mcp-trace-context.git
+git clone -b observability-day https://github.com/graphsentinel/mcp-trace-context.git
 cd mcp-trace-context
 scripts/platform.sh install      # Docker (Ubuntu's package), kubectl, k3d, helm; only what is missing
 scripts/platform.sh cluster-up   # k3d cluster oa-trace-context
@@ -336,7 +336,7 @@ Skip `cluster-up`, set `KUBE_CONTEXT=<context>` and `REGISTRY=<registry/prefix>`
 A single-node k3s on the same machine (no registry): `KUBE_CONTEXT=default K3S_IMPORT=1 scripts/lab.sh install`
 imports every image into k3s's containerd (`sudo k3s ctr`). This is how the Y3 (OBI) cells were measured, and the
 demos of the talk were recorded the same way: on a single-node k3s (v1.37.1+k3s1) in an Ubuntu 24.04 VM, not on k3d
-(one recording is on the [project page](https://graphsentinel.github.io/mcp-trace-context/#demo)):
+(the recordings are on the [project page](https://graphsentinel.github.io/mcp-trace-context/observability-day/#demo)):
 
 ```sh
 scripts/platform.sh install          # tools; no cluster-up
