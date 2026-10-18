@@ -231,7 +231,8 @@ while OBI attaches to the new pod, exported no outbound span and is tolerated).
 929e30f93125, which Ubuntu also carries in 6.8.0-142 and 7.0). It did on a native single-node k3s
 (`evidence/measured/c5-obi.log`: "FIONREAD compensation verified"). Inside **k3d** nodes, which are containers, it did
 not, on Ubuntu 24.04 (6.8.0-142) and 26.04 (7.0.0-34): OBI logged "context propagation is disabled" and the API
-received no `traceparent`; with Secure Boot kernel lockdown it is disabled as well. So `scripts/lab.sh test` skips the
+received no `traceparent` (logs and verdicts: `evidence/obi-k3d/`). On a host with Secure Boot kernel lockdown, also in
+k3d, it was disabled as well; that run does not separate the two causes. So `scripts/lab.sh test` skips the
 Y3 cells on k3d or under kernel lockdown and says why; to run them, use a native k3s (`K3S_IMPORT=1`, see
 [Use an existing cluster](#use-an-existing-cluster)). Related upstream: open-telemetry/opentelemetry-ebpf-instrumentation
 PR #3076 (disable propagation on a failed fixup attachment) and issue #3284 (containerised environment).
